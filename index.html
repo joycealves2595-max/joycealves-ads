@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyce Alves | Gestora de Tráfego Pago</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+  <!-- ============================================
+       COLE AQUI O CÓDIGO DO PIXEL META
+       Acesse: business.facebook.com → Gerenciador de Eventos → Adicionar Fonte de Dados → Pixel
+  =============================================== -->
+  <!-- META PIXEL CODE -->
+  <!-- 
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/>
+  </noscript>
+  -->
+  <!-- END META PIXEL CODE -->
+
+  <!-- ============================================
+       COLE AQUI O CÓDIGO DA TAG GOOGLE
+       Acesse: tagmanager.google.com ou ads.google.com → Ferramentas → Tag do Google
+  =============================================== -->
+  <!-- GOOGLE TAG (gtag.js) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=SEU_ID_AQUI"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'SEU_ID_AQUI');
+  </script>
+  -->
+  <!-- END GOOGLE TAG -->
+
+  <style>
+    :root {
+      --preto: #080808;
+      --dourado: #C9A84C;
+      --dourado-claro: #E8C96A;
+      --dourado-escuro: #9A7A2E;
+      --branco: #F0EDE6;
+      --cinza: #aaaaaa;
+      --cinza-escuro: #1a1a1a;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--preto);
+      color: var(--branco);
+      font-family: 'Crimson Pro', Georgia, serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* CURSOR CUSTOMIZADO */
+    .cursor {
+      width: 8px;
+      height: 8px;
+      background: var(--dourado);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+    }
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.15s ease, width 0.2s, height 0.2s, border-color 0.2s;
+    }
+
+    /* GRAIN OVERLAY */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dourado);
+    }
+
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--branco);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .nav-cta:hover { color: var(--dourado); border-color: var(--dourado); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: pulse 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+    }
+
+    .hero-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--dourado);
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 800;
+      line-height: 1.0;
+      color: var(--branco);
+      max-width: 800px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--dourado);
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: var(--cinza);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-top: 28px;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, var(--dourado), transparent);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.7s;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.4), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.3); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SEÇÃO IMPACTO */
+    .section {
+      padding: 100px 60px;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--dourado);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 60px;
+    }
+
+    .impact-item {
+      background: var(--cinza-escuro);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+
+    .impact-item:hover { background: #1f1f1f; }
+
+    .impact-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--dourado);
+      transition: height 0.4s ease;
+    }
+
+    .impact-item:hover::before { height: 100%; }
+
+    .impact-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .impact-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      color: var(--branco);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .impact-item p {
+      font-size: 16px;
+      color: var(--cinza);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* SEÇÃO COMO FUNCIONA */
+    .how-section {
+      padding: 100px 60px;
+      background: #050505;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+    }
+
+    .how-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--branco);
+      max-width: 600px;
+      line-height: 1.2;
+      margin-bottom: 60px;
+    }
+
+    .how-section h2 span { color: var(--dourado); }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid #111;
+      align-items: start;
+      transition: all 0.3s;
+    }
+
+    .step:hover .step-num { color: var(--dourado); }
+
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: #1f1f1f;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+
+    .step-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      color: var(--branco);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .step-content p {
+      font-size: 17px;
+      color: var(--cinza);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 500px;
+    }
+
+    /* SEÇÃO CTA */
+    .cta-section {
+      padding: 120px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    .cta-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--branco);
+      max-width: 700px;
+      margin: 0 auto 16px;
+      line-height: 1.2;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-section h2 em {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dourado);
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      color: var(--cinza);
+      margin-bottom: 56px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--dourado);
+      color: var(--preto);
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--dourado-claro);
+      transform: translateY(-2px);
+    }
+
+    /* Evento de conversão Meta Pixel ao clicar */
+    .btn-primary[data-event="instagram"]:hover { }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--branco);
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border-radius: 2px;
+      border: 1px solid #2a2a2a;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--dourado);
+      color: var(--dourado);
+      transform: translateY(-2px);
+    }
+
+    /* FORMULÁRIO */
+    .form-section {
+      padding: 100px 60px;
+      background: #050505;
+      border-top: 1px solid #111;
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1000px;
+    }
+
+    .form-intro h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--branco);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .form-intro h2 span { color: var(--dourado); }
+
+    .form-intro p {
+      font-size: 17px;
+      color: var(--cinza);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .form-intro .form-detail {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--cinza);
+    }
+
+    .form-detail-item::before {
+      content: '→';
+      color: var(--dourado);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    label {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.6);
+    }
+
+    input, textarea, select {
+      background: #0f0f0f;
+      border: 1px solid #1f1f1f;
+      color: var(--branco);
+      font-family: 'Crimson Pro', serif;
+      font-size: 17px;
+      padding: 14px 18px;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(201,168,76,0.4);
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    select option { background: #0f0f0f; }
+
+    .btn-submit {
+      background: var(--dourado);
+      color: var(--preto);
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 18px;
+      border: none;
+      border-radius: 2px;
+      cursor: none;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      background: var(--dourado-claro);
+      transform: translateY(-2px);
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: #444;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 60px;
+      border-top: 1px solid #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dourado);
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #333;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 100px 24px 60px; }
+      .section { padding: 70px 24px; }
+      .how-section { padding: 70px 24px; }
+      .cta-section { padding: 80px 24px; }
+      .form-section { padding: 70px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+      .impact-grid { grid-template-columns: 1fr; }
+      .form-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Joyce Alves · Tráfego Pago</div>
+  <a href="#contato" class="nav-cta">Falar comigo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Gestora de Tráfego Pago · Meta Ads · Google Ads</div>
+  <h1>Seu negócio merece<br>ser <em>encontrado</em><br>por quem importa.</h1>
+  <div class="hero-line"></div>
+  <p class="hero-sub">Atraio clientes para negócios locais com anúncios estratégicos no Meta Ads e Google Ads. Sem achismo. Sem desperdício.</p>
+  <div class="scroll-hint">Explorar</div>
+</section>
+
+<!-- IMPACTO -->
+<section class="section">
+  <div class="section-label">O impacto dos anúncios online</div>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-num">01</div>
+      <h3>Seu cliente está no celular agora</h3>
+      <p>Mais de 130 milhões de brasileiros acessam a internet pelo celular todos os dias. Se o seu negócio não aparece para eles, o concorrente aparece.</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">02</div>
+      <h3>Impulsionar não é o mesmo que anunciar</h3>
+      <p>Apertar o botão de impulsionar entrega o seu dinheiro para o algoritmo decidir. Anunciar com estratégia significa você escolher exatamente quem vê — cidade, idade, interesse.</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">03</div>
+      <h3>Visibilidade que gera venda</h3>
+      <p>Anúncio bem feito não é gasto. É o atalho mais direto entre o seu negócio e o cliente certo. Cada real investido com intenção e rastreamento.</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">04</div>
+      <h3>Dados que guiam decisões</h3>
+      <p>Com Meta Ads e Google Ads você sabe exatamente quantas pessoas viram, clicaram e entraram em contato. Sem suposição — só resultado real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how-section">
+  <div class="section-label">Como funciona</div>
+  <h2>Do primeiro contato ao <span>cliente na porta.</span></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Conheço o seu negócio</h3>
+        <p>Antes de criar qualquer anúncio, mergulho no seu negócio — quem é seu cliente ideal, onde ele está, o que ele procura e o que te diferencia da concorrência.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Crio a estratégia certa</h3>
+        <p>Defino as plataformas, o público, os criativos e os objetivos de campanha. Tudo pensado para o seu momento e para o seu orçamento.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Ativo e acompanho</h3>
+        <p>Os anúncios entram no ar com rastreamento completo. Monitoro os resultados diariamente e otimizo o que precisa para maximizar o retorno.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Você recebe relatórios claros</h3>
+        <p>Sem jargão técnico. Você sabe exatamente o que está funcionando, quantas pessoas chegaram até o seu negócio e qual foi o resultado real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA PRINCIPAL -->
+<section class="cta-section" id="cta">
+  <h2>Pronto para atrair mais<br><em>clientes de verdade?</em></h2>
+  <p>Escolha como prefere dar o próximo passo.</p>
+  <div class="cta-buttons">
+    <a
+      href="https://www.instagram.com/joycealves.ads"
+      target="_blank"
+      class="btn-primary"
+      data-event="instagram"
+      onclick="trackInstagram()">
+      📩 Falar no Instagram Direct
+    </a>
+    <a href="#contato" class="btn-secondary">
+      📋 Preencher formulário
+    </a>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="form-section" id="contato">
+  <div class="form-wrap">
+    <div class="form-intro">
+      <div class="section-label">Formulário de contato</div>
+      <h2>Vamos conversar sobre o seu <span>negócio.</span></h2>
+      <p>Preencha o formulário e entrarei em contato em até 24 horas para entender melhor como posso ajudar.</p>
+      <div class="form-detail">
+        <div class="form-detail-item">Sem compromisso</div>
+        <div class="form-detail-item">Resposta em até 24h</div>
+        <div class="form-detail-item">Atendimento personalizado</div>
+      </div>
+    </div>
+
+    <form onsubmit="handleSubmit(event)">
+      <div class="input-group">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" placeholder="Como posso te chamar?" required>
+      </div>
+      <div class="input-group">
+        <label for="negocio">Nome do negócio</label>
+        <input type="text" id="negocio" placeholder="Qual é o seu negócio?" required>
+      </div>
+      <div class="input-group">
+        <label for="objetivo">Qual é o seu objetivo?</label>
+        <select id="objetivo">
+          <option value="">Selecione...</option>
+          <option value="mais-clientes">Atrair mais clientes</option>
+          <option value="conhecimento">Aumentar o conhecimento da marca</option>
+          <option value="vendas">Aumentar as vendas online</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" placeholder="Conte um pouco mais sobre o seu negócio..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Enviar mensagem →</button>
+      <p class="form-note">Seus dados estão seguros e não serão compartilhados.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">@joycealves.ads</div>
+  <div class="footer-copy">© 2025 Joyce Alves · Gestora de Tráfego Pago</div>
+</footer>
+
+<script>
+  // CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '50px';
+      ring.style.height = '50px';
+      ring.style.borderColor = 'rgba(201,168,76,0.8)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '32px';
+      ring.style.height = '32px';
+      ring.style.borderColor = 'rgba(201,168,76,0.4)';
+    });
+  });
+
+  // ============================================
+  // RASTREAMENTO META PIXEL — EVENTOS
+  // Descomente após instalar o Pixel
+  // ============================================
+  function trackInstagram() {
+    // fbq('track', 'Contact'); // Evento: clicou no Direct Instagram
+    console.log('[Meta Pixel] Evento: Contact (Instagram Direct)');
+  }
+
+  // ============================================
+  // RASTREAMENTO GOOGLE ADS — CONVERSÃO
+  // Descomente após instalar a Tag Google
+  // ============================================
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById('nome').value;
+    const negocio = document.getElementById('negocio').value;
+    const objetivo = document.getElementById('objetivo').value;
+    const mensagem = document.getElementById('mensagem').value;
+
+    // Meta Pixel — Lead
+    // fbq('track', 'Lead', { content_name: 'Formulário de Contato' });
+
+    // Google Ads — Conversão
+    // gtag('event', 'conversion', { 'send_to': 'SEU_ID/CONVERSAO' });
+
+    console.log('[Formulário enviado]', { nome, negocio, objetivo, mensagem });
+
+    // Feedback visual
+    e.target.innerHTML = `
+      <div style="text-align:center; padding: 40px 0;">
+        <div style="font-family:'Syne',sans-serif; font-size:32px; color:#C9A84C; margin-bottom:16px;">✓</div>
+        <p style="font-family:'Syne',sans-serif; font-size:14px; letter-spacing:2px; color:#F0EDE6;">Mensagem enviada!</p>
+        <p style="font-size:16px; color:#aaa; margin-top:10px; font-weight:300;">Entrarei em contato em até 24 horas.</p>
+      </div>
+    `;
+  }
+
+  // FADE IN AO ROLAR
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.impact-item, .step, .form-wrap').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
