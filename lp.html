@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mais Clientes Para Seu Negócio Local | Joyce Alves</title>
 
+<!-- ══ GOOGLE TAG MANAGER ══ -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TD8N6VFG');</script>
+<!-- End Google Tag Manager -->
+
 <!-- ══ META PIXEL ══ -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -52,7 +60,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── HERO — ABOVE THE FOLD ── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -64,7 +71,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -72,22 +78,17 @@ body {
     radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,162,39,0.08) 0%, transparent 65%),
     radial-gradient(ellipse 50% 30% at 50% 100%, rgba(201,162,39,0.05) 0%, transparent 50%);
 }
-
-/* Gold line top */
 .hero::after {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
 .hero-inner {
   position: relative; z-index: 1;
   max-width: 780px;
   margin: 0 auto;
 }
-
-/* Tag */
 .tag {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; font-weight: 600;
@@ -99,8 +100,6 @@ body {
   animation: fadeDown 0.6s ease both;
 }
 .tag::before { content: '✦'; font-size: 8px; }
-
-/* PROMESSA — título principal */
 .promise {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(40px, 7vw, 80px);
@@ -110,12 +109,7 @@ body {
   margin-bottom: 24px;
   animation: fadeDown 0.7s ease 0.1s both;
 }
-.promise em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-/* EXPLICAÇÃO — subtítulo */
+.promise em { font-style: italic; color: var(--gold); }
 .explanation {
   font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 300;
@@ -125,16 +119,8 @@ body {
   margin: 0 auto 40px;
   animation: fadeDown 0.7s ease 0.2s both;
 }
-.explanation strong {
-  color: var(--white);
-  font-weight: 500;
-}
-
-/* CTA BUTTON — acima da dobra */
-.cta-wrap {
-  animation: fadeDown 0.7s ease 0.3s both;
-  margin-bottom: 20px;
-}
+.explanation strong { color: var(--white); font-weight: 500; }
+.cta-wrap { animation: fadeDown 0.7s ease 0.3s both; margin-bottom: 20px; }
 .cta-btn {
   display: inline-block;
   background: var(--gold);
@@ -157,16 +143,12 @@ body {
 }
 .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,162,39,0.5); }
 .cta-btn:hover::before { opacity: 1; }
-
 .cta-sub {
   font-size: 12px; font-weight: 300;
-  color: var(--muted);
-  margin-top: 12px;
+  color: var(--muted); margin-top: 12px;
   animation: fadeDown 0.7s ease 0.4s both;
 }
 .cta-sub span { color: var(--gold); }
-
-/* Scroll indicator */
 .scroll-hint {
   position: absolute; bottom: 32px; left: 50%;
   transform: translateX(-50%);
@@ -187,41 +169,26 @@ body {
   51% { transform: scaleY(1); transform-origin: bottom; }
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
-
-/* ── SEÇÃO 2 — DOR ── */
-.section {
-  padding: 100px 24px;
-  max-width: 860px;
-  margin: 0 auto;
-}
-
+.section { padding: 100px 24px; max-width: 860px; margin: 0 auto; }
 .section-label {
   font-size: 10px; font-weight: 600;
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--gold); margin-bottom: 20px;
   display: flex; align-items: center; gap: 12px;
 }
-.section-label::after {
-  content: ''; flex: 0 0 40px;
-  height: 1px; background: var(--gold);
-}
-
+.section-label::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--gold); }
 .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 600; line-height: 1.15;
-  margin-bottom: 24px;
+  font-weight: 600; line-height: 1.15; margin-bottom: 24px;
 }
 .section-title em { font-style: italic; color: var(--gold); }
-
 .section-text {
   font-size: 16px; font-weight: 300;
   color: rgba(245,240,232,0.6);
   line-height: 1.85; margin-bottom: 20px;
 }
 .section-text strong { color: var(--white); font-weight: 500; }
-
-/* Pain cards */
 .pain-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -231,23 +198,15 @@ body {
   background: var(--black2);
   border: 1px solid rgba(201,162,39,0.08);
   border-left: 3px solid var(--gold);
-  padding: 24px;
-  border-radius: 2px;
-  transition: all 0.3s;
+  padding: 24px; border-radius: 2px; transition: all 0.3s;
 }
 .pain-card:hover { border-color: rgba(201,162,39,0.3); transform: translateY(-4px); }
 .pain-icon { font-size: 28px; margin-bottom: 12px; display: block; }
 .pain-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
 .pain-desc { font-size: 13px; font-weight: 300; color: rgba(245,240,232,0.5); line-height: 1.7; }
-
-/* ── SEÇÃO 3 — SOLUÇÃO ── */
 .solution { background: var(--black2); padding: 100px 24px; }
 .solution-inner { max-width: 860px; margin: 0 auto; }
-
-.solution-steps {
-  display: flex; flex-direction: column; gap: 0;
-  margin-top: 48px;
-}
+.solution-steps { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
 .solution-step {
   display: grid; grid-template-columns: 70px 1fr;
   gap: 24px; padding: 32px 0;
@@ -257,31 +216,18 @@ body {
 .step-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 48px; font-weight: 300;
-  color: rgba(201,162,39,0.2); line-height: 1;
-  transition: color 0.3s;
+  color: rgba(201,162,39,0.2); line-height: 1; transition: color 0.3s;
 }
 .solution-step:hover .step-num { color: var(--gold); }
-.step-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px; font-weight: 600;
-  margin-bottom: 8px;
-}
-.step-desc {
-  font-size: 14px; font-weight: 300;
-  color: rgba(245,240,232,0.5); line-height: 1.7;
-}
-
-/* ── SEÇÃO 4 — PROVA ── */
+.step-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.step-desc { font-size: 14px; font-weight: 300; color: rgba(245,240,232,0.5); line-height: 1.7; }
 .proof { padding: 100px 24px; }
 .proof-inner { max-width: 860px; margin: 0 auto; }
-
 .proof-card {
   background: var(--black2);
   border: 1px solid rgba(201,162,39,0.15);
-  padding: 48px;
-  margin-top: 48px;
-  position: relative;
-  overflow: hidden;
+  padding: 48px; margin-top: 48px;
+  position: relative; overflow: hidden;
 }
 .proof-card::before {
   content: '"';
@@ -294,37 +240,28 @@ body {
 .proof-number {
   font-family: 'Cormorant Garamond', serif;
   font-size: 72px; font-weight: 300;
-  color: var(--gold); line-height: 1;
-  margin-bottom: 8px;
+  color: var(--gold); line-height: 1; margin-bottom: 8px;
 }
 .proof-desc {
-  font-size: 18px; font-weight: 300;
-  font-style: italic;
+  font-size: 18px; font-weight: 300; font-style: italic;
   color: rgba(245,240,232,0.7);
-  line-height: 1.7; margin-bottom: 24px;
-  max-width: 560px;
+  line-height: 1.7; margin-bottom: 24px; max-width: 560px;
 }
 .proof-name { font-size: 14px; font-weight: 500; }
 .proof-biz { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-/* ── CTA FINAL ── */
 .cta-final {
-  background: var(--black2);
-  padding: 120px 24px;
-  text-align: center;
-  position: relative; overflow: hidden;
+  background: var(--black2); padding: 120px 24px;
+  text-align: center; position: relative; overflow: hidden;
 }
 .cta-final::before {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,162,39,0.07) 0%, transparent 65%);
 }
 .cta-final-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
 .cta-final h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 600; line-height: 1.1;
-  margin-bottom: 20px;
+  font-weight: 600; line-height: 1.1; margin-bottom: 20px;
 }
 .cta-final h2 em { font-style: italic; color: var(--gold); }
 .cta-final p {
@@ -332,17 +269,12 @@ body {
   color: rgba(245,240,232,0.55);
   line-height: 1.8; margin-bottom: 40px;
 }
-
-/* ── FOOTER ── */
 footer {
-  padding: 32px 24px;
-  text-align: center;
+  padding: 32px 24px; text-align: center;
   border-top: 1px solid rgba(201,162,39,0.1);
   font-size: 12px; color: var(--muted);
 }
 footer a { color: var(--gold); text-decoration: none; }
-
-/* ── WHATSAPP FLOAT ── */
 .wpp {
   position: fixed; bottom: 28px; right: 28px;
   width: 56px; height: 56px;
@@ -358,19 +290,12 @@ footer a { color: var(--gold); text-decoration: none; }
   0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
   50% { box-shadow: 0 4px 36px rgba(37,211,102,0.7); }
 }
-
-/* ── ANIMS ── */
 @keyframes fadeDown {
   from { opacity:0; transform: translateY(-20px); }
   to   { opacity:1; transform: translateY(0); }
 }
-
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
 @media (max-width: 640px) {
   .solution-step { grid-template-columns: 50px 1fr; gap: 16px; }
   .proof-card { padding: 28px; }
@@ -380,39 +305,34 @@ footer a { color: var(--gold); text-decoration: none; }
 </head>
 <body>
 
-<!-- ══ HERO — ABOVE THE FOLD ══ -->
+<!-- ══ GOOGLE TAG MANAGER (noscript) ══ -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TD8N6VFG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <section class="hero">
   <div class="hero-inner">
-
     <div class="tag">Joyce Alves · Tráfego Pago</div>
-
-    <!-- PROMESSA -->
     <h1 class="promise">
       Seu negócio local<br>
       na frente de quem<br>
       <em>já quer comprar.</em>
     </h1>
-
-    <!-- EXPLICAÇÃO RÁPIDA -->
     <p class="explanation">
       Criamos campanhas no <strong>Meta e Google Ads</strong> que colocam
       o seu negócio diante do público certo — na hora certa,
       sem desperdiçar verba e com <strong>resultado mensurável.</strong>
     </p>
-
-    <!-- CTA — VISÍVEL SEM ROLAR -->
     <div class="cta-wrap">
       <a href="https://wa.me/5515996342023?text=Olá%20Joyce!%20Quero%20mais%20clientes%20para%20meu%20negócio.%20Pode%20me%20ajudar?" class="cta-btn" target="_blank">
         → Quero Mais Clientes Agora
       </a>
     </div>
     <p class="cta-sub">Sem compromisso · Resposta em até <span>2 horas</span></p>
-
   </div>
   <div class="scroll-hint">Role para saber mais</div>
 </section>
 
-<!-- ══ DOR ══ -->
 <section class="section reveal">
   <div class="section-label">O Problema</div>
   <h2 class="section-title">
@@ -429,7 +349,6 @@ footer a { color: var(--gold); text-decoration: none; }
     <strong>Placa na rua e boca a boca não escalam.</strong>
     O cliente de hoje está no digital — e é lá que você precisa estar.
   </p>
-
   <div class="pain-grid">
     <div class="pain-card">
       <span class="pain-icon">📉</span>
@@ -454,7 +373,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ SOLUÇÃO ══ -->
 <section class="solution">
   <div class="solution-inner reveal">
     <div class="section-label">A Solução</div>
@@ -462,7 +380,6 @@ footer a { color: var(--gold); text-decoration: none; }
       Como eu faço seu negócio<br>
       <em>aparecer todo dia.</em>
     </h2>
-
     <div class="solution-steps">
       <div class="solution-step">
         <div class="step-num">01</div>
@@ -503,7 +420,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ GARANTIA ══ -->
 <section class="proof">
   <div class="proof-inner reveal">
     <div class="section-label">Garantia</div>
@@ -526,7 +442,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ FAQ ══ -->
 <section class="solution">
   <div class="solution-inner reveal">
     <div class="section-label">FAQ</div>
@@ -567,7 +482,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ URGÊNCIA ══ -->
 <section style="background:var(--black); padding:80px 24px; border-top:1px solid rgba(201,162,39,0.15); border-bottom:1px solid rgba(201,162,39,0.15);">
   <div style="max-width:680px; margin:0 auto; text-align:center;" class="reveal">
     <div style="font-size:13px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">⚡ Por que agir agora?</div>
@@ -584,7 +498,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ CTA FINAL ══ -->
 <section class="cta-final">
   <div class="cta-final-inner reveal">
     <h2>
@@ -603,7 +516,6 @@ footer a { color: var(--gold); text-decoration: none; }
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
 <footer>
   <p>© 2026 Joyce Alves · Meta & Google Ads para Negócios Locais</p>
   <p style="margin-top:8px;">
@@ -613,13 +525,11 @@ footer a { color: var(--gold); text-decoration: none; }
   </p>
 </footer>
 
-<!-- ══ WHATSAPP FLOAT ══ -->
 <a href="https://wa.me/5515996342023?text=Olá%20Joyce!%20Quero%20mais%20clientes%20para%20meu%20negócio." class="wpp" target="_blank">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-// Reveal on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
