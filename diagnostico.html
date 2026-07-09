@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Posicionamento Local | Joyce Alves Ads</title>
+<meta name="description" content="Análise de Posicionamento Local: descubra em menos de 2 minutos se sua empresa está perdendo clientes por não aparecer no Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f0e0c;
+    --bg-panel:#17150f;
+    --bg-panel-2:#1d1a13;
+    --line: rgba(198,161,91,0.18);
+    --gold:#c6a15b;
+    --gold-bright:#e8c97a;
+    --cream:#f3eee6;
+    --muted:#a79c87;
+    --red:#c2695a;
+    --green:#7d9b7a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--cream);
+    font-family:'Inter', sans-serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:10px; justify-content:center;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--gold);}
+
+  .card{
+    width:100%; max-width:520px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:40px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:28px 28px;
+    opacity:0.25;
+    pointer-events:none;
+  }
+  .screen{position:relative; z-index:1;}
+  .screen{display:none;}
+  .screen.active{display:block; animation:fadeIn 0.4s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  /* INTRO */
+  #intro h1{font-size:clamp(24px,4vw,30px); text-align:center; margin:16px 0 12px; line-height:1.2;}
+  #intro p{color:var(--muted); text-align:center; max-width:38ch; margin:0 auto 28px;}
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%;
+    background:var(--gold); color:#17150f;
+    font-weight:600; font-size:15px;
+    padding:15px 28px; border:none; border-radius:9px;
+    cursor:pointer; text-decoration:none;
+    transition:background 0.2s, transform 0.2s;
+    font-family:'Inter', sans-serif;
+  }
+  .btn:hover{background:var(--gold-bright); transform:translateY(-1px);}
+  .btn-secondary{
+    background:transparent; color:var(--gold); border:1px solid var(--line);
+  }
+  .btn-secondary:hover{background:var(--bg-panel-2);}
+
+  .meter-preview{
+    display:flex; justify-content:center; gap:6px; margin:26px 0 6px;
+  }
+  .meter-preview span{width:34px; height:6px; border-radius:3px; background:var(--line);}
+
+  /* QUIZ */
+  .progress-wrap{margin-bottom:30px;}
+  .progress-top{display:flex; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted); margin-bottom:8px;}
+  .progress-track{height:6px; background:var(--bg); border-radius:4px; overflow:hidden; border:1px solid var(--line);}
+  .progress-fill{height:100%; background:linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius:4px; transition:width 0.4s ease; width:0%;}
+
+  .q-text{font-family:'Fraunces', serif; font-size:22px; font-weight:600; line-height:1.3; margin-bottom:28px; min-height:84px;}
+  .q-options{display:flex; gap:12px;}
+  .q-btn{
+    flex:1; padding:16px; border-radius:10px; border:1px solid var(--line);
+    background:var(--bg); color:var(--cream); font-weight:600; font-size:15px;
+    cursor:pointer; transition:all 0.15s; font-family:'Inter', sans-serif;
+  }
+  .q-btn:hover{border-color:var(--gold); background:var(--bg-panel-2);}
+  .q-btn.yes:hover{color:var(--green); border-color:var(--green);}
+  .q-btn.no:hover{color:var(--red); border-color:var(--red);}
+
+  /* RESULT */
+  #result .eyebrow{margin-bottom:10px;}
+  .score-wrap{text-align:center; margin:22px 0 26px;}
+  .score-circle{
+    width:150px; height:150px; margin:0 auto 14px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column;
+    border:6px solid var(--bg);
+    position:relative;
+  }
+  .score-circle svg{position:absolute; inset:0; transform:rotate(-90deg);}
+  .score-circle .num{font-family:'Fraunces', serif; font-size:38px; font-weight:700; color:var(--gold-bright); position:relative; z-index:2;}
+  .score-circle .of{font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted); position:relative; z-index:2;}
+  .score-label{font-family:'JetBrains Mono', monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); text-align:center;}
+
+  .result-msg{
+    background:var(--bg); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px; margin:22px 0; font-size:14.5px; color:var(--cream);
+  }
+  .result-msg b{color:var(--gold-bright);}
+
+  .proof{
+    border-top:1px solid var(--line); padding-top:24px; margin-top:8px;
+  }
+  .proof .eyebrow{justify-content:flex-start; margin-bottom:14px;}
+  .proof-card{
+    background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:18px; margin-bottom:14px;
+  }
+  .proof-stats{display:flex; gap:18px; margin-bottom:10px;}
+  .proof-stats div{text-align:left;}
+  .proof-stats .n{font-family:'Fraunces', serif; color:var(--gold-bright); font-size:20px; font-weight:600;}
+  .proof-stats .l{font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--muted); text-transform:uppercase;}
+  .proof-card p{font-size:13.5px; color:var(--muted);}
+  .testimonial{font-style:italic; font-size:13.5px; color:var(--muted); border-left:2px solid var(--gold); padding-left:14px; margin:16px 0 22px;}
+
+  footer{text-align:center; margin-top:22px;}
+  footer p{font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--muted); letter-spacing:0.04em;}
+
+  @media (max-width:480px){
+    .card{padding:30px 22px;}
+    .q-text{font-size:19px; min-height:96px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- SCREEN 0: INTRO -->
+  <div class="screen active" id="intro">
+    <div class="eyebrow">Análise de Posicionamento Local</div>
+    <h1>Sua empresa realmente aparece quando um cliente te procura no Google?</h1>
+    <p>Descubra em menos de 2 minutos se o seu negócio está perdendo clientes na internet — e o quê fazer sobre isso.</p>
+    <div class="meter-preview"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <button class="btn" onclick="goTo('quiz'); startQuiz();">Fazer minha análise agora →</button>
+  </div>
+
+  <!-- SCREEN 1: QUIZ -->
+  <div class="screen" id="quiz">
+    <div class="progress-wrap">
+      <div class="progress-top"><span id="prog-label">Pergunta 1 de 6</span><span id="prog-pct">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="q-text" id="q-text"></div>
+    <div class="q-options">
+      <button class="q-btn no" onclick="answer(0)">Não</button>
+      <button class="q-btn yes" onclick="answer(1)">Sim</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: RESULT -->
+  <div class="screen" id="result">
+    <div class="eyebrow">Resultado da sua Análise de Posicionamento Local</div>
+    <div class="score-wrap">
+      <div class="score-circle">
+        <svg width="150" height="150">
+          <circle cx="75" cy="75" r="66" stroke="var(--bg)" stroke-width="10" fill="none"/>
+          <circle id="score-ring" cx="75" cy="75" r="66" stroke="var(--gold)" stroke-width="10" fill="none"
+            stroke-dasharray="414.7" stroke-dashoffset="414.7" stroke-linecap="round"/>
+        </svg>
+        <div class="num" id="score-num">0</div>
+        <div class="of">/ 100</div>
+      </div>
+      <div class="score-label">Pontuação de Posicionamento Local</div>
+    </div>
+
+    <div class="result-msg" id="result-msg"></div>
+
+    <div class="proof">
+      <div class="eyebrow">Veja um negócio que já passou por isso</div>
+      <div class="proof-card">
+        <div class="proof-stats">
+          <div><div class="n">+170%</div><div class="l">Visualizações</div></div>
+          <div><div class="n">+77%</div><div class="l">Pedidos de rota</div></div>
+          <div><div class="n">5,0★</div><div class="l">28 avaliações</div></div>
+        </div>
+        <p>Uma papelaria de Tietê/SP não tinha perfil nenhum no Google. Em 60 dias, sem gastar em anúncio, passou a aparecer entre os 3 primeiros resultados da região.</p>
+        <a href="case-coloore.html" target="_blank" rel="noopener" style="display:inline-block; margin-top:12px; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--gold); text-decoration:underline; text-underline-offset:3px;">Ver o passo a passo completo desse case →</a>
+      </div>
+      <div class="testimonial">"Atendimento perfeito, acho tudo que preciso com facilidade." — avaliação real do perfil otimizado</div>
+    </div>
+
+    <a class="btn" id="wa-btn" href="#" target="_blank" rel="noopener">Quero minha análise completa no WhatsApp →</a>
+
+    <footer><p>JOYCE ALVES ADS · GOOGLE MEU NEGÓCIO + TRÁFEGO PAGO · TIETÊ/SP</p></footer>
+  </div>
+
+</div>
+
+<script>
+  const questions = [
+    "Sua empresa aparece no Google quando pesquisam pelo nome dela?",
+    "Você recebe avaliações de clientes com frequência?",
+    "O perfil da sua empresa tem fotos atualizadas?",
+    "Você aparece quando alguém pesquisa algo como \"[seu produto] perto de mim\"?",
+    "Você já investe em anúncios no Google ou Instagram, ou depende só de indicação?",
+    "Seu WhatsApp recebe contatos novos todos os dias, sem você correr atrás?"
+  ];
+
+  let current = 0;
+  let answers = [];
+  const WHATSAPP_NUMBER = "5515996342023";
+
+  function goTo(id){
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function startQuiz(){
+    current = 0;
+    answers = [];
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    document.getElementById('q-text').textContent = questions[current];
+    document.getElementById('prog-label').textContent = `Pergunta ${current+1} de ${questions.length}`;
+    const pct = Math.round((current / questions.length) * 100);
+    document.getElementById('prog-pct').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+  }
+
+  function answer(value){
+    answers.push(value);
+    current++;
+    if(current < questions.length){
+      renderQuestion();
+    } else {
+      document.getElementById('prog-pct').textContent = '100%';
+      document.getElementById('progress-fill').style.width = '100%';
+      setTimeout(showResult, 350);
+    }
+  }
+
+  function showResult(){
+    const yesCount = answers.reduce((a,b) => a+b, 0);
+    const score = Math.round((yesCount / questions.length) * 100);
+
+    goTo('result');
+
+    // animate score number
+    let n = 0;
+    const scoreNum = document.getElementById('score-num');
+    const step = Math.max(1, Math.round(score/30));
+    const interval = setInterval(() => {
+      n += step;
+      if(n >= score){ n = score; clearInterval(interval); }
+      scoreNum.textContent = n;
+    }, 20);
+
+    // animate ring: circumference = 2*pi*66 = 414.7
+    const circumference = 414.7;
+    const offset = circumference - (score/100) * circumference;
+    const ring = document.getElementById('score-ring');
+    ring.style.stroke = score >= 70 ? 'var(--green)' : (score >= 40 ? 'var(--gold)' : 'var(--red)');
+    setTimeout(() => { ring.style.transition = 'stroke-dashoffset 1s ease'; ring.style.strokeDashoffset = offset; }, 100);
+
+    const msgBox = document.getElementById('result-msg');
+    let msg;
+    if(score >= 80){
+      msg = `<b>Seu negócio está bem posicionado</b> — mas ainda existem pontos que, se ajustados, podem trazer ainda mais clientes vindos do Google.`;
+    } else if(score >= 50){
+      msg = `Existem <b>pontos importantes</b> limitando a visibilidade da sua empresa. Isso significa clientes que estão te procurando e não te encontrando.`;
+    } else {
+      msg = `<b>Seu negócio pode estar perdendo clientes todos os dias.</b> Vários pontos essenciais para aparecer no Google ainda não estão funcionando a seu favor.`;
+    }
+    msgBox.innerHTML = msg;
+
+    const waMsg = encodeURIComponent("Olá, fiz a Análise de Posicionamento Local e quero entender onde minha empresa está perdendo clientes.");
+    document.getElementById('wa-btn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+  }
+</script>
+
+</body>
+</html>
