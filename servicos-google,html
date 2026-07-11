@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyce Alves | Serviços Google Meu Negócio — Tietê, SP</title>
+<meta name="description" content="Otimização, gestão e posicionamento no Google Meu Negócio para negócios de Tietê e região. Cases reais: Coloore Papelaria e Anje Store.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17934423162"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17934423162');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TD8N6VFG');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --ink-2:#141416;
+    --gold:#C9A227;
+    --gold-light:#E8C766;
+    --paper:#F5F1E8;
+    --muted:#9A9488;
+    --line:#2A2A2C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,11,12,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;}
+  .brand{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--gold-light);}
+  .brand span{color:var(--paper);}
+  .nav-cta{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;
+    border:1px solid var(--gold);color:var(--gold-light);
+    padding:9px 16px;border-radius:2px;transition:all .2s;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--ink);}
+
+  /* HERO — signature: mock search bar with real queries */
+  .hero{padding:88px 0 64px;border-bottom:1px solid var(--line);}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start;}
+  .hero-photo{
+    width:100%;aspect-ratio:4/5;border-radius:4px;overflow:hidden;
+    border:1px solid var(--line);position:relative;
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(15%) contrast(1.04);}
+  .hero-photo .tag{
+    position:absolute;bottom:14px;left:14px;
+    background:rgba(11,11,12,0.82);backdrop-filter:blur(6px);
+    border:1px solid var(--gold);color:var(--gold-light);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    padding:6px 10px;border-radius:2px;letter-spacing:0.03em;
+  }
+  @media (max-width:780px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{max-width:280px;aspect-ratio:4/5;}
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    color:var(--gold);text-transform:uppercase;letter-spacing:0.12em;
+    margin-bottom:22px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:20px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(32px,5.4vw,52px);
+    line-height:1.08;color:var(--paper);
+    max-width:14ch;margin-bottom:20px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero p.lead{
+    font-size:17px;color:var(--muted);max-width:46ch;margin-bottom:40px;
+  }
+
+  .searchbar{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+    display:flex;align-items:center;gap:12px;
+    max-width:560px;
+    margin-bottom:28px;
+  }
+  .searchbar .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+  .searchbar .q{font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:var(--paper);}
+  .searchbar .q .cursor{display:inline-block;width:2px;height:15px;background:var(--gold-light);margin-left:2px;vertical-align:-2px;animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  .query-tags{display:flex;flex-wrap:wrap;gap:8px;max-width:600px;}
+  .query-tags span{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    border:1px solid var(--line);padding:6px 11px;border-radius:20px;
+  }
+
+  /* PROOF STRIP */
+  .proof{border-bottom:1px solid var(--line);padding:36px 0;}
+  .proof .wrap{display:flex;gap:48px;flex-wrap:wrap;}
+  .proof-item{flex:1;min-width:200px;}
+  .proof-item .num{font-family:'Fraunces',serif;font-size:32px;color:var(--gold-light);font-weight:600;}
+  .proof-item .label{font-size:13px;color:var(--muted);margin-top:2px;}
+
+  /* SERVICES — styled as search results, not cards */
+  .services{padding:72px 0;border-bottom:1px solid var(--line);}
+  .section-head{margin-bottom:48px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,34px);color:var(--paper);max-width:20ch;}
+
+  .result{
+    padding:30px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr 2.1fr;
+    gap:32px;
+  }
+  .result:last-child{border-bottom:1px solid var(--line);}
+  .result .query{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:var(--gold);
+    line-height:1.6;
+  }
+  .result .query .qline{display:block;color:var(--muted);margin-top:4px;}
+  .result-body h3{font-size:20px;color:var(--gold-light);margin-bottom:10px;font-weight:600;}
+  .result-body p{font-size:15px;color:#C9C4B8;max-width:52ch;}
+
+  @media (max-width:680px){
+    .result{grid-template-columns:1fr;gap:10px;}
+  }
+
+  /* CASES */
+  .cases{padding:72px 0;border-bottom:1px solid var(--line);}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .case{background:var(--ink);padding:32px;}
+  .case .biz{font-family:'Fraunces',serif;font-size:20px;color:var(--paper);margin-bottom:16px;}
+  .case-stats{display:flex;gap:24px;margin-bottom:16px;}
+  .case-stats div{}
+  .case-stats .n{font-family:'Fraunces',serif;font-size:26px;color:var(--gold-light);}
+  .case-stats .l{font-size:11px;color:var(--muted);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;}
+  .case p{font-size:14px;color:var(--muted);}
+  @media (max-width:680px){.case-grid{grid-template-columns:1fr;}}
+
+  /* CTA */
+  .cta-section{padding:88px 0;text-align:center;}
+  .cta-section h2{font-size:clamp(26px,4vw,38px);max-width:16ch;margin:0 auto 16px;color:var(--paper);}
+  .cta-section p{color:var(--muted);max-width:44ch;margin:0 auto 34px;}
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--gold);color:var(--ink);
+    font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14.5px;
+    padding:16px 30px;border-radius:2px;
+    transition:all .2s;
+  }
+  .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px);}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer p{font-size:12px;color:var(--muted);font-family:'IBM Plex Mono',monospace;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Joyce Alves <span>| Google</span></div>
+    <a class="nav-cta" href="https://wa.me/5515996342023?text=Oi%20Joyce!%20Vi%20a%20p%C3%A1gina%20de%20servi%C3%A7os%20de%20Google%20Meu%20Neg%C3%B3cio%20e%20quero%20saber%20mais." target="_blank">Falar no WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Google Meu Negócio · Tietê, SP</div>
+        <h1>O que as pessoas <em>pesquisam</em> antes de te encontrar</h1>
+        <p class="lead">Cada serviço aqui responde a uma busca real de quem já procura ajuda com o Google. Você não precisa adivinhar o que fazer — precisa aparecer onde já estão perguntando.</p>
+
+        <div class="searchbar">
+          <div class="dot"></div>
+          <div class="q">por que meu negócio não aparece no Google<span class="cursor"></span></div>
+        </div>
+        <div class="query-tags">
+          <span>como aparecer no Google</span>
+          <span>ficha do Google parada</span>
+          <span>Google Meu Negócio Tietê</span>
+          <span>anúncio que gera cliente</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="joyce-foto.jpg" alt="Joyce Alves">
+        <div class="tag">Joyce Alves</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="proof-item">
+      <div class="num">Top 3</div>
+      <div class="label">Coloore Papelaria em Tietê, 60 dias, sem ads</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">5,0★</div>
+      <div class="label">Coloore — 28 avaliações reais</div>
+    </div>
+    <div class="proof-item">
+      <div class="num">4,9★</div>
+      <div class="label">Anje Store — ficha completa e ativa</div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Serviços</div>
+      <h2>Cada ponto aqui resolve uma busca específica</h2>
+    </div>
+
+    <div class="result">
+      <div class="query">
+        buscas que isso resolve
+        <span class="qline">"otimizar Google Meu Negócio"</span>
+        <span class="qline">"como aparecer no Google"</span>
+      </div>
+      <div class="result-body">
+        <h3>Otimização de Perfil</h3>
+        <p>Deixo sua ficha completa e configurada para aparecer nas buscas locais: categoria certa, descrição, fotos, horários e as informações que fazem o Google te mostrar para quem procura seu serviço em Tietê.</p>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="query">
+        buscas que isso resolve
+        <span class="qline">"manter ficha ativa no Google"</span>
+        <span class="qline">"gestão de perfil Google"</span>
+      </div>
+      <div class="result-body">
+        <h3>Gestão Mensal</h3>
+        <p>Cuido da sua ficha todo mês: posts, respostas às avaliações, atualização de fotos e perguntas — mantendo seu perfil ativo, porque perfil parado o Google esconde.</p>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="query">
+        buscas que isso resolve
+        <span class="qline">"por que meu negócio não aparece no Google"</span>
+        <span class="qline">"análise de concorrência local"</span>
+      </div>
+      <div class="result-body">
+        <h3>Análise de Posicionamento Local</h3>
+        <p>Verifico onde seu negócio está hoje nas buscas do Google e mostro exatamente o que falta para aparecer na frente da concorrência em Tietê.</p>
+      </div>
+    </div>
+
+    <div class="result">
+      <div class="query">
+        buscas que isso resolve
+        <span class="qline">"anúncio que gera cliente"</span>
+        <span class="qline">"como vender mais com anúncio online"</span>
+      </div>
+      <div class="result-body">
+        <h3>Anúncios Online</h3>
+        <p>Configuro e gerencio campanhas para que seu anúncio apareça para quem realmente compra — não para qualquer pessoa. Foco em gerar contato real pelo WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Prova</div>
+      <h2>Isso já funcionou — com dados reais</h2>
+    </div>
+    <div class="case-grid">
+      <div class="case">
+        <div class="biz">Coloore Papelaria</div>
+        <div class="case-stats">
+          <div><div class="n">+170%</div><div class="l">Visitas ao perfil</div></div>
+          <div><div class="n">+77%</div><div class="l">Pedidos de rota</div></div>
+        </div>
+        <p>Ficha construída do zero em março de 2026. Top 3 em Tietê em 60 dias, zero investimento em anúncio.</p>
+      </div>
+      <div class="case">
+        <div class="biz">Anje Store</div>
+        <div class="case-stats">
+          <div><div class="n">4,9★</div><div class="l">Avaliação atual</div></div>
+          <div><div class="n">15</div><div class="l">Avaliações reais</div></div>
+        </div>
+        <p>Perfil ativo, com fotos, horários e informações completas — aparecendo direto na busca local.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <h2>Vamos ver onde seu negócio está hoje?</h2>
+    <p>Sem enrolação. Te mostro o que está funcionando, o que está te escondendo do Google, e o que dá pra fazer sobre isso.</p>
+    <a class="btn-primary" href="https://wa.me/5515996342023?text=Oi%20Joyce!%20Vi%20a%20p%C3%A1gina%20de%20servi%C3%A7os%20de%20Google%20Meu%20Neg%C3%B3cio%20e%20quero%20saber%20mais." target="_blank">
+      Falar no WhatsApp →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Joyce Alves Ads · Tietê, SP</p>
+    <p>Google Meu Negócio · Meta Ads</p>
+  </div>
+</footer>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2436867553450751');
+fbq('track', 'PageView');
+</script>
+
+</body>
+</html>
