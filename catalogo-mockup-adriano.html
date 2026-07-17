@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo — Móveis Industriais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1a1917;
+    --charcoal-2:#232220;
+    --steel:#5b5954;
+    --paper:#ece7dc;
+    --paper-dim:#c9c3b4;
+    --brass:#a6773d;
+    --brass-light:#c99a5e;
+    --line:#3a3834;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--charcoal);
+    color:var(--paper);
+    font-family:'Source Sans 3', sans-serif;
+    line-height:1.5;
+  }
+  .bg-grid{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 42px 42px;
+    background-position: -1px -1px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding: 64px 24px 56px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'Oswald', sans-serif;
+    letter-spacing:0.35em;
+    font-size:11px;
+    color:var(--brass-light);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:clamp(34px, 7vw, 58px);
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    color:var(--paper);
+    line-height:1.05;
+  }
+  .hero h1 span{color:var(--brass-light);}
+  .hero p{
+    max-width:480px;
+    margin:20px auto 0;
+    color:var(--paper-dim);
+    font-size:15.5px;
+  }
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:28px;
+    padding:10px 18px;
+    border:1px solid var(--brass);
+    border-radius:2px;
+    font-family:'Oswald', sans-serif;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+  }
+
+  /* ---------- CATEGORY SECTIONS ---------- */
+  .catalog{ max-width:1040px; margin:0 auto; padding: 20px 24px 40px; }
+
+  .category{ padding: 56px 0 8px; border-bottom:1px solid var(--line); }
+  .category:last-child{border-bottom:none;}
+
+  .cat-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:32px;
+  }
+  .cat-num{
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    color:var(--steel);
+    letter-spacing:0.1em;
+  }
+  .cat-head h2{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    font-weight:600;
+    font-size:26px;
+    letter-spacing:0.03em;
+    color:var(--paper);
+  }
+  .cat-line{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:22px;
+  }
+
+  .card{
+    background:var(--charcoal-2);
+    border:1px solid var(--line);
+    border-radius:3px;
+    overflow:hidden;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .card:hover{ border-color:var(--brass); transform:translateY(-2px); }
+
+  .card-art{
+    aspect-ratio: 4/3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 18px 18px;
+    background-color:#151412;
+    position:relative;
+  }
+  .card-art svg{ width:58%; height:58%; }
+  .card-art .ph-label{
+    position:absolute;
+    bottom:8px; left:10px;
+    font-family:'Oswald', sans-serif;
+    font-size:9.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--steel);
+  }
+
+  .card-body{ padding:18px 18px 20px; }
+  .card-body h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:17px;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    color:var(--paper);
+    margin-bottom:8px;
+  }
+  .spec-tag{
+    display:inline-block;
+    font-size:12px;
+    color:var(--paper-dim);
+    border-left:2px solid var(--brass);
+    padding-left:8px;
+    margin-bottom:16px;
+  }
+  .cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+    padding:11px 0;
+    background:transparent;
+    border:1px solid var(--brass);
+    border-radius:2px;
+    color:var(--brass-light);
+    font-family:'Oswald', sans-serif;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition: background .2s ease, color .2s ease;
+  }
+  .cta:hover{ background:var(--brass); color:var(--charcoal); }
+
+  /* ---------- FOOTER CTA ---------- */
+  .footer-cta{
+    text-align:center;
+    padding:60px 24px 70px;
+    border-top:1px solid var(--line);
+  }
+  .footer-cta p.small{
+    font-family:'Oswald', sans-serif;
+    letter-spacing:0.3em;
+    font-size:11px;
+    color:var(--steel);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .footer-cta h2{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:clamp(24px,4vw,34px);
+    text-transform:uppercase;
+    color:var(--paper);
+    margin-bottom:24px;
+  }
+  .footer-cta a.big-cta{
+    display:inline-block;
+    padding:16px 38px;
+    background:var(--brass);
+    color:var(--charcoal);
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius:2px;
+  }
+
+  .note-banner{
+    max-width:1040px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    background:#241f16;
+    border:1px dashed var(--brass);
+    color:var(--brass-light);
+    font-size:12.5px;
+    text-align:center;
+    border-radius:3px;
+  }
+  .note-banner-wrap{ padding: 20px 24px 0; }
+
+  @media (max-width:520px){
+    .hero{padding:48px 20px 40px;}
+  }
+</style>
+</head>
+<body class="bg-grid">
+
+  <div class="note-banner-wrap">
+    <div class="note-banner">
+      MOCKUP DE EXEMPLO — layout de referência. Fotos reais e nome da marca entram aqui quando o Adriano enviar o material.
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Catálogo Digital</div>
+    <h1>Móveis <span>Industriais</span></h1>
+    <p>Estrutura em aço e madeira maciça, feitos sob medida para o seu ambiente de trabalho.</p>
+    <div class="hero-tag">Sob encomenda · Faça seu orçamento</div>
+  </header>
+
+  <main class="catalog">
+
+    <!-- MESAS -->
+    <section class="category">
+      <div class="cat-head">
+        <span class="cat-num">01</span>
+        <h2>Mesas</h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <line x1="10" y1="20" x2="90" y2="20"/>
+              <line x1="10" y1="20" x2="10" y2="26"/>
+              <line x1="90" y1="20" x2="90" y2="26"/>
+              <line x1="14" y1="26" x2="14" y2="58"/>
+              <line x1="86" y1="26" x2="86" y2="58"/>
+              <line x1="20" y1="30" x2="20" y2="52"/>
+              <line x1="80" y1="30" x2="80" y2="52"/>
+              <line x1="14" y1="40" x2="86" y2="40"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Mesa Industrial Reta</h3>
+            <span class="spec-tag">Estrutura em aço carbono · tampo em madeira maciça</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Mesa%20Industrial%20Reta" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <ellipse cx="50" cy="22" rx="38" ry="8"/>
+              <line x1="20" y1="26" x2="20" y2="58"/>
+              <line x1="80" y1="26" x2="80" y2="58"/>
+              <line x1="50" y1="30" x2="50" y2="58"/>
+              <line x1="14" y1="58" x2="86" y2="58"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Mesa Redonda Industrial</h3>
+            <span class="spec-tag">Base tripé em ferro · tampo redondo amadeirado</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Mesa%20Redonda%20Industrial" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ESCRIVANINHAS -->
+    <section class="category">
+      <div class="cat-head">
+        <span class="cat-num">02</span>
+        <h2>Escrivaninhas</h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <line x1="8" y1="18" x2="70" y2="18"/>
+              <line x1="8" y1="18" x2="8" y2="24"/>
+              <line x1="70" y1="18" x2="70" y2="24"/>
+              <line x1="12" y1="24" x2="12" y2="56"/>
+              <line x1="66" y1="24" x2="66" y2="56"/>
+              <rect x="46" y="24" width="20" height="24" stroke="#8a8478"/>
+              <line x1="12" y1="42" x2="46" y2="42"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Escrivaninha com Gaveteiro</h3>
+            <span class="spec-tag">Estrutura metálica preta · gaveteiro em madeira</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Escrivaninha%20com%20Gaveteiro" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <line x1="6" y1="20" x2="76" y2="20"/>
+              <line x1="6" y1="20" x2="6" y2="26"/>
+              <line x1="76" y1="20" x2="76" y2="26"/>
+              <line x1="10" y1="26" x2="10" y2="56"/>
+              <line x1="72" y1="26" x2="72" y2="56"/>
+              <line x1="10" y1="34" x2="72" y2="34"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Escrivaninha Compacta</h3>
+            <span class="spec-tag">Formato slim · ideal para home office</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Escrivaninha%20Compacta" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SAPATEIRAS -->
+    <section class="category">
+      <div class="cat-head">
+        <span class="cat-num">03</span>
+        <h2>Sapateiras</h2>
+        <div class="cat-line"></div>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <rect x="24" y="10" width="52" height="50" stroke="#8a8478"/>
+              <line x1="24" y1="26" x2="76" y2="26"/>
+              <line x1="24" y1="42" x2="76" y2="42"/>
+              <line x1="50" y1="10" x2="50" y2="60"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Sapateira Vertical 4 Prateleiras</h3>
+            <span class="spec-tag">Estrutura em aço · prateleiras em madeira</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Sapateira%20Vertical" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-art">
+            <span class="ph-label">Foto em breve</span>
+            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
+              <rect x="14" y="18" width="72" height="38" stroke="#8a8478"/>
+              <line x1="14" y1="30" x2="86" y2="30"/>
+              <line x1="14" y1="44" x2="86" y2="44"/>
+              <line x1="38" y1="18" x2="38" y2="56"/>
+              <line x1="62" y1="18" x2="62" y2="56"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3>Sapateira Horizontal Modular</h3>
+            <span class="spec-tag">Módulos empilháveis · acabamento industrial</span>
+            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Sapateira%20Horizontal" target="_blank" rel="noopener">Peça seu orçamento</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-cta">
+    <p class="small">Feito sob medida</p>
+    <h2>Não encontrou o que precisa?</h2>
+    <a class="big-cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20sob%20medida" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </footer>
+
+</body>
+</html>
