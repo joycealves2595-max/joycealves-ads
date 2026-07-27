@@ -3,416 +3,503 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catálogo — Móveis Industriais</title>
+<title>ARSTEEL | Peças em Metal — Lançamento</title>
+<meta name="description" content="Peças decorativas em metal feitas por quem fabrica há 19 anos. Suportes, prateleiras e vasos ARSTEEL — confira no Mercado Livre.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "ARSTEEL | Soluções Metálicas",
+  "description": "Fabricação de peças decorativas e estruturais em metal — Tietê, SP.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Ten. Joaquim de A. L. Moraes, 40",
+    "addressLocality": "Tietê",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "telephone": "+5515991346769"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --charcoal:#1a1917;
-    --charcoal-2:#232220;
-    --steel:#5b5954;
-    --paper:#ece7dc;
-    --paper-dim:#c9c3b4;
-    --brass:#a6773d;
-    --brass-light:#c99a5e;
-    --line:#3a3834;
+    --black:#141414;
+    --black-2:#1c1c1c;
+    --white:#f7f5f2;
+    --red:#c81e2c;
+    --red-deep:#7a1017;
+    --steel:#6b6f73;
+    --steel-line:#2c2c2c;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
   body{
-    background:var(--charcoal);
-    color:var(--paper);
     font-family:'Source Sans 3', sans-serif;
+    background:var(--white);
+    color:var(--black);
     line-height:1.5;
   }
-  .bg-grid{
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 42px 42px;
-    background-position: -1px -1px;
-  }
+  h1,h2,h3,.eyebrow,.btn{font-family:'Oswald', sans-serif;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
 
-  /* ---------- HERO ---------- */
+  /* HERO */
   .hero{
-    padding: 64px 24px 56px;
-    text-align:center;
-    border-bottom:1px solid var(--line);
     position:relative;
+    background:var(--black);
+    color:var(--white);
+    overflow:hidden;
+    padding:64px 0 96px;
   }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-20%; right:-10%;
+    width:60%; height:140%;
+    background:var(--red);
+    clip-path: polygon(45% 0, 100% 0, 55% 100%, 0% 100%);
+    opacity:.92;
+  }
+  .hero .wrap{position:relative; z-index:2;}
   .eyebrow{
-    font-family:'Oswald', sans-serif;
-    letter-spacing:0.35em;
-    font-size:11px;
-    color:var(--brass-light);
+    display:inline-block;
+    font-size:13px;
+    letter-spacing:.14em;
     text-transform:uppercase;
-    margin-bottom:18px;
+    font-weight:600;
+    color:var(--white);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 16px;
+    border-radius:999px;
+    margin-bottom:28px;
   }
   .hero h1{
-    font-family:'Oswald', sans-serif;
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
     font-weight:700;
-    font-size:clamp(34px, 7vw, 58px);
-    letter-spacing:0.01em;
     text-transform:uppercase;
-    color:var(--paper);
-    line-height:1.05;
+    line-height:1.08;
+    max-width:11ch;
+    margin-bottom:22px;
   }
-  .hero h1 span{color:var(--brass-light);}
   .hero p{
-    max-width:480px;
-    margin:20px auto 0;
-    color:var(--paper-dim);
-    font-size:15.5px;
+    font-size:1.05rem;
+    color:#d8d5cf;
+    max-width:46ch;
+    margin-bottom:34px;
   }
-  .hero-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-top:28px;
-    padding:10px 18px;
-    border:1px solid var(--brass);
-    border-radius:2px;
-    font-family:'Oswald', sans-serif;
-    font-size:12px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--brass-light);
-  }
-
-  /* ---------- CATEGORY SECTIONS ---------- */
-  .catalog{ max-width:1040px; margin:0 auto; padding: 20px 24px 40px; }
-
-  .category{ padding: 56px 0 8px; border-bottom:1px solid var(--line); }
-  .category:last-child{border-bottom:none;}
-
-  .cat-head{
-    display:flex;
-    align-items:baseline;
-    gap:16px;
-    margin-bottom:32px;
-  }
-  .cat-num{
-    font-family:'Oswald', sans-serif;
-    font-size:13px;
-    color:var(--steel);
-    letter-spacing:0.1em;
-  }
-  .cat-head h2{
-    font-family:'Oswald', sans-serif;
-    text-transform:uppercase;
+  .btn{
+    display:inline-block;
+    background:var(--red);
+    color:var(--white);
     font-weight:600;
-    font-size:26px;
-    letter-spacing:0.03em;
-    color:var(--paper);
+    font-size:1rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:2px;
+    transition:background .2s ease, transform .2s ease;
   }
-  .cat-line{
-    flex:1;
-    height:1px;
-    background:var(--line);
+  .btn:hover{background:var(--red-deep); transform:translateY(-1px);}
+
+  /* TRUST BAR */
+  .trust{
+    background:var(--black-2);
+    border-top:1px solid var(--steel-line);
+    color:var(--white);
+    padding:28px 0;
+  }
+  .trust .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px 40px;
+    justify-content:center;
+  }
+  .trust-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:.95rem;
+    color:#cfccc6;
+  }
+  .trust-item strong{color:var(--white); font-weight:600;}
+  .trust-mark{
+    color:var(--red);
+    font-weight:700;
+    font-size:1.1rem;
   }
 
+  /* SECTION HEADERS */
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 48px;
+  }
+  .section-head .eyebrow{
+    background:none;
+    border:none;
+    color:var(--red);
+    padding:0;
+    margin-bottom:12px;
+  }
+  .section-head h2{
+    font-size:clamp(1.6rem, 3.4vw, 2.2rem);
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--black);
+  }
+
+  /* PRODUCT GRID */
+  .produtos{padding:88px 0 40px;}
   .grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap:22px;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:28px;
   }
-
   .card{
-    background:var(--charcoal-2);
-    border:1px solid var(--line);
-    border-radius:3px;
+    background:#fff;
+    border:1px solid #e7e3da;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
-    transition: border-color .2s ease, transform .2s ease;
+    transition:box-shadow .2s ease, transform .2s ease;
   }
-  .card:hover{ border-color:var(--brass); transform:translateY(-2px); }
-
-  .card-art{
-    aspect-ratio: 4/3;
+  .card:hover{box-shadow:0 14px 30px rgba(20,20,20,.1); transform:translateY(-3px);}
+  .card-img{
+    aspect-ratio:1/1;
+    background:#efece5;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 18px 18px;
-    background-color:#151412;
-    position:relative;
+    overflow:hidden;
   }
-  .card-art svg{ width:58%; height:58%; }
-  .card-art .ph-label{
-    position:absolute;
-    bottom:8px; left:10px;
-    font-family:'Oswald', sans-serif;
-    font-size:9.5px;
-    letter-spacing:0.1em;
+  .card-img img{width:100%; height:100%; object-fit:contain; padding:14px;}
+  .card-body{
+    padding:18px 18px 22px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .card-body p.phrase{
+    font-size:.94rem;
+    color:#2c2c2c;
+    margin-bottom:14px;
+    flex:1;
+  }
+  .launch-note{
+    font-size:.78rem;
+    letter-spacing:.03em;
     text-transform:uppercase;
-    color:var(--steel);
-  }
-
-  .card-body{ padding:18px 18px 20px; }
-  .card-body h3{
-    font-family:'Oswald', sans-serif;
+    color:var(--red);
     font-weight:600;
-    font-size:17px;
-    text-transform:uppercase;
-    letter-spacing:0.02em;
-    color:var(--paper);
-    margin-bottom:8px;
+    margin-bottom:12px;
   }
-  .spec-tag{
+  .card-btn{
     display:inline-block;
-    font-size:12px;
-    color:var(--paper-dim);
-    border-left:2px solid var(--brass);
-    padding-left:8px;
+    text-align:center;
+    background:var(--black);
+    color:var(--white);
+    font-family:'Oswald', sans-serif;
+    font-size:.85rem;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:12px 14px;
+    border-radius:2px;
+    transition:background .2s ease;
+  }
+  .card-btn:hover{background:var(--red);}
+
+  /* CLOSING */
+  .closing{
+    position:relative;
+    background:var(--black);
+    color:var(--white);
+    padding:80px 0;
+    margin-top:96px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;
+    left:-15%; bottom:-40%;
+    width:50%; height:160%;
+    background:var(--red);
+    clip-path: polygon(0 0, 55% 0, 100% 100%, 45% 100%);
+    opacity:.9;
+  }
+  .closing .wrap{position:relative; z-index:2; max-width:680px;}
+  .closing h2{
+    font-size:clamp(1.5rem, 3.6vw, 2.1rem);
+    text-transform:uppercase;
+    font-weight:700;
+    line-height:1.25;
     margin-bottom:16px;
   }
-  .cta{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    width:100%;
-    padding:11px 0;
-    background:transparent;
-    border:1px solid var(--brass);
-    border-radius:2px;
-    color:var(--brass-light);
-    font-family:'Oswald', sans-serif;
-    font-size:12.5px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    text-decoration:none;
-    transition: background .2s ease, color .2s ease;
-  }
-  .cta:hover{ background:var(--brass); color:var(--charcoal); }
+  .closing p{color:#d8d5cf; font-size:1rem;}
 
-  /* ---------- FOOTER CTA ---------- */
-  .footer-cta{
+  /* FOOTER */
+  footer{
+    background:var(--white);
+    padding:36px 0;
     text-align:center;
-    padding:60px 24px 70px;
-    border-top:1px solid var(--line);
-  }
-  .footer-cta p.small{
-    font-family:'Oswald', sans-serif;
-    letter-spacing:0.3em;
-    font-size:11px;
     color:var(--steel);
-    text-transform:uppercase;
-    margin-bottom:14px;
+    font-size:.88rem;
   }
-  .footer-cta h2{
-    font-family:'Oswald', sans-serif;
-    font-weight:700;
-    font-size:clamp(24px,4vw,34px);
-    text-transform:uppercase;
-    color:var(--paper);
-    margin-bottom:24px;
-  }
-  .footer-cta a.big-cta{
-    display:inline-block;
-    padding:16px 38px;
-    background:var(--brass);
-    color:var(--charcoal);
-    font-family:'Oswald', sans-serif;
-    font-weight:600;
-    font-size:14px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    text-decoration:none;
-    border-radius:2px;
+  footer strong{color:var(--black); font-family:'Oswald', sans-serif; letter-spacing:.03em;}
+  footer a{color:var(--red); text-decoration:none;}
+
+  @media (max-width:640px){
+    .hero{padding:48px 0 72px;}
+    .hero::after{opacity:.5;}
+    .produtos{padding:64px 0 20px;}
   }
 
-  .note-banner{
-    max-width:1040px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    background:#241f16;
-    border:1px dashed var(--brass);
-    color:var(--brass-light);
-    font-size:12.5px;
-    text-align:center;
-    border-radius:3px;
-  }
-  .note-banner-wrap{ padding: 20px 24px 0; }
-
-  @media (max-width:520px){
-    .hero{padding:48px 20px 40px;}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
   }
 </style>
-</head>
-<body class="bg-grid">
 
-  <div class="note-banner-wrap">
-    <div class="note-banner">
-      MOCKUP DE EXEMPLO — layout de referência. Fotos reais e nome da marca entram aqui quando o Adriano enviar o material.
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '980264861716250');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">ARSTEEL — 19 anos fabricando em metal</span>
+    <h1>Peças em metal feitas pra durar. Direto de quem fabrica.</h1>
+    <p>Suportes, prateleiras e vasos decorativos com acabamento de fábrica — sem intermediário, sem improviso. Cada peça sai do mesmo lugar que atende projetos sob medida há quase duas décadas.</p>
+    <a href="#produtos" class="btn">Ver peças de lançamento</a>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><span class="trust-mark">✓</span> <strong>19 anos</strong>&nbsp;de mercado</div>
+    <div class="trust-item"><span class="trust-mark">✓</span> Fabricação <strong>própria</strong>, sem terceirização</div>
+    <div class="trust-item"><span class="trust-mark">✓</span> Acabamento resistente à <strong>ferrugem</strong> e ao tempo</div>
+  </div>
+</div>
+
+<section class="produtos" id="produtos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Linha de lançamento</span>
+      <h2>Peças decorativas em metal</h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p01.jpg" alt="Suporte de parede oval suspenso para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Um toque suave de verde, direto na parede, sem ocupar espaço nenhum.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p02.jpg" alt="Suporte duplo em pé para vasos de suculentas"></div>
+        <div class="card-body">
+          <p class="phrase">Duas plantas, um só suporte — equilíbrio que chama atenção na decoração.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p03.jpg" alt="Suporte anjo para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Delicadeza em metal pra dar um ar especial ao cantinho de plantas.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p04.jpg" alt="Base de pés para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Pequeno detalhe, grande diferença — eleva qualquer vaso do chão com estilo.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p05.jpg" alt="Suporte gato de chão"></div>
+        <div class="card-body">
+          <p class="phrase">Charme e personalidade pra quem ama um detalhe diferente em casa.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p06.jpg" alt="Prateleira redonda dupla"></div>
+        <div class="card-body">
+          <p class="phrase">Organização com formato que vira peça de decoração sozinha.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p07.jpg" alt="Prateleira hexagonal para plantas"></div>
+        <div class="card-body">
+          <p class="phrase">Um cantinho verde organizado, com geometria que valoriza qualquer parede.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p08.jpg" alt="Suporte cisne para vasos"></div>
+        <div class="card-body">
+          <p class="phrase">Elegância que transforma um vaso simples em peça de destaque.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p09.jpg" alt="Prateleira redonda tripla"></div>
+        <div class="card-body">
+          <p class="phrase">Espaço pra organizar memórias, plantas e detalhes — tudo em uma peça só.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p10.jpg" alt="Suporte alto para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Deixa a planta na altura certa, com uma estrutura que não passa despercebida.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p11.jpg" alt="Suporte flamingo para vaso de flores"></div>
+        <div class="card-body">
+          <p class="phrase">Um toque de charme e leveza pra quem gosta de fugir do óbvio.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p12.jpg" alt="Suporte de parede para vaso suspenso"></div>
+        <div class="card-body">
+          <p class="phrase">Aproveita a parede e ainda deixa o ambiente com cara de projeto assinado.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p13.jpg" alt="Suporte gato pequeno"></div>
+        <div class="card-body">
+          <p class="phrase">Detalhe fofo e discreto pra quem quer um toque de personalidade sem exagero.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p14.jpg" alt="Suporte círculo suspenso para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Suspenso, minimalista, e perfeito pra quem gosta de um visual mais clean.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p15.jpg" alt="Suporte pessoa para vaso"></div>
+        <div class="card-body">
+          <p class="phrase">Uma peça com personalidade própria — mais que suporte, é escultura.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p16.jpg" alt="Suporte gato de chão, variação"></div>
+        <div class="card-body">
+          <p class="phrase">Simples, charmoso, e do jeitinho certo pra decorar qualquer cantinho.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p17.jpg" alt="Treliça metálica decorativa"></div>
+        <div class="card-body">
+          <p class="phrase">Estrutura versátil pra criar seu próprio jardim vertical.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p18.jpg" alt="Suporte pessoa para vaso, variação"></div>
+        <div class="card-body">
+          <p class="phrase">Estilo único que faz qualquer planta virar destaque na decoração.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img"><img src="produtos/p19.jpg" alt="Prateleira hexagonal, variação"></div>
+        <div class="card-body">
+          <p class="phrase">Organiza com estilo — cada prateleira vira palco pra seus objetos favoritos.</p>
+          <div class="launch-note">Condição especial de lançamento</div>
+          <a href="#" class="card-btn">Ver no Mercado Livre</a>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <header class="hero">
-    <div class="eyebrow">Catálogo Digital</div>
-    <h1>Móveis <span>Industriais</span></h1>
-    <p>Estrutura em aço e madeira maciça, feitos sob medida para o seu ambiente de trabalho.</p>
-    <div class="hero-tag">Sob encomenda · Faça seu orçamento</div>
-  </header>
+<section class="closing">
+  <div class="wrap">
+    <h2>19 anos de experiência em metal, agora também nos pequenos detalhes da sua casa.</h2>
+    <p>ARSTEEL — soluções metálicas sob medida, de projetos grandes a detalhes de decoração.</p>
+  </div>
+</section>
 
-  <main class="catalog">
-
-    <!-- MESAS -->
-    <section class="category">
-      <div class="cat-head">
-        <span class="cat-num">01</span>
-        <h2>Mesas</h2>
-        <div class="cat-line"></div>
-      </div>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <line x1="10" y1="20" x2="90" y2="20"/>
-              <line x1="10" y1="20" x2="10" y2="26"/>
-              <line x1="90" y1="20" x2="90" y2="26"/>
-              <line x1="14" y1="26" x2="14" y2="58"/>
-              <line x1="86" y1="26" x2="86" y2="58"/>
-              <line x1="20" y1="30" x2="20" y2="52"/>
-              <line x1="80" y1="30" x2="80" y2="52"/>
-              <line x1="14" y1="40" x2="86" y2="40"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Mesa Industrial Reta</h3>
-            <span class="spec-tag">Estrutura em aço carbono · tampo em madeira maciça</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Mesa%20Industrial%20Reta" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <ellipse cx="50" cy="22" rx="38" ry="8"/>
-              <line x1="20" y1="26" x2="20" y2="58"/>
-              <line x1="80" y1="26" x2="80" y2="58"/>
-              <line x1="50" y1="30" x2="50" y2="58"/>
-              <line x1="14" y1="58" x2="86" y2="58"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Mesa Redonda Industrial</h3>
-            <span class="spec-tag">Base tripé em ferro · tampo redondo amadeirado</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Mesa%20Redonda%20Industrial" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ESCRIVANINHAS -->
-    <section class="category">
-      <div class="cat-head">
-        <span class="cat-num">02</span>
-        <h2>Escrivaninhas</h2>
-        <div class="cat-line"></div>
-      </div>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <line x1="8" y1="18" x2="70" y2="18"/>
-              <line x1="8" y1="18" x2="8" y2="24"/>
-              <line x1="70" y1="18" x2="70" y2="24"/>
-              <line x1="12" y1="24" x2="12" y2="56"/>
-              <line x1="66" y1="24" x2="66" y2="56"/>
-              <rect x="46" y="24" width="20" height="24" stroke="#8a8478"/>
-              <line x1="12" y1="42" x2="46" y2="42"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Escrivaninha com Gaveteiro</h3>
-            <span class="spec-tag">Estrutura metálica preta · gaveteiro em madeira</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Escrivaninha%20com%20Gaveteiro" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <line x1="6" y1="20" x2="76" y2="20"/>
-              <line x1="6" y1="20" x2="6" y2="26"/>
-              <line x1="76" y1="20" x2="76" y2="26"/>
-              <line x1="10" y1="26" x2="10" y2="56"/>
-              <line x1="72" y1="26" x2="72" y2="56"/>
-              <line x1="10" y1="34" x2="72" y2="34"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Escrivaninha Compacta</h3>
-            <span class="spec-tag">Formato slim · ideal para home office</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Escrivaninha%20Compacta" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- SAPATEIRAS -->
-    <section class="category">
-      <div class="cat-head">
-        <span class="cat-num">03</span>
-        <h2>Sapateiras</h2>
-        <div class="cat-line"></div>
-      </div>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <rect x="24" y="10" width="52" height="50" stroke="#8a8478"/>
-              <line x1="24" y1="26" x2="76" y2="26"/>
-              <line x1="24" y1="42" x2="76" y2="42"/>
-              <line x1="50" y1="10" x2="50" y2="60"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Sapateira Vertical 4 Prateleiras</h3>
-            <span class="spec-tag">Estrutura em aço · prateleiras em madeira</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Sapateira%20Vertical" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-art">
-            <span class="ph-label">Foto em breve</span>
-            <svg viewBox="0 0 100 70" fill="none" stroke="#8a8478" stroke-width="1.6">
-              <rect x="14" y="18" width="72" height="38" stroke="#8a8478"/>
-              <line x1="14" y1="30" x2="86" y2="30"/>
-              <line x1="14" y1="44" x2="86" y2="44"/>
-              <line x1="38" y1="18" x2="38" y2="56"/>
-              <line x1="62" y1="18" x2="62" y2="56"/>
-            </svg>
-          </div>
-          <div class="card-body">
-            <h3>Sapateira Horizontal Modular</h3>
-            <span class="spec-tag">Módulos empilháveis · acabamento industrial</span>
-            <a class="cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20da%20Sapateira%20Horizontal" target="_blank" rel="noopener">Peça seu orçamento</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer-cta">
-    <p class="small">Feito sob medida</p>
-    <h2>Não encontrou o que precisa?</h2>
-    <a class="big-cta" href="https://wa.me/SEUNUMEROAQUI?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20sob%20medida" target="_blank" rel="noopener">Falar no WhatsApp</a>
-  </footer>
+<footer>
+  <strong>ARSTEEL</strong> | Soluções Metálicas — Tietê, SP<br>
+  <a href="https://wa.me/5515991346769" target="_blank" rel="noopener">(15) 99134-6769</a>
+</footer>
 
 </body>
 </html>
