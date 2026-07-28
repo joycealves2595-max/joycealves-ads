@@ -81,6 +81,32 @@
     border-radius:999px;
     margin-bottom:28px;
   }
+  .brand-lockup{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:32px;
+  }
+  .brand-logo{
+    width:110px;
+    height:auto;
+    display:block;
+  }
+  .brand-tagline{
+    font-family:'Oswald', sans-serif;
+    font-size:13px;
+    line-height:1.25;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--white);
+    border-left:2px solid var(--red);
+    padding-left:14px;
+  }
+  @media (max-width:600px){
+    .brand-logo{width:84px;}
+    .brand-tagline{font-size:11px;}
+  }
   .hero h1{
     font-size:clamp(2.1rem, 5vw, 3.4rem);
     font-weight:700;
@@ -291,7 +317,10 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
 
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">ARSTEEL — 19 anos fabricando em metal</span>
+    <div class="brand-lockup">
+      <img src="produtos/logo-arsteel.png" alt="ARSTEEL" class="brand-logo">
+      <span class="brand-tagline">19 anos<br>fabricando<br>em metal</span>
+    </div>
     <h1>Peças em metal feitas pra durar. Direto de quem fabrica.</h1>
     <p>Suportes, prateleiras e vasos decorativos com acabamento de fábrica — sem intermediário, sem improviso. Cada peça sai do mesmo lugar que atende projetos sob medida há quase duas décadas.</p>
     <a href="#produtos" class="btn">Ver peças de lançamento</a>
