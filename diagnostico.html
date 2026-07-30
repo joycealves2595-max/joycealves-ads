@@ -3,144 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Descubra o que está travando sua empresa | Joyce Alves Ads</title>
-<meta name="description" content="Responda 6 perguntas rápidas e descubra exatamente o que está impedindo sua empresa de ser encontrada — com um caminho pronto pra resolver.">
+<title>Joyce Alves Ads — Sua empresa existe. Ela é encontrada?</title>
+<meta name="description" content="Gestão de Perfil da Empresa no Google e Meta Ads para negócios locais. Estratégia real, não achismo de curso de marketing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0f0e0c;
-    --bg-panel:#17150f;
-    --bg-panel-2:#1d1a13;
-    --line: rgba(198,161,91,0.18);
-    --gold:#c6a15b;
-    --gold-bright:#e8c97a;
-    --cream:#f3eee6;
-    --muted:#a79c87;
-    --red:#c2695a;
-    --green:#7d9b7a;
+    --bg:#f6f2ea;
+    --bg-panel:#efe8d9;
+    --bg-dark-panel:#2f3c34;
+    --line: rgba(63,92,78,0.18);
+    --line-strong: rgba(63,92,78,0.35);
+    --ink:#2b2b26;
+    --muted:#6f6a5c;
+    --green:#3f5c4e;
+    --green-bright:#5c7d6a;
+    --gold:#b8935a;
+    --gold-bright:#c9a570;
+    --cream-on-dark:#f2ede0;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--bg); color:var(--cream);
-    font-family:'Inter', sans-serif; line-height:1.55;
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter', sans-serif; line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
   }
   @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
   }
-  a{color:inherit;}
-  .wrap{max-width:640px; margin:0 auto; padding:0 24px;}
-  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  .wrap-narrow{max-width:760px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  section{padding:88px 0;}
+  @media (max-width:640px){ section{padding:56px 0;} }
+
   .eyebrow{
-    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.14em;
-    text-transform:uppercase; color:var(--gold);
-    display:flex; align-items:center; gap:10px; justify-content:center;
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--green);
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;
   }
-  .btn{
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--gold);}
+
+  .btn-primary{
     display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    background:var(--gold); color:#17150f;
-    font-weight:600; font-size:15px;
-    padding:15px 30px; border:none; border-radius:9px;
-    cursor:pointer; text-decoration:none; width:100%;
-    transition:background 0.2s, transform 0.2s;
+    background:var(--green); color:var(--cream-on-dark);
+    font-weight:600; font-size:15.5px;
+    padding:16px 30px; border:none; border-radius:8px;
+    cursor:pointer; transition:background 0.2s, transform 0.2s;
     font-family:'Inter', sans-serif;
   }
-  .btn:hover{background:var(--gold-bright); transform:translateY(-1px);}
-  .btn:focus-visible, .q-btn:focus-visible, .seg-btn:focus-visible{outline:2px solid var(--gold-bright); outline-offset:2px;}
+  .btn-primary:hover{background:#345043; transform:translateY(-1px);}
+  .btn-primary:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--green); font-weight:600; font-size:15px;
+    border-bottom:1px solid var(--line-strong); padding-bottom:2px;
+    transition:border-color 0.2s;
+  }
+  .btn-ghost:hover{border-color:var(--green);}
 
+  /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(15,14,12,0.85);
+    background:rgba(246,242,234,0.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  nav .wrap{display:flex; justify-content:space-between; align-items:center; padding:16px 24px;}
-  .logo{font-family:'Fraunces', serif; font-weight:600; font-size:17px;}
-  .logo span{color:var(--gold);}
-  .nav-tag{font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.05em;}
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; padding:18px 28px;}
+  .logo{font-family:'Fraunces', serif; font-weight:600; font-size:18px;}
+  .logo span{color:var(--green);}
+  .nav-links{display:flex; gap:28px; font-size:14px; font-weight:500;}
+  .nav-links a{color:var(--muted); transition:color 0.2s;}
+  .nav-links a:hover{color:var(--green);}
+  @media (max-width:760px){ .nav-links{display:none;} }
 
-  .hero{padding:44px 0 24px; text-align:center;}
-  .hero h1{font-size:clamp(24px,6vw,32px); line-height:1.2; max-width:20ch; margin:14px auto 12px;}
-  .hero p.lede{color:var(--muted); font-size:15.5px; max-width:42ch; margin:0 auto;}
+  /* HERO */
+  .hero{padding:100px 0 80px;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(32px,5vw,52px); line-height:1.12; margin-bottom:22px;}
+  .hero p.lede{font-size:18px; color:var(--muted); max-width:46ch; margin-bottom:32px;}
+  .hero-cta-row{display:flex; gap:20px; align-items:center; flex-wrap:wrap;}
 
-  .quiz-section{padding:24px 0 60px;}
-  .card{
-    width:100%; margin:0 auto;
-    background:var(--bg-panel); border:1px solid var(--line); border-radius:18px;
-    padding:32px 24px; position:relative; overflow:hidden;
+  .hero-panel{
+    background:var(--bg-dark-panel); border-radius:16px; padding:32px;
+    color:var(--cream-on-dark); position:relative; overflow:hidden;
   }
-  .card::before{
+  .hero-panel::before{
     content:''; position:absolute; inset:0;
-    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:28px 28px; opacity:0.25; pointer-events:none;
+    background-image: linear-gradient(rgba(242,237,224,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(242,237,224,0.06) 1px, transparent 1px);
+    background-size:24px 24px; pointer-events:none;
   }
-  .screen{position:relative; z-index:1; display:none;}
-  .screen.active{display:block; animation:fadeIn 0.4s ease;}
+  .hero-panel-label{font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:18px; position:relative;}
+  .stat-row{display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(242,237,224,0.12); position:relative;}
+  .stat-row:last-child{border-bottom:none;}
+  .stat-row .label{font-size:14px; color:rgba(242,237,224,0.65);}
+  .stat-row .value{font-family:'JetBrains Mono', monospace; font-size:20px; font-weight:600; color:var(--cream-on-dark);}
+  .stat-row .value.gold{color:var(--gold-bright);}
+
+  /* PROBLEMA */
+  .problem-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:40px;}
+  @media (max-width:800px){ .problem-grid{grid-template-columns:1fr;} }
+  .problem-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:14px;
+    padding:28px 24px;
+  }
+  .problem-card .num{font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--gold); margin-bottom:14px; display:block;}
+  .problem-card p{font-size:15.5px; color:var(--ink); line-height:1.55;}
+  .problem-note{margin-top:32px; font-size:16px; color:var(--green); font-weight:600; font-family:'Fraunces', serif;}
+
+  /* COMO FUNCIONA */
+  .how-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:44px;}
+  @media (max-width:760px){ .how-grid{grid-template-columns:1fr;} }
+  .how-card{padding:30px; border-radius:14px; border:1px solid var(--line-strong);}
+  .how-card h3{font-size:21px; margin-bottom:12px;}
+  .how-card p{color:var(--muted); font-size:15px;}
+  .how-connector{
+    text-align:center; font-family:'JetBrains Mono', monospace; font-size:12px;
+    color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; margin-top:28px;
+  }
+
+  /* SERVIÇOS */
+  .services-list{display:flex; flex-direction:column; gap:14px; margin-top:44px;}
+  .service-row{
+    display:grid; grid-template-columns:1fr auto; gap:20px; align-items:start;
+    padding:26px 28px; background:var(--bg-panel); border-radius:14px; border:1px solid var(--line);
+    transition:border-color 0.2s;
+  }
+  .service-row:hover{border-color:var(--green-bright);}
+  .service-row h3{font-size:19px; margin-bottom:6px;}
+  .service-row p{color:var(--muted); font-size:14.5px; max-width:52ch;}
+  .service-price{font-family:'JetBrains Mono', monospace; font-size:17px; font-weight:600; color:var(--green); white-space:nowrap; text-align:right;}
+  .service-price .sub{display:block; font-size:11px; color:var(--muted); font-weight:400; margin-top:4px;}
+  @media (max-width:600px){ .service-row{grid-template-columns:1fr;} .service-price{text-align:left;} }
+
+  /* DIFERENCIAIS */
+  .diff-list{margin-top:40px; display:flex; flex-direction:column; gap:0;}
+  .diff-item{display:flex; gap:20px; padding:22px 0; border-bottom:1px solid var(--line);}
+  .diff-item:last-child{border-bottom:none;}
+  .diff-item .mark{font-family:'JetBrains Mono', monospace; color:var(--gold); font-size:14px; padding-top:2px;}
+  .diff-item p{font-size:16px;}
+
+  /* SOBRE */
+  .about-section{background:var(--bg-dark-panel); color:var(--cream-on-dark);}
+  .about-section .eyebrow{color:var(--gold-bright);}
+  .about-section .eyebrow::before{background:var(--gold-bright);}
+  .about-section h2{color:var(--cream-on-dark);}
+  .about-text{font-size:17px; max-width:62ch; color:rgba(242,237,224,0.85); margin-top:24px;}
+  .about-text strong{color:var(--cream-on-dark);}
+
+  /* PROVA SOCIAL */
+  .cases-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:44px;}
+  @media (max-width:760px){ .cases-grid{grid-template-columns:1fr;} }
+  .case-card{background:var(--bg-panel); border:1px solid var(--line); border-radius:14px; padding:28px; overflow:hidden;}
+  .case-card h3{font-size:18px; margin-bottom:18px;}
+  .case-chart{display:flex; align-items:flex-end; gap:6px; height:64px; margin:18px 0;}
+  .case-chart .bar{flex:1; background:var(--green-bright); border-radius:3px 3px 0 0; opacity:0.85;}
+  .case-chart .bar.peak{background:var(--gold);}
+  .case-months{display:flex; gap:6px; font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--muted); margin-bottom:14px;}
+  .case-months span{flex:1; text-align:center;}
+  .case-stats{display:flex; gap:24px; margin-bottom:14px;}
+  .case-stats div{font-family:'JetBrains Mono', monospace;}
+  .case-stats .n{font-size:24px; font-weight:600; color:var(--green); display:block;}
+  .case-stats .l{font-size:11px; color:var(--muted);}
+  .case-card p.desc{font-size:14.5px; color:var(--muted); line-height:1.55;}
+
+  /* FORMULARIO */
+  .form-section{background:var(--green); color:var(--cream-on-dark);}
+  .form-section .eyebrow{color:var(--gold-bright);}
+  .form-section .eyebrow::before{background:var(--gold-bright);}
+  .form-section h2{color:var(--cream-on-dark);}
+  .form-card{
+    background:var(--cream-on-dark); border-radius:16px; padding:36px 32px; margin-top:36px;
+    color:var(--ink); max-width:640px;
+  }
+  .f-screen{display:none;}
+  .f-screen.active{display:block; animation:fadeIn 0.35s ease;}
   @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
-
-  #intro-screen{text-align:center;}
-  .progress-wrap{margin-bottom:24px;}
-  .progress-top{display:flex; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted); margin-bottom:8px;}
-  .progress-track{height:6px; background:var(--bg); border-radius:4px; overflow:hidden; border:1px solid var(--line);}
-  .progress-fill{height:100%; background:linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius:4px; transition:width 0.4s ease; width:0%;}
-  .q-text{font-family:'Fraunces', serif; font-size:20px; font-weight:600; line-height:1.32; margin-bottom:22px; min-height:76px;}
-
-  .q-options{display:flex; gap:12px;}
-  .q-btn{
-    flex:1; padding:15px; border-radius:10px; border:1px solid var(--line);
-    background:var(--bg); color:var(--cream); font-weight:600; font-size:15px;
-    cursor:pointer; transition:all 0.15s; font-family:'Inter', sans-serif;
+  .f-progress{height:5px; background:var(--bg-panel); border-radius:4px; overflow:hidden; margin-bottom:22px;}
+  .f-progress-fill{height:100%; background:var(--green); border-radius:4px; transition:width 0.4s ease; width:0%;}
+  .f-q{font-family:'Fraunces', serif; font-size:19px; font-weight:600; margin-bottom:20px; line-height:1.3; min-height:52px;}
+  .f-opts{display:flex; gap:12px;}
+  .f-btn{
+    flex:1; padding:14px; border-radius:9px; border:1px solid var(--line-strong);
+    background:var(--bg); color:var(--ink); font-weight:600; font-size:15px; cursor:pointer;
+    transition:all 0.15s;
   }
-  .q-btn:hover{border-color:var(--gold); background:var(--bg-panel-2);}
-  .q-btn.yes:hover{color:var(--green); border-color:var(--green);}
-  .q-btn.no:hover{color:var(--red); border-color:var(--red);}
-
-  .seg-options{display:flex; flex-direction:column; gap:10px;}
-  .seg-btn{
-    text-align:left; padding:16px 18px; border-radius:10px; border:1px solid var(--line);
-    background:var(--bg); color:var(--cream); font-weight:500; font-size:14.5px;
-    cursor:pointer; transition:all 0.15s; font-family:'Inter', sans-serif;
+  .f-btn:hover{border-color:var(--green); background:var(--bg-panel);}
+  .f-result{text-align:center;}
+  .f-badge{
+    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; padding:6px 16px; border-radius:20px; margin-bottom:18px; font-weight:600;
   }
-  .seg-btn:hover{border-color:var(--gold); background:var(--bg-panel-2); color:var(--gold-bright);}
+  .f-badge.quente{background:#e4d3b8; color:#7a5a20;}
+  .f-badge.morno{background:#dbe2da; color:var(--green);}
+  .f-badge.frio{background:#e8e4d8; color:var(--muted);}
+  .f-msg{font-size:16px; margin-bottom:26px; line-height:1.55;}
+  .f-start{text-align:center;}
+  .f-start p{color:var(--muted); margin-bottom:20px;}
 
-  .score-wrap{text-align:center; margin:4px 0 20px;}
-  .score-circle{width:130px; height:130px; margin:0 auto 12px; position:relative; display:flex; align-items:center; justify-content:center; flex-direction:column;}
-  .score-circle svg{position:absolute; inset:0; transform:rotate(-90deg);}
-  .score-circle .num{font-family:'Fraunces', serif; font-size:34px; font-weight:700; color:var(--gold-bright); position:relative; z-index:2;}
-  .score-circle .of{font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted); position:relative; z-index:2;}
-  .score-label{font-family:'JetBrains Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); text-align:center;}
-  .result-msg{background:var(--bg); border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:18px 0 26px; font-size:14.5px;}
-  .result-msg b{color:var(--gold-bright);}
+  /* FAQ */
+  .faq-list{margin-top:40px; display:flex; flex-direction:column; gap:1px; background:var(--line);}
+  .faq-item{background:var(--bg); padding:24px 4px;}
+  .faq-item h3{font-size:16.5px; font-weight:600; margin-bottom:10px; font-family:'Inter', sans-serif;}
+  .faq-item p{color:var(--muted); font-size:15px;}
 
-  .catalog-head{margin-bottom:14px;}
-  .catalog-head .eyebrow{justify-content:flex-start; margin-bottom:6px;}
-  .catalog-head p{color:var(--muted); font-size:13.5px;}
-  .cat-list{display:flex; flex-direction:column; gap:10px; margin-bottom:22px;}
-  .cat-item{
-    border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:var(--bg);
-    position:relative;
-  }
-  .cat-item.rec{border-color:var(--gold); background:var(--bg-panel-2);}
-  .cat-badge{
-    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.05em;
-    text-transform:uppercase; color:#17150f; background:var(--gold-bright);
-    padding:3px 8px; border-radius:20px; margin-bottom:8px;
-  }
-  .cat-item-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:6px;}
-  .cat-item h4{font-family:'Fraunces', serif; font-size:16px; font-weight:600;}
-  .cat-item .price{font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--gold-bright); white-space:nowrap;}
-  .cat-item p{color:var(--muted); font-size:13px; line-height:1.5;}
-
-  footer{border-top:1px solid var(--line); padding:24px 0; text-align:center;}
-  footer p{font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--muted);}
-
-  @media (max-width:400px){
-    .card{padding:26px 18px;}
-  }
+  footer{background:var(--bg-dark-panel); color:rgba(242,237,224,0.7); padding:52px 0 32px;}
+  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; margin-bottom:32px;}
+  footer .logo{color:var(--cream-on-dark);}
+  footer .logo span{color:var(--gold-bright);}
+  footer a{color:rgba(242,237,224,0.7); transition:color 0.2s;}
+  footer a:hover{color:var(--cream-on-dark);}
+  .footer-bottom{font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.04em; border-top:1px solid rgba(242,237,224,0.12); padding-top:22px;}
 </style>
 </head>
 <body>
@@ -148,81 +225,234 @@
 <nav>
   <div class="wrap">
     <div class="logo">Joyce Alves <span>Ads</span></div>
-    <div class="nav-tag">TIETÊ/SP</div>
+    <div class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#provas">Resultados</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#analise">Fazer análise</a>
+    </div>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Análise rápida</div>
-    <h1>O que está travando sua empresa nas buscas?</h1>
-    <p class="lede">6 perguntas rápidas. No final, você recebe um caminho pronto pra resolver — sem enrolação.</p>
-  </div>
-</section>
-
-<section class="quiz-section">
-  <div class="wrap">
-    <div class="card">
-
-      <div class="screen active" id="intro-screen">
-        <p style="color:var(--muted); margin-bottom:22px;">Leva menos de 2 minutos.</p>
-        <button class="btn" onclick="goTo('seg-screen');">Começar →</button>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Google + Meta Ads · Tietê/SP</div>
+      <h1>Sua empresa existe. A pergunta é: ela é encontrada?</h1>
+      <p class="lede">Você já tentou impulsionar post sozinho. Talvez já tenha contratado alguém. E mesmo assim, o cliente certo ainda não te encontra — nem no Google, nem no Instagram. Isso não significa que marketing digital não funciona pra você. Significa que ainda não foi feito do jeito certo.</p>
+      <div class="hero-cta-row">
+        <a href="#analise" class="btn-primary">Descobrir onde estou perdendo cliente →</a>
+        <a href="#provas" class="btn-ghost">Ver resultados reais</a>
       </div>
-
-      <div class="screen" id="seg-screen">
-        <div class="q-text">Qual desses hoje mais atrapalha seu negócio a ser encontrado?</div>
-        <div class="seg-options">
-          <button class="seg-btn" onclick="setSegment(0)">Não apareço no Google</button>
-          <button class="seg-btn" onclick="setSegment(1)">Não sei se meus anúncios funcionam</button>
-          <button class="seg-btn" onclick="setSegment(2)">As duas coisas</button>
-        </div>
-      </div>
-
-      <div class="screen" id="quiz-screen">
-        <div class="progress-wrap">
-          <div class="progress-top"><span id="prog-label">Pergunta 1 de 5</span><span id="prog-pct">0%</span></div>
-          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-        </div>
-        <div class="q-text" id="q-text"></div>
-        <div class="q-options">
-          <button class="q-btn no" onclick="answer(0)">Não</button>
-          <button class="q-btn yes" onclick="answer(1)">Sim</button>
-        </div>
-      </div>
-
-      <div class="screen" id="result-screen">
-        <div class="eyebrow" style="margin-bottom:6px;">Resultado da sua análise</div>
-        <div class="score-wrap">
-          <div class="score-circle">
-            <svg width="130" height="130">
-              <circle cx="65" cy="65" r="57" stroke="var(--bg)" stroke-width="9" fill="none"/>
-              <circle id="score-ring" cx="65" cy="65" r="57" stroke="var(--gold)" stroke-width="9" fill="none" stroke-dasharray="358.1" stroke-dashoffset="358.1" stroke-linecap="round"/>
-            </svg>
-            <div class="num" id="score-num">0</div>
-            <div class="of">/ 100</div>
-          </div>
-          <div class="score-label">Posicionamento Local</div>
-        </div>
-        <div class="result-msg" id="result-msg"></div>
-
-        <div class="catalog-head">
-          <div class="eyebrow">Catálogo</div>
-          <p>Baseado na sua resposta, isto é o que resolve primeiro:</p>
-        </div>
-        <div class="cat-list" id="cat-list"></div>
-
-        <a class="btn" id="wa-btn" href="#" target="_blank" rel="noopener">Falar no WhatsApp →</a>
-      </div>
-
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-label">Perfil da Empresa — leitura real</div>
+      <div class="stat-row"><span class="label">Visualizações do perfil</span><span class="value">382</span></div>
+      <div class="stat-row"><span class="label">Interações geradas</span><span class="value gold">259</span></div>
+      <div class="stat-row"><span class="label">Posição no Google</span><span class="value">2º lugar</span></div>
+      <div class="stat-row"><span class="label">Período</span><span class="value">fev–jul/26</span></div>
     </div>
   </div>
 </section>
 
-<footer><p>JOYCE ALVES ADS · GOOGLE MEU NEGÓCIO + META ADS · TIETÊ/SP</p></footer>
+<section id="problema">
+  <div class="wrap">
+    <div class="eyebrow">O problema, nomeado</div>
+    <h2 style="font-size:clamp(24px,3.5vw,34px); max-width:24ch;">Você se identifica com algum desses três?</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="num">01</span>
+        <p>Já impulsionou post achando que ia trazer cliente — e trouxe só curtida.</p>
+      </div>
+      <div class="problem-card">
+        <span class="num">02</span>
+        <p>Tem Perfil da Empresa no Google, mas não sabe usar ele pra atrair ninguém.</p>
+      </div>
+      <div class="problem-card">
+        <span class="num">03</span>
+        <p>Já contratou alguém para cuidar do marketing, não teve resultado, e agora desconfia que isso não funciona para você.</p>
+      </div>
+    </div>
+    <p class="problem-note">Nenhum desses casos é falta de sorte. É falta de estratégia — e isso tem conserto.</p>
+  </div>
+</section>
+
+<section id="como-funciona" style="background:var(--bg-panel);">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Como funciona</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Duas frentes que se completam</h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <h3>Google Perfil da Empresa</h3>
+        <p>Pra quem já está procurando o que você vende agora, no Google e no mapa.</p>
+      </div>
+      <div class="how-card">
+        <h3>Meta Ads</h3>
+        <p>Pra alcançar quem ainda não sabe que precisa de você, mas se encaixa no perfil de quem compra.</p>
+      </div>
+    </div>
+    <p class="how-connector">uma traz quem já quer comprar · a outra constrói quem vai querer</p>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="eyebrow">Serviços</div>
+    <h2 style="font-size:clamp(24px,3.5vw,34px);">O que resolve o seu momento agora</h2>
+    <div class="services-list">
+      <div class="service-row">
+        <div><h3>Diagnóstico completo</h3><p>Descubro exatamente onde sua empresa está perdendo cliente hoje, com plano de ação por escrito.</p></div>
+        <div class="service-price">R$100</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Setup GBP avulso</h3><p>Configuração completa do seu Perfil da Empresa no Google, pronto pra aparecer nas buscas certas.</p></div>
+        <div class="service-price">R$300</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Setup + Treinamento</h3><p>Configuração completa e te ensino a manter o perfil atualizado sozinho, sem depender de mim pro básico.</p></div>
+        <div class="service-price">R$450</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Gestão GBP mensal</h3><p>Cuido do seu perfil toda semana: postagem, resposta de avaliação, ajuste de categoria, monitoramento.</p></div>
+        <div class="service-price">R$600<span class="sub">R$500/mês em 6 meses</span></div>
+      </div>
+      <div class="service-row">
+        <div><h3>Gestão GBP + Meta Ads</h3><p>Google e Instagram/Facebook trabalhando juntos, fechando os dois lados por onde você perde cliente hoje.</p></div>
+        <div class="service-price">R$700<span class="sub">R$600/mês em 6 meses</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-panel);">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Diferenciais</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Prova, não achismo</h2>
+    <div class="diff-list">
+      <div class="diff-item"><span class="mark">→</span><p>Trabalho ético: entrego o que prometo, sem inflar número.</p></div>
+      <div class="diff-item"><span class="mark">→</span><p>Cada estratégia é pensada pro seu negócio, não copiada de fórmula genérica.</p></div>
+      <div class="diff-item"><span class="mark">→</span><p>Acompanhamento direto comigo, sem repasse pra equipe terceirizada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Sobre</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Tempo de mercado não é a métrica. Resultado é.</h2>
+    <p class="about-text">Comecei em <strong>fevereiro de 2026</strong> — ainda pouco tempo de mercado, sem esconder isso de ninguém. Mas enquanto ainda trabalho em CLT, já entreguei resultado real pra quem confiou em mim: uma papelaria de Tietê foi pro <strong>Top 3 do Google em 60 dias</strong>, de forma orgânica.</p>
+    <p class="about-text">Não meço meu trabalho pelo tempo que estou no mercado, mas pelo resultado que entrego. Tem gente há anos no mercado sem gerar valor nenhum pro cliente. Prefiro ser julgada pelo que já entreguei do que pelo tempo que estou fazendo isso.</p>
+  </div>
+</section>
+
+<section id="provas">
+  <div class="wrap">
+    <div class="eyebrow">Resultados reais</div>
+    <h2 style="font-size:clamp(24px,3.5vw,34px);">Prova, com número — não promessa</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <h3>Loja de cosméticos em Tietê</h3>
+        <div class="case-months"><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span><span>jul</span></div>
+        <div class="case-chart">
+          <div class="bar" style="height:76%;"></div>
+          <div class="bar" style="height:58%;"></div>
+          <div class="bar peak" style="height:88%;"></div>
+          <div class="bar" style="height:40%;"></div>
+          <div class="bar" style="height:64%;"></div>
+          <div class="bar" style="height:30%;"></div>
+        </div>
+        <div class="case-stats">
+          <div><span class="n">382</span><span class="l">visualizações</span></div>
+          <div><span class="n">259</span><span class="l">interações</span></div>
+        </div>
+        <p class="desc">Mantendo a 2ª posição no Google até hoje — resultado que se sustenta mesmo com o tempo.</p>
+      </div>
+      <div class="case-card">
+        <h3>Papelaria em Tietê</h3>
+        <div class="case-stats">
+          <div><span class="n">Top 3</span><span class="l">em 60 dias</span></div>
+          <div><span class="n">5.0★</span><span class="l">28 avaliações</span></div>
+        </div>
+        <p class="desc">Foi do zero ao Top 3 do Google em 60 dias de gestão ativa. Quando a gestão parou, a posição caiu — prova de que ranqueamento bem feito não é sorte, é manutenção constante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="analise" class="form-section">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Sua análise</div>
+    <h2 style="font-size:clamp(24px,3.5vw,34px);">Descubra onde está o ponto de atenção do seu negócio</h2>
+
+    <div class="form-card">
+      <div class="f-screen active" id="f-intro">
+        <div class="f-start">
+          <p>6 perguntas rápidas. No final, você recebe um caminho claro pra resolver.</p>
+          <button class="btn-primary" onclick="fGoTo('f-quiz'); fRender();">Começar →</button>
+        </div>
+      </div>
+
+      <div class="f-screen" id="f-quiz">
+        <div class="f-progress"><div class="f-progress-fill" id="f-progress-fill"></div></div>
+        <div class="f-q" id="f-q-text"></div>
+        <div class="f-opts">
+          <button class="f-btn" onclick="fAnswer(0)">Não</button>
+          <button class="f-btn" onclick="fAnswer(1)">Sim</button>
+        </div>
+      </div>
+
+      <div class="f-screen" id="f-result">
+        <div class="f-result">
+          <div class="f-badge" id="f-badge"></div>
+          <p class="f-msg" id="f-msg"></p>
+          <a class="btn-primary" id="f-wa" href="#" target="_blank" rel="noopener">Falar no WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg-panel);">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Perguntas frequentes</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Antes de decidir, tire suas dúvidas</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Google Meu Negócio não funciona, o que eu faço?</h3>
+        <p>Na maioria das vezes, o perfil está incompleto ou mal configurado — não é que "não funciona". Faço um diagnóstico rápido pra te mostrar exatamente onde está o problema.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Já contratei alguém e não deu resultado, por que seria diferente agora?</h3>
+        <p>Sem saber o que foi feito antes, não dá pra saber o que faltou. Mas trabalho com processo visível: você acompanha o que está sendo feito, não fica no escuro.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Impulsionar post funciona ou é perda de dinheiro?</h3>
+        <p>Impulsionar sem segmentação certa é dinheiro jogado fora. Anúncio bem direcionado é outra coisa — e é isso que eu configuro.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Vale a pena pra negócio pequeno?</h3>
+        <p>Vale, desde que a estratégia seja do tamanho do seu negócio — por isso não empurro pacote genérico, ajusto pro que faz sentido pra você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">Joyce Alves <span>Ads</span></div>
+      </div>
+      <div>
+        <a href="https://wa.me/5515996342023" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">JOYCE ALVES ADS · GOOGLE PERFIL DA EMPRESA + META ADS · TIETÊ/SP</div>
+  </div>
+</footer>
 
 <script>
   const WA_NUMBER = "5515996342023";
-
   const questions = [
     "Sua empresa aparece no Google quando pesquisam o nome dela?",
     "Você aparece quando alguém pesquisa \"[seu produto] perto de mim\"?",
@@ -230,140 +460,49 @@
     "Seus posts alcançam gente que ainda não te segue?",
     "Seu WhatsApp recebe contato novo todo dia, sem você correr atrás?"
   ];
+  let fCurrent = 0;
+  let fAnswers = [];
 
-  const segments = [
-    { label: "não aparecer no Google", short: "google" },
-    { label: "não saber se meus anúncios funcionam", short: "ads" },
-    { label: "as duas coisas ao mesmo tempo", short: "both" }
-  ];
-
-  const catalog = {
-    diagnostico:   { name: "Diagnóstico completo",     price: "R$100",     desc: "Descubro exatamente onde sua empresa está perdendo cliente, com plano de ação por escrito." },
-    setup:         { name: "Setup GBP avulso",         price: "R$300",     desc: "Configuração completa do seu Perfil da Empresa no Google, pronto pra aparecer nas buscas." },
-    setup_treino:  { name: "Setup + Treinamento",      price: "R$450",     desc: "Configuração completa e te ensino a manter o perfil atualizado sozinho." },
-    gestao_gbp:    { name: "Gestão GBP mensal",        price: "R$600/mês", desc: "Cuido do seu perfil no Google todo mês: postagens, avaliações, otimização contínua." },
-    gestao_full:   { name: "Gestão GBP + Meta Ads",    price: "R$700/mês", desc: "Google e Instagram/Facebook trabalhando juntos pra gerar mais contato de verdade." }
-  };
-
-  let current = 0;
-  let answers = [];
-  let segment = 0;
-
-  function goTo(id){
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  function fGoTo(id){
+    document.querySelectorAll('.f-screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
-
-  function setSegment(value){
-    segment = value;
-    current = 0;
-    answers = [];
-    goTo('quiz-screen');
-    renderQuestion();
+  function fRender(){
+    document.getElementById('f-q-text').textContent = questions[fCurrent];
+    const pct = Math.round((fCurrent / questions.length) * 100);
+    document.getElementById('f-progress-fill').style.width = pct + '%';
   }
-
-  function renderQuestion(){
-    document.getElementById('q-text').textContent = questions[current];
-    document.getElementById('prog-label').textContent = `Pergunta ${current+1} de ${questions.length}`;
-    const pct = Math.round((current / questions.length) * 100);
-    document.getElementById('prog-pct').textContent = pct + '%';
-    document.getElementById('progress-fill').style.width = pct + '%';
-  }
-
-  function answer(value){
-    answers.push(value);
-    current++;
-    if(current < questions.length){
-      renderQuestion();
+  function fAnswer(v){
+    fAnswers.push(v);
+    fCurrent++;
+    if(fCurrent < questions.length){
+      fRender();
     } else {
-      document.getElementById('prog-pct').textContent = '100%';
-      document.getElementById('progress-fill').style.width = '100%';
-      setTimeout(showResult, 350);
+      document.getElementById('f-progress-fill').style.width = '100%';
+      setTimeout(fShowResult, 300);
     }
   }
-
-  function getBand(score){
-    if(score >= 80) return 'high';
-    if(score >= 50) return 'medium';
-    return 'low';
-  }
-
-  function getMessage(segShort, band){
-    const messages = {
-      google: {
-        low:    "Sua empresa pode estar invisível pra quem já quer comprar de você. <b>É o ponto mais urgente pra resolver primeiro.</b>",
-        medium: "Você já tem alguma base no Google, mas <b>ainda existem lacunas</b> fazendo cliente não te achar quando pesquisa.",
-        high:   "Sua presença no Google já é sólida — o que falta agora é <b>manutenção constante</b> pra não perder esse espaço."
-      },
-      ads: {
-        low:    "Você está investindo tempo ou dinheiro em anúncio <b>sem saber se ele realmente traz cliente.</b> Isso precisa de direção, não de mais post.",
-        medium: "Seus anúncios já geram algum resultado, mas <b>sem estratégia clara</b> você está deixando desempenho na mesa.",
-        high:   "Seus anúncios já têm uma base boa — o próximo passo é <b>otimizar pra reduzir custo por resultado.</b>"
-      },
-      both: {
-        low:    "Sua empresa está perdendo cliente por <b>dois lados ao mesmo tempo:</b> quem procura no Google não te acha, e quem vê seu anúncio não converte.",
-        medium: "Você já avançou em alguns pontos, mas <b>Google e anúncio ainda não estão trabalhando juntos.</b>",
-        high:   "Google e anúncio já têm uma base sólida — hora de <b>integrar os dois</b> pra multiplicar resultado."
-      }
-    };
-    return messages[segShort][band];
-  }
-
-  function getRecommendedKey(segShort, band){
-    if(segShort === 'ads' || segShort === 'both') return 'gestao_full';
-    // segShort === 'google'
-    return band === 'low' ? 'setup' : 'gestao_gbp';
-  }
-
-  function renderCatalog(recommendedKey){
-    const order = ['diagnostico','setup','setup_treino','gestao_gbp','gestao_full'];
-    const list = document.getElementById('cat-list');
-    list.innerHTML = '';
-    order.forEach(key => {
-      const item = catalog[key];
-      const isRec = key === recommendedKey;
-      const div = document.createElement('div');
-      div.className = 'cat-item' + (isRec ? ' rec' : '');
-      div.innerHTML = `
-        ${isRec ? '<div class="cat-badge">Recomendado pra você</div>' : ''}
-        <div class="cat-item-top"><h4>${item.name}</h4><span class="price">${item.price}</span></div>
-        <p>${item.desc}</p>
-      `;
-      list.appendChild(div);
-    });
-  }
-
-  function showResult(){
-    const yesCount = answers.reduce((a,b) => a+b, 0);
-    const score = Math.round((yesCount / questions.length) * 100);
-    const segShort = segments[segment].short;
-    const band = getBand(score);
-
-    goTo('result-screen');
-
-    let n = 0;
-    const scoreNum = document.getElementById('score-num');
-    const step = Math.max(1, Math.round(score/30));
-    const interval = setInterval(() => {
-      n += step;
-      if(n >= score){ n = score; clearInterval(interval); }
-      scoreNum.textContent = n;
-    }, 20);
-
-    const circumference = 358.1;
-    const offset = circumference - (score/100) * circumference;
-    const ring = document.getElementById('score-ring');
-    ring.style.stroke = score >= 70 ? 'var(--green)' : (score >= 40 ? 'var(--gold)' : 'var(--red)');
-    setTimeout(() => { ring.style.transition = 'stroke-dashoffset 1s ease'; ring.style.strokeDashoffset = offset; }, 100);
-
-    document.getElementById('result-msg').innerHTML = getMessage(segShort, band);
-
-    const recommendedKey = getRecommendedKey(segShort, band);
-    renderCatalog(recommendedKey);
-
-    const recName = catalog[recommendedKey].name;
-    const waText = `Olá! Fiz a análise e vi que meu problema é ${segments[segment].label}. Quero entender melhor o ${recName}.`;
-    document.getElementById('wa-btn').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
+  function fShowResult(){
+    const yes = fAnswers.reduce((a,b)=>a+b,0);
+    const score = Math.round((yes/questions.length)*100);
+    fGoTo('f-result');
+    const badge = document.getElementById('f-badge');
+    const msg = document.getElementById('f-msg');
+    let tier, msgText;
+    if(score < 40){
+      tier = 'quente'; badge.textContent = 'Ponto de atenção urgente';
+      msgText = "Sua empresa está perdendo cliente agora, em mais de uma frente. Esse é o momento certo pra agir.";
+    } else if(score < 75){
+      tier = 'morno'; badge.textContent = 'Base existente, com lacunas';
+      msgText = "Você já tem alguma presença, mas ainda existem pontos deixando cliente na mesa.";
+    } else {
+      tier = 'frio'; badge.textContent = 'Boa base, foco em manutenção';
+      msgText = "Sua presença já é sólida — o próximo passo é manutenção constante pra não perder espaço.";
+    }
+    badge.className = 'f-badge ' + tier;
+    msg.textContent = msgText;
+    const waText = `Olá! Fiz a análise no site e minha pontuação foi ${score}/100. Quero entender o próximo passo.`;
+    document.getElementById('f-wa').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
   }
 </script>
 
