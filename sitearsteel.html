@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARSTEEL — Soluções Metálicas | Tietê-SP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#17151300;
+    --charcoal-solid:#171512;
+    --steel:#4a4d52;
+    --steel-light:#8a8d92;
+    --paper:#ece7dd;
+    --paper-dim:#d9d2c3;
+    --rust:#c9622b;
+    --red:#d62828;
+    --line: rgba(236,231,221,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--charcoal-solid);
+    color:var(--paper);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:0.03em;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    color:var(--rust);
+  }
+  img{display:block; width:100%; height:100%; object-fit:cover;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  /* rivet corner accents — literal to sheet-metal construction */
+  .plate{position:relative; border:1px solid var(--line);}
+  .plate::before, .plate::after{
+    content:''; position:absolute; width:6px; height:6px; border-radius:50%;
+    background:var(--steel-light); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .plate::before{top:8px; left:8px;}
+  .plate::after{bottom:8px; right:8px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(23,21,18,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Oswald'; font-weight:700; font-size:1.3rem; letter-spacing:0.04em;
+  }
+  .logo span{color:var(--red);}
+  .nav-links{display:flex; gap:28px; font-size:0.85rem;}
+  .nav-links a{color:var(--paper); text-decoration:none; opacity:0.8;}
+  .nav-links a:hover{opacity:1; color:var(--rust);}
+  .btn{
+    display:inline-block; background:var(--red); color:#fff; font-family:'Oswald';
+    text-transform:uppercase; letter-spacing:0.05em; font-size:0.8rem; font-weight:600;
+    padding:12px 22px; text-decoration:none; border:none; cursor:pointer;
+  }
+  .btn:hover{background:var(--rust);}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; height:78vh; min-height:520px; overflow:hidden;}
+  .hero img{position:absolute; inset:0; filter:grayscale(15%) contrast(1.05);}
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(23,21,18,0.35) 0%, rgba(23,21,18,0.55) 55%, rgba(23,21,18,0.95) 100%);
+  }
+  .hero-content{
+    position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end;
+    max-width:1180px; margin:0 auto; padding:0 24px 56px;
+  }
+  .hero-content .mono{margin-bottom:14px;}
+  .hero-content h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem); line-height:0.98; max-width:820px;
+  }
+  .hero-content h1 em{font-style:normal; color:var(--rust);}
+  .hero-content p{max-width:520px; margin-top:18px; color:var(--paper-dim); font-size:1rem;}
+  .hero-cta{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-ghost{
+    display:inline-block; border:1px solid var(--paper); color:var(--paper);
+    font-family:'Oswald'; text-transform:uppercase; letter-spacing:0.05em; font-size:0.8rem;
+    font-weight:600; padding:11px 22px; text-decoration:none;
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:88px 0;}
+  .section-head{margin-bottom:48px; max-width:640px;}
+  .section-head .mono{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);}
+  .section-head p{color:var(--steel-light); margin-top:12px; font-size:0.98rem;}
+
+  /* ---------- PRODUTOS ---------- */
+  .prod-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
+    background:var(--line);
+  }
+  .prod-card{background:var(--charcoal-solid); position:relative;}
+  .prod-card .img-box{aspect-ratio:1/1; overflow:hidden;}
+  .prod-card .img-box img{transition:transform 0.5s ease;}
+  .prod-card:hover .img-box img{transform:scale(1.05);}
+  .prod-label{
+    padding:16px 18px; display:flex; justify-content:space-between; align-items:baseline;
+  }
+  .prod-label h3{font-size:0.95rem; letter-spacing:0.02em;}
+  .prod-label span{font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--rust);}
+
+  /* ---------- BASTIDOR ---------- */
+  .bastidor{background:var(--paper); color:var(--charcoal-solid);}
+  .bastidor .section-head p{color:#555;}
+  .bastidor .mono{color:var(--red);}
+  .bastidor-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:2px; background:#00000014;
+  }
+  .bastidor-grid .img-box{aspect-ratio:4/3; overflow:hidden;}
+  .bastidor-text{
+    background:var(--paper); padding:36px; display:flex; flex-direction:column; justify-content:center;
+  }
+  .bastidor-text h3{color:var(--charcoal-solid); font-size:1.3rem; margin-bottom:14px;}
+  .bastidor-text p{color:#4a4a4a; font-size:0.95rem; margin-bottom:10px;}
+  .bastidor-small{display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:2px;}
+  .bastidor-small .img-box{aspect-ratio:1/1; overflow:hidden;}
+
+  /* ---------- RESULTADOS antes/depois ---------- */
+  .resultado-pair{
+    display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); margin-bottom:2px;
+  }
+  .res-box{position:relative; aspect-ratio:4/3; overflow:hidden;}
+  .res-tag{
+    position:absolute; top:14px; left:14px; background:var(--charcoal-solid);
+    padding:5px 12px; font-family:'JetBrains Mono'; font-size:0.7rem; text-transform:uppercase;
+    letter-spacing:0.08em; border:1px solid var(--red); color:var(--paper);
+  }
+  .res-tag.depois{border-color:var(--rust); color:var(--rust);}
+
+  /* ---------- FAQ TIE-IN ---------- */
+  .faq-strip{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:60px 0;
+  }
+  .faq-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 0; border-bottom:1px solid var(--line); gap:20px;
+  }
+  .faq-row:last-child{border-bottom:none;}
+  .faq-row h4{font-family:'Work Sans'; font-weight:500; font-size:1rem; max-width:640px;}
+  .faq-row span{font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--rust); white-space:nowrap;}
+
+  /* ---------- CONTATO ---------- */
+  footer{background:var(--charcoal-solid); padding:60px 0 30px; border-top:1px solid var(--line);}
+  .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
+  .foot-grid h3{font-size:1.1rem; margin-bottom:16px;}
+  .foot-grid p, .foot-grid a{color:var(--steel-light); font-size:0.9rem; text-decoration:none; display:block; margin-bottom:8px;}
+  .foot-bottom{
+    margin-top:50px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-size:0.75rem; color:var(--steel-light);
+    flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 820px){
+    .prod-grid{grid-template-columns:repeat(2,1fr);}
+    .bastidor-grid{grid-template-columns:1fr;}
+    .resultado-pair{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr; gap:28px;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><img src="img/logo-arsteel.jpg" alt="ARSTEEL" style="height:48px; width:auto; object-fit:contain; mix-blend-mode:screen;"></div>
+    <div class="nav-links">
+      <a href="#produtos">Produtos</a>
+      <a href="#bastidor">Como fabricamos</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a href="#" class="btn">Pedir orçamento</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="img/bastidor-instalacao.jpg" alt="Fabricação ARSTEEL">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="mono">Fabricação própria · Tietê / SP</span>
+    <h1>Móveis de aço<br>feitos pra <em>durar</em>.</h1>
+    <p>Mesas, escrivaninhas, estantes e soluções sob medida — soldadas, pintadas e entregues pela mesma equipe que fabrica.</p>
+    <div class="hero-cta">
+      <a href="#produtos" class="btn">Ver produtos</a>
+      <a href="#bastidor" class="btn-ghost">Conhecer a fabricação</a>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Sob medida</span>
+      <h2>Mesas, estantes &amp; escrivaninhas</h2>
+      <p>Projetos personalizados, desenvolvidos conforme o espaço e a necessidade de cada cliente.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/bastidor-estante.jpg" alt="Estante sob medida"></div>
+        <div class="prod-label"><h3>Estante</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/bastidor-carrinhos.jpg" alt="Estruturas em aço sob medida"></div>
+        <div class="prod-label"><h3>Mesa / escrivaninha</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/bastidor-dollies.jpg" alt="Carrinhos e estruturas sob medida"></div>
+        <div class="prod-label"><h3>Estruturas diversas</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-armarios.png" alt="Armários de aço inox" style="object-position: top;"></div>
+        <div class="prod-label"><h3>Armários (aço inox)</h3><span>SOB MEDIDA</span></div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:72px;">
+      <span class="mono">Linha de lançamento</span>
+      <h2>Peças prontas</h2>
+      <p>Modelos fixos, sem personalização de medida — prontos pra pedir.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-hexagono.png" alt="Estante hexagonal"></div>
+        <div class="prod-label"><h3>Estante modular</h3><span>AR-04</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-console.png" alt="Console/aparador"></div>
+        <div class="prod-label"><h3>Aparador vazado</h3><span>AR-07</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-vaso.png" alt="Suporte de vaso"></div>
+        <div class="prod-label"><h3>Suporte de vaso</h3><span>AR-11</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-anjo.png" alt="Suporte decorativo"></div>
+        <div class="prod-label"><h3>Suporte anjo</h3><span>AR-12</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-gancho.jpg" alt="Gancho de parede"></div>
+        <div class="prod-label"><h3>Gancho de parede</h3><span>AR-15</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img src="img/produto-painel.jpg" alt="Painel de plantas"></div>
+        <div class="prod-label"><h3>Painel vertical</h3><span>AR-16</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BASTIDOR -->
+<section id="bastidor" class="bastidor">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Processo</span>
+      <h2>Como fabricamos</h2>
+      <p>Corte, solda, pintura e instalação — cada peça acompanhada do início ao fim, direto da fábrica em Tietê.</p>
+    </div>
+    <div class="bastidor-grid plate">
+      <div class="img-box"><img src="img/bastidor-instalacao.jpg" alt="Instalação em campo"></div>
+      <div class="bastidor-text">
+        <span class="mono" style="margin-bottom:12px; display:block;">Solda &amp; instalação</span>
+        <h3>Da fábrica até o local</h3>
+        <p>Estruturas soldadas em MIG, inox e eletrodo, com acompanhamento até a instalação final — como portões, grades e estruturas sob medida.</p>
+      </div>
+    </div>
+    <div class="bastidor-small plate" style="margin-top:2px;">
+      <div class="img-box"><img src="img/bastidor-carrinhos.jpg" alt="Carrinhos industriais"></div>
+      <div class="img-box"><img src="img/bastidor-dollies.jpg" alt="Dollies e carrinhos"></div>
+      <div class="img-box"><img src="img/bastidor-estante.jpg" alt="Estante em produção"></div>
+      <div class="img-box" style="background:var(--charcoal-solid); display:flex; align-items:center; justify-content:center; padding:24px;">
+        <p class="mono" style="color:var(--paper-dim); font-size:0.75rem; line-height:1.6;">Chapas selecionadas conforme resistência e uso de cada projeto — sem padrão fixo de espessura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Projetos entregues</span>
+      <h2>Antes &amp; depois</h2>
+      <p>Estrutura sob medida entregue para loja de roupas — arara, mesa expositora e mobiliário completo.</p>
+    </div>
+    <div class="resultado-pair plate">
+      <div class="res-box"><span class="res-tag">Antes</span><img src="img/antes-arara.jpg" alt="Estrutura antes"></div>
+      <div class="res-box"><span class="res-tag depois">Depois</span><img src="img/depois-loja.jpg" alt="Estrutura depois, montada na loja"></div>
+    </div>
+    <div class="resultado-pair plate">
+      <div class="res-box"><span class="res-tag">Antes</span><img src="img/antes-carrinho.jpg" alt="Carrinho antes"></div>
+      <div class="res-box"><span class="res-tag depois">Depois</span><img src="img/depois-mesa.jpg" alt="Mesa expositora depois"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ TIE-IN -->
+<section id="duvidas" class="faq-strip">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:20px;">
+      <span class="mono">Dúvidas frequentes</span>
+      <h2>Antes de pedir orçamento</h2>
+    </div>
+    <div class="faq-row"><h4>Móvel de aço enferruja?</h4><span>Ver resposta →</span></div>
+    <div class="faq-row"><h4>Dá pra fazer sob medida?</h4><span>Ver resposta →</span></div>
+    <div class="faq-row"><h4>Vocês entregam pra fora da cidade?</h4><span>Ver resposta →</span></div>
+    <div class="faq-row"><h4>Como funciona o frete pra móvel grande?</h4><span>Ver resposta →</span></div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<footer id="contato">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>ARSTEEL</h3>
+        <p style="max-width:280px;">Fabricação de móveis e estruturas em aço. Soluções sob medida, direto da fábrica em Tietê/SP.</p>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <a href="#">WhatsApp: (15) 99134-6769</a>
+        <a href="#">@arssteel_</a>
+      </div>
+      <div>
+        <h3>Endereço</h3>
+        <p>R. Ten. Joaquim de Almeida Leite Moraes, 40<br>Vila Fiori, Tietê - SP</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ARSTEEL — Soluções Metálicas</span>
+      <span>Site em construção · preview interno</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
