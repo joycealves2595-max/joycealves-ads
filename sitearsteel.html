@@ -174,6 +174,28 @@
     display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); margin-bottom:2px;
   }
   .res-box{position:relative; aspect-ratio:4/3; overflow:hidden;}
+
+  .showcase-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line);
+  }
+  .showcase-box{aspect-ratio:3/2; overflow:hidden;}
+  @media(max-width:720px){ .showcase-grid{grid-template-columns:1fr;} }
+
+  /* ---------- TAMBÉM FAZEMOS ---------- */
+  .also-strip{padding:64px 0; border-bottom:1px solid var(--line);}
+  .also-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line);
+  }
+  .also-card{
+    background:var(--charcoal-solid); padding:32px 26px; display:flex; flex-direction:column; gap:10px;
+  }
+  .also-icon{font-family:'JetBrains Mono'; font-size:1.6rem; color:var(--rust);}
+  .also-card h3{font-size:1.05rem; letter-spacing:0.01em;}
+  .also-card p{color:var(--steel-light); font-size:0.9rem; line-height:1.55;}
+  .also-note{
+    margin-top:24px; font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--steel-light);
+  }
+  @media(max-width:760px){ .also-grid{grid-template-columns:1fr;} }
   .res-tag{
     position:absolute; top:14px; left:14px; background:var(--charcoal-solid);
     padding:5px 12px; font-family:'JetBrains Mono'; font-size:0.7rem; text-transform:uppercase;
@@ -200,12 +222,24 @@
     padding:60px 0;
   }
   .faq-row{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:20px 0; border-bottom:1px solid var(--line); gap:20px;
+    border-bottom:1px solid var(--line); padding:20px 0;
   }
   .faq-row:last-child{border-bottom:none;}
+  .faq-row summary{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:20px; cursor:pointer; list-style:none;
+  }
+  .faq-row summary::-webkit-details-marker{display:none;}
   .faq-row h3{font-family:'Work Sans'; font-weight:500; font-size:1rem; max-width:640px;}
-  .faq-row span{font-family:'JetBrains Mono'; font-size:0.72rem; color:var(--rust); white-space:nowrap;}
+  .faq-row summary span{
+    font-family:'JetBrains Mono'; font-size:0.9rem; color:var(--rust);
+    white-space:nowrap; transition:transform 0.25s ease;
+  }
+  .faq-row[open] summary span{transform:rotate(90deg);}
+  .faq-answer{
+    font-family:'Work Sans'; font-size:0.92rem; color:#8a8a8a;
+    max-width:640px; margin-top:14px; line-height:1.6;
+  }
 
   /* ---------- CONTATO ---------- */
   footer{background:var(--charcoal-solid); padding:60px 0 30px; border-top:1px solid var(--line);}
@@ -273,16 +307,24 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card plate">
-        <div class="img-box"><img width="900" height="1200" src="img/bastidor-estante.webp" alt="Estante sob medida"></div>
-        <div class="prod-label"><h3>Estante</h3><span>SOB MEDIDA</span></div>
-      </div>
-      <div class="prod-card plate">
         <div class="img-box"><img width="900" height="1248" src="img/bastidor-carrinhos.webp" alt="Estruturas em aço sob medida"></div>
         <div class="prod-label"><h3>Mesa / escrivaninha</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
         <div class="img-box"><img width="900" height="1422" src="img/bastidor-dollies.webp" alt="Carrinhos e estruturas sob medida"></div>
         <div class="prod-label"><h3>Estruturas diversas</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="492" height="486" src="img/sapateira.webp" alt="Sapateira sob medida"></div>
+        <div class="prod-label"><h3>Sapateira</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="492" height="486" src="img/mesa-jantar.webp" alt="Mesa de jantar sob medida"></div>
+        <div class="prod-label"><h3>Mesa de jantar</h3><span>SOB MEDIDA</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="492" height="486" src="img/console.webp" alt="Aparador console sob medida"></div>
+        <div class="prod-label"><h3>Aparador / console</h3><span>SOB MEDIDA</span></div>
       </div>
     </div>
 
@@ -293,7 +335,7 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="893" src="img/produto-hexagono.webp" alt="Estante hexagonal"></div>
+        <div class="img-box"><img width="700" height="892" src="img/produto-hexagono.webp" alt="Prateleira hexagonal com plantas"></div>
         <div class="prod-label"><h3>Estante modular</h3><span>AR-04</span></div>
       </div>
       <div class="prod-card plate">
@@ -301,22 +343,63 @@
         <div class="prod-label"><h3>Aparador vazado</h3><span>AR-07</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-vaso.webp" alt="Suporte de vaso"></div>
+        <div class="img-box"><img width="700" height="933" src="img/produto-vaso.webp" alt="Suporte minimalista para vaso"></div>
         <div class="prod-label"><h3>Suporte de vaso</h3><span>AR-11</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="970" src="img/produto-anjo.webp" alt="Suporte decorativo"></div>
+        <div class="img-box"><img width="700" height="971" src="img/produto-anjo.webp" alt="Suporte anjo com vaso suspenso"></div>
         <div class="prod-label"><h3>Suporte anjo</h3><span>AR-12</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="967" src="img/produto-gancho.webp" alt="Gancho de parede"></div>
+        <div class="img-box"><img width="700" height="967" src="img/produto-gancho.webp" alt="Suporte de parede para vaso suspenso"></div>
         <div class="prod-label"><h3>Gancho de parede</h3><span>AR-15</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-painel.webp" alt="Painel de plantas"></div>
+        <div class="img-box"><img width="700" height="933" src="img/produto-painel.webp" alt="Painel vertical para plantas"></div>
         <div class="prod-label"><h3>Painel vertical</h3><span>AR-16</span></div>
       </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="700" height="933" src="img/produto-prateleira-circular.webp" alt="Prateleira circular decorativa"></div>
+        <div class="prod-label"><h3>Prateleira circular</h3><span>AR-17</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="700" height="933" src="img/produto-passarinho.webp" alt="Suporte decorativo duplo para vasos"></div>
+        <div class="prod-label"><h3>Suporte duplo</h3><span>AR-18</span></div>
+      </div>
+      <div class="prod-card plate">
+        <div class="img-box"><img width="700" height="933" src="img/produto-pessoa.webp" alt="Suporte decorativo em formato de pessoa"></div>
+        <div class="prod-label"><h3>Suporte silhueta</h3><span>AR-19</span></div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- TAMBÉM FAZEMOS -->
+<section id="tambem-fazemos" class="also-strip">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Além dos móveis</span>
+      <h2>Também fazemos</h2>
+      <p>A mesma estrutura que fabrica móveis atende outras demandas em aço, sob medida.</p>
+    </div>
+    <div class="also-grid">
+      <div class="also-card plate">
+        <span class="also-icon">⌐</span>
+        <h3>Corrimãos &amp; guarda-corpos</h3>
+        <p>Escadas internas, externas e sacadas — inox ou pintado.</p>
+      </div>
+      <div class="also-card plate">
+        <span class="also-icon">▦</span>
+        <h3>Churrasqueiras sob medida</h3>
+        <p>Estrutura fixa ou com grelha regulável, no tamanho do seu espaço.</p>
+      </div>
+      <div class="also-card plate">
+        <span class="also-icon">▢</span>
+        <h3>Lixeiras &amp; cestos</h3>
+        <p>Para área externa, comércio ou espaço público — em chapa ou tela.</p>
+      </div>
+    </div>
+    <p class="also-note">Fotos desses projetos em breve. Fala com a gente pelo WhatsApp pra ver exemplos já entregues.</p>
   </div>
 </section>
 
@@ -363,6 +446,15 @@
       <div class="res-box"><span class="res-tag">Antes</span><img width="800" height="1066" src="img/antes-carrinho.webp" alt="Carrinho antes"></div>
       <div class="res-box"><span class="res-tag depois">Depois</span><img width="800" height="1066" src="img/depois-mesa.webp" alt="Mesa expositora depois"></div>
     </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <span class="mono">Cliente real</span>
+      <h3 style="font-family:'Oswald'; font-size:1.4rem; color:var(--charcoal-solid);">Entregue e em uso</h3>
+    </div>
+    <div class="showcase-grid">
+      <div class="showcase-box plate"><img width="738" height="498" src="img/loja-araras-1.webp" alt="Araras e mesa expositora instaladas na loja"></div>
+      <div class="showcase-box plate"><img width="738" height="498" src="img/loja-araras-2.webp" alt="Estrutura completa de araras em uso na loja"></div>
+    </div>
   </div>
 </section>
 
@@ -392,10 +484,22 @@
       <span class="mono">Dúvidas frequentes</span>
       <h2>Antes de pedir orçamento</h2>
     </div>
-    <div class="faq-row"><h3>Móvel de aço enferruja?</h3><span>Ver resposta →</span></div>
-    <div class="faq-row"><h3>Dá pra fazer sob medida?</h3><span>Ver resposta →</span></div>
-    <div class="faq-row"><h3>Vocês entregam pra fora da cidade?</h3><span>Ver resposta →</span></div>
-    <div class="faq-row"><h3>Como funciona o frete pra móvel grande?</h3><span>Ver resposta →</span></div>
+    <details class="faq-row">
+      <summary><h3>Móvel de aço enferruja?</h3><span>→</span></summary>
+      <p class="faq-answer">Todas as peças ARSTEEL passam por preparação da superfície e pintura eletrostática ou automotiva, que protegem o aço contra oxidação mesmo em uso diário. Pra ambientes externos, recomendamos manutenção preventiva a cada 12 meses.</p>
+    </details>
+    <details class="faq-row">
+      <summary><h3>Dá pra fazer sob medida?</h3><span>→</span></summary>
+      <p class="faq-answer">Sim, é a nossa especialidade. Você manda a medida do espaço (ou a gente vai até o local medir) e o projeto é desenhado especificamente pra aquele lugar — altura, largura, número de prateleiras, tudo ajustável.</p>
+    </details>
+    <details class="faq-row">
+      <summary><h3>Vocês entregam pra fora da cidade?</h3><span>→</span></summary>
+      <p class="faq-answer">Sim. Pra região de Tietê e cidades próximas, a entrega e instalação são feitas pela nossa própria equipe. Pra outras regiões do Brasil, trabalhamos com transportadora parceira — nesse caso o frete é calculado à parte.</p>
+    </details>
+    <details class="faq-row">
+      <summary><h3>Como funciona o frete pra móvel grande?</h3><span>→</span></summary>
+      <p class="faq-answer">O valor varia pelo tamanho da peça, peso e distância até o destino. Pra Tietê e região, geralmente o frete já está incluso na instalação. Pra outras cidades, pedimos o CEP e cotamos com a transportadora antes de fechar o orçamento — sem surpresa na hora de pagar.</p>
+    </details>
   </div>
 </section>
 
