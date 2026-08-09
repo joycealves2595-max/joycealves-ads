@@ -241,6 +241,37 @@
     max-width:640px; margin-top:14px; line-height:1.6;
   }
 
+  /* ---------- FALE COM A GENTE ---------- */
+  .lead-section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .lead-box{background:#1e1b17; padding:36px 28px; max-width:640px; margin:0 auto;}
+  .lead-box .section-head{margin-bottom:0;}
+  .lead-box .sub{color:var(--steel-light); margin-top:10px; font-size:0.95rem;}
+  .lead-box form{margin-top:28px; display:flex; flex-direction:column; gap:16px;}
+  .lead-box .field label{
+    display:block; font-family:'JetBrains Mono'; font-size:0.72rem; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--steel-light); margin-bottom:8px;
+  }
+  .lead-box .field input, .lead-box .field select{
+    width:100%; background:transparent; border:1px solid var(--line); color:var(--paper);
+    padding:12px 14px; font-family:'Work Sans'; font-size:0.95rem; border-radius:2px;
+  }
+  .lead-box .field input::placeholder{color:#5c5952;}
+  .lead-box .field input:focus, .lead-box .field select:focus{outline:none; border-color:var(--rust);}
+  .lead-box .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:480px){ .lead-box .row2{grid-template-columns:1fr;} }
+  .lead-box .consent{
+    display:flex; gap:10px; align-items:flex-start; margin-top:6px;
+    font-size:0.82rem; color:var(--steel-light); line-height:1.5;
+  }
+  .lead-box .consent input{margin-top:3px; accent-color:var(--rust);}
+  .lead-box .btn{margin-top:8px; width:100%; text-align:center; padding:15px 24px; font-size:0.92rem;}
+  .lead-box .privacy-note{
+    margin-top:20px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .lead-box .privacy-note .ico{font-family:'JetBrains Mono'; color:var(--rust); font-size:1rem; flex-shrink:0;}
+  .lead-box .privacy-note p{font-size:0.8rem; color:var(--steel-light); line-height:1.55;}
+
   /* ---------- CONTATO ---------- */
   footer{background:var(--charcoal-solid); padding:60px 0 30px; border-top:1px solid var(--line);}
   .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
@@ -274,6 +305,7 @@
       <a href="#resultados">Resultados</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#duvidas">Dúvidas</a>
+      <a href="#fale-com-a-gente">Fale com a gente</a>
       <a href="#contato">Contato</a>
     </div>
     <a href="https://wa.me/5515991346769" class="btn" target="_blank" rel="noopener">Pedir orçamento</a>
@@ -284,7 +316,7 @@
 
 <!-- HERO -->
 <div class="hero">
-  <img width="1080" height="2340" src="img/bastidor-instalacao.webp" alt="Fabricação ARSTEEL">
+  <img width="760" height="1646" src="img/bastidor-instalacao.webp" alt="Fabricação ARSTEEL">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="mono">Fabricação própria · Tietê / SP</span>
@@ -307,23 +339,23 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card plate">
-        <div class="img-box"><img width="900" height="1248" src="img/bastidor-carrinhos.webp" alt="Estruturas em aço sob medida"></div>
+        <div class="img-box"><img width="760" height="1053" src="img/bastidor-carrinhos.webp" alt="Estruturas em aço sob medida"></div>
         <div class="prod-label"><h3>Mesa / escrivaninha</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="900" height="1422" src="img/bastidor-dollies.webp" alt="Carrinhos e estruturas sob medida"></div>
+        <div class="img-box"><img width="760" height="1200" src="img/bastidor-dollies.webp" alt="Carrinhos e estruturas sob medida"></div>
         <div class="prod-label"><h3>Estruturas diversas</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="492" height="486" src="img/sapateira.webp" alt="Sapateira sob medida"></div>
+        <div class="img-box"><img width="460" height="454" src="img/sapateira.webp" alt="Sapateira sob medida"></div>
         <div class="prod-label"><h3>Sapateira</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="492" height="486" src="img/mesa-jantar.webp" alt="Mesa de jantar sob medida"></div>
+        <div class="img-box"><img width="460" height="454" src="img/mesa-jantar.webp" alt="Mesa de jantar sob medida"></div>
         <div class="prod-label"><h3>Mesa de jantar</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="492" height="486" src="img/console.webp" alt="Aparador console sob medida"></div>
+        <div class="img-box"><img width="460" height="454" src="img/console.webp" alt="Aparador console sob medida"></div>
         <div class="prod-label"><h3>Aparador / console</h3><span>SOB MEDIDA</span></div>
       </div>
     </div>
@@ -335,35 +367,35 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="892" src="img/produto-hexagono.webp" alt="Prateleira hexagonal com plantas"></div>
+        <div class="img-box"><img width="560" height="713" src="img/produto-hexagono.webp" alt="Prateleira hexagonal com plantas"></div>
         <div class="prod-label"><h3>Estante modular</h3><span>AR-04</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-vaso.webp" alt="Suporte minimalista para vaso"></div>
+        <div class="img-box"><img width="560" height="746" src="img/produto-vaso.webp" alt="Suporte minimalista para vaso"></div>
         <div class="prod-label"><h3>Suporte de vaso</h3><span>AR-11</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="971" src="img/produto-anjo.webp" alt="Suporte anjo com vaso suspenso"></div>
+        <div class="img-box"><img width="560" height="776" src="img/produto-anjo.webp" alt="Suporte anjo com vaso suspenso"></div>
         <div class="prod-label"><h3>Suporte anjo</h3><span>AR-12</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="967" src="img/produto-gancho.webp" alt="Suporte de parede para vaso suspenso"></div>
+        <div class="img-box"><img width="560" height="773" src="img/produto-gancho.webp" alt="Suporte de parede para vaso suspenso"></div>
         <div class="prod-label"><h3>Gancho de parede</h3><span>AR-15</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-painel.webp" alt="Painel vertical para plantas"></div>
+        <div class="img-box"><img width="560" height="746" src="img/produto-painel.webp" alt="Painel vertical para plantas"></div>
         <div class="prod-label"><h3>Painel vertical</h3><span>AR-16</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-prateleira-circular.webp" alt="Prateleira circular decorativa"></div>
+        <div class="img-box"><img width="560" height="746" src="img/produto-prateleira-circular.webp" alt="Prateleira circular decorativa"></div>
         <div class="prod-label"><h3>Prateleira circular</h3><span>AR-17</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-passarinho.webp" alt="Suporte decorativo duplo para vasos"></div>
+        <div class="img-box"><img width="560" height="746" src="img/produto-passarinho.webp" alt="Suporte decorativo duplo para vasos"></div>
         <div class="prod-label"><h3>Suporte duplo</h3><span>AR-18</span></div>
       </div>
       <div class="prod-card plate">
-        <div class="img-box"><img width="700" height="933" src="img/produto-pessoa.webp" alt="Suporte decorativo em formato de pessoa"></div>
+        <div class="img-box"><img width="560" height="746" src="img/produto-pessoa.webp" alt="Suporte decorativo em formato de pessoa"></div>
         <div class="prod-label"><h3>Suporte silhueta</h3><span>AR-19</span></div>
       </div>
     </div>
@@ -408,7 +440,7 @@
       <p>Corte, solda, pintura e instalação — cada peça acompanhada do início ao fim, direto da fábrica em Tietê.</p>
     </div>
     <div class="bastidor-grid plate">
-      <div class="img-box"><img width="1080" height="2340" src="img/bastidor-instalacao.webp" alt="Instalação em campo"></div>
+      <div class="img-box"><img width="760" height="1646" src="img/bastidor-instalacao.webp" alt="Instalação em campo"></div>
       <div class="bastidor-text">
         <span class="mono" style="margin-bottom:12px; display:block;">Solda &amp; instalação</span>
         <h3>Da fábrica até o local</h3>
@@ -416,9 +448,9 @@
       </div>
     </div>
     <div class="bastidor-small plate" style="margin-top:2px;">
-      <div class="img-box"><img width="900" height="1248" src="img/bastidor-carrinhos.webp" alt="Carrinhos industriais"></div>
-      <div class="img-box"><img width="900" height="1422" src="img/bastidor-dollies.webp" alt="Dollies e carrinhos"></div>
-      <div class="img-box"><img width="900" height="1200" src="img/bastidor-estante.webp" alt="Estante em produção"></div>
+      <div class="img-box"><img width="760" height="1053" src="img/bastidor-carrinhos.webp" alt="Carrinhos industriais"></div>
+      <div class="img-box"><img width="760" height="1200" src="img/bastidor-dollies.webp" alt="Dollies e carrinhos"></div>
+      <div class="img-box"><img width="760" height="1013" src="img/bastidor-estante.webp" alt="Estante em produção"></div>
       <div class="img-box" style="background:var(--charcoal-solid); display:flex; align-items:center; justify-content:center; padding:24px;">
         <p class="mono" style="color:var(--paper-dim); font-size:0.75rem; line-height:1.6;">Chapas selecionadas conforme resistência e uso de cada projeto — sem padrão fixo de espessura.</p>
       </div>
@@ -435,8 +467,8 @@
       <p>Estrutura sob medida entregue para loja de roupas — arara, mesa expositora e mobiliário completo, já em uso.</p>
     </div>
     <div class="showcase-grid">
-      <div class="showcase-box plate"><img width="738" height="498" src="img/loja-araras-1.webp" alt="Araras e mesa expositora instaladas na loja"></div>
-      <div class="showcase-box plate"><img width="738" height="498" src="img/loja-araras-2.webp" alt="Estrutura completa de araras em uso na loja"></div>
+      <div class="showcase-box plate"><img width="640" height="431" src="img/loja-araras-1.webp" alt="Araras e mesa expositora instaladas na loja"></div>
+      <div class="showcase-box plate"><img width="640" height="431" src="img/loja-araras-2.webp" alt="Estrutura completa de araras em uso na loja"></div>
     </div>
   </div>
 </section>
@@ -486,6 +518,61 @@
   </div>
 </section>
 
+<!-- FALE COM A GENTE -->
+<section id="fale-com-a-gente" class="lead-section">
+  <div class="wrap">
+    <div class="lead-box plate">
+      <div class="section-head">
+        <span class="mono">Fale com a gente</span>
+        <h2>Quer saber se dá certo pro seu endereço?</h2>
+        <p class="sub">Deixa seu contato e a gente confirma disponibilidade, prazo e frete direto no WhatsApp.</p>
+      </div>
+
+      <form id="leadForm">
+        <div class="row2">
+          <div class="field">
+            <label for="fNome">Nome</label>
+            <input type="text" id="fNome" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="fFone">WhatsApp</label>
+            <input type="text" id="fFone" placeholder="(15) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="fCidade">Cidade / UF</label>
+            <input type="text" id="fCidade" placeholder="Ex: Campinas/SP" required>
+          </div>
+          <div class="field">
+            <label for="fProduto">Produto de interesse</label>
+            <select id="fProduto">
+              <option>Estante modular</option>
+              <option>Suporte de vaso</option>
+              <option>Painel vertical</option>
+              <option>Sob medida (a combinar)</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent">Autorizo o uso do meu contato só pra falar sobre esse pedido. Sem spam, sem venda pra terceiros.</label>
+        </div>
+
+        <button class="btn" type="submit">Falar no WhatsApp →</button>
+      </form>
+
+      <div class="privacy-note">
+        <span class="ico">🔒</span>
+        <p>Seus dados ficam salvos só pra gente te responder — não vendemos, não compartilhamos e você pode pedir a exclusão a qualquer momento pelo WhatsApp, conforme a LGPD.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <!-- CONTATO -->
@@ -512,6 +599,19 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('fNome').value.trim();
+    const fone = document.getElementById('fFone').value.trim();
+    const cidade = document.getElementById('fCidade').value.trim();
+    const produto = document.getElementById('fProduto').value;
+    if(!nome || !fone || !cidade){ return; }
+    const msg = `Olá! Meu nome é ${nome}, sou de ${cidade}.%0ATenho interesse em: ${produto}.%0AMeu contato: ${fone}`;
+    window.open(`https://wa.me/5515991346769?text=${msg}`, '_blank');
+  });
+</script>
 
 </body>
 </html>
