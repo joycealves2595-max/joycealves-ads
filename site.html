@@ -148,6 +148,16 @@
     transition:border-color 0.2s;
   }
   .service-row:hover{border-color:var(--green-bright);}
+  .service-row.featured{border-color:var(--gold); background:var(--bg-dark-panel);}
+  .service-row.featured h3{color:var(--cream-on-dark);}
+  .service-row.featured p{color:rgba(242,237,224,0.78);}
+  .service-row.featured .service-price{color:var(--gold-bright);}
+  .service-row.featured .service-price .sub{color:rgba(242,237,224,0.65);}
+  .featured-tag{
+    display:inline-block; font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--gold-bright); background:rgba(201,165,112,0.15);
+    padding:3px 10px; border-radius:20px; margin-bottom:8px;
+  }
   .service-row h3{font-size:19px; margin-bottom:6px;}
   .service-row p{color:var(--muted); font-size:14.5px; max-width:52ch;}
   .service-price{font-family:'JetBrains Mono', monospace; font-size:17px; font-weight:600; color:var(--green); white-space:nowrap; text-align:right;}
@@ -247,8 +257,8 @@
   <div class="wrap">
     <div class="logo">Joyce Alves <span>Ads</span></div>
     <div class="nav-links">
-      <a href="#servicos">Serviços</a>
       <a href="#provas">Resultados</a>
+      <a href="#servicos">Serviços</a>
       <a href="#faq">Dúvidas</a>
       <a href="#analise">Fazer análise</a>
     </div>
@@ -318,56 +328,6 @@
   </div>
 </section>
 
-<section id="servicos">
-  <div class="wrap">
-    <div class="eyebrow">Serviços</div>
-    <h2 style="font-size:clamp(24px,3.5vw,34px);">O que resolve o seu momento agora</h2>
-    <div class="services-list">
-      <div class="service-row">
-        <div><h3>Diagnóstico completo</h3><p>Descubro exatamente onde sua empresa está perdendo cliente hoje, com plano de ação por escrito.</p></div>
-        <div class="service-price">R$100</div>
-      </div>
-      <div class="service-row">
-        <div><h3>Setup GBP avulso</h3><p>Configuração completa do seu Perfil da Empresa no Google, pronto pra aparecer nas buscas certas.</p></div>
-        <div class="service-price">R$300</div>
-      </div>
-      <div class="service-row">
-        <div><h3>Setup + Treinamento</h3><p>Configuração completa e te ensino a manter o perfil atualizado sozinho, sem depender de mim pro básico.</p></div>
-        <div class="service-price">R$450</div>
-      </div>
-      <div class="service-row">
-        <div><h3>Gestão GBP mensal</h3><p>Cuido do seu perfil toda semana: postagem, resposta de avaliação, ajuste de categoria, monitoramento.</p></div>
-        <div class="service-price">R$600<span class="sub">R$500/mês em 6 meses</span></div>
-      </div>
-      <div class="service-row">
-        <div><h3>Gestão GBP + Meta Ads</h3><p>Google e Instagram/Facebook trabalhando juntos, fechando os dois lados por onde você perde cliente hoje.</p></div>
-        <div class="service-price">R$700<span class="sub">R$600/mês em 6 meses</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--bg-panel);">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Diferenciais</div>
-    <h2 style="font-size:clamp(24px,3.5vw,32px);">Prova, não achismo</h2>
-    <div class="diff-list">
-      <div class="diff-item"><span class="mark">→</span><p>Trabalho ético: entrego o que prometo, sem inflar número.</p></div>
-      <div class="diff-item"><span class="mark">→</span><p>Cada estratégia é pensada pro seu negócio, não copiada de fórmula genérica.</p></div>
-      <div class="diff-item"><span class="mark">→</span><p>Acompanhamento direto comigo, sem repasse pra equipe terceirizada.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="about-section">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Sobre</div>
-    <h2 style="font-size:clamp(24px,3.5vw,32px);">Tempo de mercado não é a métrica. Resultado é.</h2>
-    <p class="about-text">Comecei em <strong>fevereiro de 2026</strong> — ainda pouco tempo de mercado, sem esconder isso de ninguém. Mas enquanto ainda trabalho em CLT, já entreguei resultado real pra quem confiou em mim: uma papelaria de Tietê foi pro <strong>Top 3 do Google em 60 dias</strong>, de forma orgânica.</p>
-    <p class="about-text">Não meço meu trabalho pelo tempo que estou no mercado, mas pelo resultado que entrego. Tem gente há anos no mercado sem gerar valor nenhum pro cliente. Prefiro ser julgada pelo que já entreguei do que pelo tempo que estou fazendo isso.</p>
-  </div>
-</section>
-
 <section id="provas">
   <div class="wrap">
     <div class="eyebrow">Resultados reais</div>
@@ -397,6 +357,64 @@
           <div><span class="n">5.0★</span><span class="l">28 avaliações</span></div>
         </div>
         <p class="desc">Foi do zero ao Top 3 do Google em 60 dias de gestão ativa. Quando a gestão parou, a posição caiu — prova de que ranqueamento bem feito não é sorte, é manutenção constante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-panel);">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Diferenciais</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Prova, não achismo</h2>
+    <div class="diff-list">
+      <div class="diff-item"><span class="mark">→</span><p>Trabalho ético: entrego o que prometo, sem inflar número.</p></div>
+      <div class="diff-item"><span class="mark">→</span><p>Cada estratégia é pensada pro seu negócio, não copiada de fórmula genérica.</p></div>
+      <div class="diff-item"><span class="mark">→</span><p>Acompanhamento direto comigo, sem repasse pra equipe terceirizada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="wrap-narrow">
+    <div class="eyebrow">Sobre</div>
+    <h2 style="font-size:clamp(24px,3.5vw,32px);">Tempo de mercado não é a métrica. Resultado é.</h2>
+    <p class="about-text">Comecei em <strong>fevereiro de 2026</strong> — ainda pouco tempo de mercado, sem esconder isso de ninguém. Mas já entreguei resultado real pra quem confiou em mim: uma papelaria de Tietê foi pro <strong>Top 3 do Google em 60 dias</strong>, de forma orgânica.</p>
+    <p class="about-text">Não meço meu trabalho pelo tempo que estou no mercado, mas pelo resultado que entrego. Tem gente há anos no mercado sem gerar valor nenhum pro cliente. Prefiro ser julgada pelo que já entreguei do que pelo tempo que estou fazendo isso.</p>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="eyebrow">Serviços</div>
+    <h2 style="font-size:clamp(24px,3.5vw,34px);">O que resolve o seu momento agora</h2>
+    <div class="services-list">
+      <div class="service-row">
+        <div><h3>Diagnóstico completo</h3><p>Descubro exatamente onde sua empresa está perdendo cliente hoje, com plano de ação por escrito.</p></div>
+        <div class="service-price">R$100</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Setup GBP avulso</h3><p>Configuração completa do seu Perfil da Empresa no Google, pronto pra aparecer nas buscas certas.</p></div>
+        <div class="service-price">R$300</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Setup + Treinamento</h3><p>Configuração completa e te ensino a manter o perfil atualizado sozinho, sem depender de mim pro básico.</p></div>
+        <div class="service-price">R$450</div>
+      </div>
+      <div class="service-row">
+        <div><h3>Gestão GBP mensal</h3><p>Cuido do seu perfil toda semana: postagem, resposta de avaliação, ajuste de categoria, monitoramento.</p></div>
+        <div class="service-price">R$600<span class="sub">R$500/mês em 6 meses</span></div>
+      </div>
+      <div class="service-row">
+        <div><h3>Gestão GBP + Meta Ads</h3><p>Google e Instagram/Facebook trabalhando juntos, fechando os dois lados por onde você perde cliente hoje.</p></div>
+        <div class="service-price">R$700<span class="sub">R$600/mês em 6 meses</span></div>
+      </div>
+      <div class="service-row featured">
+        <div>
+          <span class="featured-tag">Mais completo</span>
+          <h3>Gestão Completa — Site + GBP + Meta Ads</h3>
+          <p>Site profissional, Google Perfil da Empresa e Meta Ads trabalhando juntos, com acompanhamento direto e prioridade máxima. Pra quem quer resolver de vez, não só remendar.</p>
+        </div>
+        <div class="service-price">a partir de R$1.500<span class="sub">valor final definido após diagnóstico</span></div>
       </div>
     </div>
   </div>
