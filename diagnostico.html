@@ -178,6 +178,14 @@
         </div>
       </div>
 
+      <div class="screen" id="filter-screen">
+        <div class="q-text">Você é dono(a) ou tem poder de decisão sobre o marketing desse negócio?</div>
+        <div class="q-options">
+          <button class="q-btn no" onclick="answerFilter(0)">Não</button>
+          <button class="q-btn yes" onclick="answerFilter(1)">Sim</button>
+        </div>
+      </div>
+
       <div class="screen" id="quiz-screen">
         <div class="progress-wrap">
           <div class="progress-top"><span id="prog-label">Pergunta 1 de 5</span><span id="prog-pct">0%</span></div>
@@ -248,6 +256,7 @@
   let current = 0;
   let answers = [];
   let segment = 0;
+  let isDecisionMaker = null;
 
   function goTo(id){
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -256,6 +265,11 @@
 
   function setSegment(value){
     segment = value;
+    goTo('filter-screen');
+  }
+
+  function answerFilter(value){
+    isDecisionMaker = value === 1;
     current = 0;
     answers = [];
     goTo('quiz-screen');
@@ -362,7 +376,10 @@
     renderCatalog(recommendedKey);
 
     const recName = catalog[recommendedKey].name;
-    const waText = `Olá! Fiz a análise e vi que meu problema é ${segments[segment].label}. Quero entender melhor o ${recName}.`;
+    let waText = `Olá! Fiz a análise e vi que meu problema é ${segments[segment].label}. Quero entender melhor o ${recName}.`;
+    if(!isDecisionMaker){
+      waText += ` (Obs: ainda não sou eu quem decide sobre marketing aqui, mas quero entender melhor.)`;
+    }
     document.getElementById('wa-btn').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
   }
 </script>
