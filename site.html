@@ -496,12 +496,13 @@
 
 <script>
   const WA_NUMBER = "5515996342023";
-  const questions = [
-    "Sua empresa aparece no Google quando pesquisam o nome dela?",
-    "Você aparece quando alguém pesquisa \"[seu produto] perto de mim\"?",
-    "Você já rodou algum anúncio ou turbinou post no Instagram ou Facebook?",
-    "Seus posts alcançam gente que ainda não te segue?",
-    "Seu WhatsApp recebe contato novo todo dia, sem você correr atrás?"
+  const allQuestions = [
+    { text: "Você é dono(a) ou tem poder de decisão sobre o marketing desse negócio?", filter: true },
+    { text: "Sua empresa aparece no Google quando pesquisam o nome dela?", filter: false },
+    { text: "Você aparece quando alguém pesquisa \"[seu produto] perto de mim\"?", filter: false },
+    { text: "Você já rodou algum anúncio ou turbinou post no Instagram ou Facebook?", filter: false },
+    { text: "Seus posts alcançam gente que ainda não te segue?", filter: false },
+    { text: "Seu WhatsApp recebe contato novo todo dia, sem você correr atrás?", filter: false }
   ];
   let fCurrent = 0;
   let fAnswers = [];
@@ -511,14 +512,14 @@
     document.getElementById(id).classList.add('active');
   }
   function fRender(){
-    document.getElementById('f-q-text').textContent = questions[fCurrent];
-    const pct = Math.round((fCurrent / questions.length) * 100);
+    document.getElementById('f-q-text').textContent = allQuestions[fCurrent].text;
+    const pct = Math.round((fCurrent / allQuestions.length) * 100);
     document.getElementById('f-progress-fill').style.width = pct + '%';
   }
   function fAnswer(v){
-    fAnswers.push(v);
+    fAnswers.push({ value: v, filter: allQuestions[fCurrent].filter });
     fCurrent++;
-    if(fCurrent < questions.length){
+    if(fCurrent < allQuestions.length){
       fRender();
     } else {
       document.getElementById('f-progress-fill').style.width = '100%';
@@ -526,8 +527,11 @@
     }
   }
   function fShowResult(){
-    const yes = fAnswers.reduce((a,b)=>a+b,0);
-    const score = Math.round((yes/questions.length)*100);
+    const scored = fAnswers.filter(a => !a.filter);
+    const yes = scored.reduce((a,b)=>a+b.value,0);
+    const score = Math.round((yes/scored.length)*100);
+    const isDecisionMaker = fAnswers.find(a => a.filter).value === 1;
+
     fGoTo('f-result');
     const badge = document.getElementById('f-badge');
     const msg = document.getElementById('f-msg');
@@ -544,7 +548,11 @@
     }
     badge.className = 'f-badge ' + tier;
     msg.textContent = msgText;
-    const waText = `Olá! Fiz a análise no site e minha pontuação foi ${score}/100. Quero entender o próximo passo.`;
+
+    let waText = `Olá! Fiz a análise no site e minha pontuação foi ${score}/100. Quero entender o próximo passo.`;
+    if(!isDecisionMaker){
+      waText += ` (Obs: ainda não sou eu quem decide sobre marketing aqui, mas quero entender melhor.)`;
+    }
     document.getElementById('f-wa').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
   }
 </script>
