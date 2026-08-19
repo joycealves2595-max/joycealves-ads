@@ -76,7 +76,6 @@
   img{display:block; width:100%; height:100%; object-fit:cover;}
   .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
 
-  /* rivet corner accents — literal to sheet-metal construction */
   .plate{position:relative; border:1px solid var(--line);}
   .plate::before, .plate::after{
     content:''; position:absolute; width:6px; height:6px; border-radius:50%;
@@ -85,7 +84,6 @@
   .plate::before{top:8px; left:8px;}
   .plate::after{bottom:8px; right:8px;}
 
-  /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:50;
     background:rgba(23,21,18,0.92);
@@ -110,7 +108,6 @@
   }
   .btn:hover{background:var(--rust);}
 
-  /* ---------- HERO ---------- */
   .hero{position:relative; height:78vh; min-height:520px; overflow:hidden;}
   .hero img{position:absolute; inset:0; filter:grayscale(15%) contrast(1.05);}
   .hero-overlay{
@@ -134,14 +131,12 @@
     font-weight:600; padding:11px 22px; text-decoration:none;
   }
 
-  /* ---------- SECTION HEADS ---------- */
   section{padding:88px 0;}
   .section-head{margin-bottom:48px; max-width:640px;}
   .section-head .mono{margin-bottom:10px;}
   .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);}
   .section-head p{color:var(--steel-light); margin-top:12px; font-size:0.98rem;}
 
-  /* ---------- PRODUTOS ---------- */
   .prod-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
     background:var(--line);
@@ -156,7 +151,6 @@
   .prod-label h3{font-size:0.95rem; letter-spacing:0.02em;}
   .prod-label span{font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--rust);}
 
-  /* ---------- BASTIDOR ---------- */
   .bastidor{background:var(--paper); color:var(--charcoal-solid);}
   .bastidor .section-head p{color:#555;}
   .bastidor .mono{color:var(--red);}
@@ -172,7 +166,6 @@
   .bastidor-small{display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:2px;}
   .bastidor-small .img-box{aspect-ratio:1/1; overflow:hidden;}
 
-  /* ---------- RESULTADOS antes/depois ---------- */
   .resultado-pair{
     display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); margin-bottom:2px;
   }
@@ -184,7 +177,6 @@
   .showcase-box{aspect-ratio:3/2; overflow:hidden;}
   @media(max-width:720px){ .showcase-grid{grid-template-columns:1fr;} }
 
-  /* ---------- TAMBÉM FAZEMOS ---------- */
   .also-strip{padding:64px 0; border-bottom:1px solid var(--line);}
   .also-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line);
@@ -210,7 +202,6 @@
   }
   .res-tag.depois{border-color:var(--rust); color:var(--rust);}
 
-  /* ---------- DEPOIMENTOS ---------- */
   .depo-grid{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2px;
     background:var(--line);
@@ -223,7 +214,6 @@
   .depo-name{font-family:'Oswald'; font-weight:600; font-size:0.95rem; letter-spacing:0.02em;}
   .depo-source{font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--steel-light); text-transform:uppercase; margin-top:4px; letter-spacing:0.05em;}
 
-  /* ---------- FAQ TIE-IN ---------- */
   .faq-strip{
     border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     padding:60px 0;
@@ -248,7 +238,6 @@
     max-width:640px; margin-top:14px; line-height:1.6;
   }
 
-  /* ---------- FALE COM A GENTE ---------- */
   .lead-section{padding:64px 0; border-bottom:1px solid var(--line);}
   .lead-box{background:#1e1b17; padding:36px 28px; max-width:640px; margin:0 auto;}
   .lead-box .section-head{margin-bottom:0;}
@@ -279,7 +268,6 @@
   .lead-box .privacy-note .ico{font-family:'JetBrains Mono'; color:var(--rust); font-size:1rem; flex-shrink:0;}
   .lead-box .privacy-note p{font-size:0.8rem; color:var(--steel-light); line-height:1.55;}
 
-  /* ---------- CONTATO ---------- */
   footer{background:var(--charcoal-solid); padding:60px 0 30px; border-top:1px solid var(--line);}
   .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
   .foot-grid h3{font-size:1.1rem; margin-bottom:16px;}
@@ -290,7 +278,6 @@
     flex-wrap:wrap; gap:10px;
   }
 
-  /* ---------- RESPONSIVE ---------- */
   @media (max-width: 820px){
     .prod-grid{grid-template-columns:repeat(2,1fr);}
     .bastidor-grid{grid-template-columns:1fr;}
@@ -316,6 +303,23 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xzsfzh1tex");
 </script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '980264861716250');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
+/></noscript>
 </head>
 <body>
 
@@ -332,13 +336,12 @@
       <a href="#fale-com-a-gente">Fale com a gente</a>
       <a href="#contato">Contato</a>
     </div>
-    <a href="https://wa.me/5515991346769" class="btn" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click');">Pedir orçamento</a>
+    <a href="https://wa.me/5515991346769" class="btn" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click'); fbq('track','Contact');">Pedir orçamento</a>
   </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
 <div class="hero">
   <img width="760" height="1646" src="img/bastidor-instalacao.webp" alt="Fabricação ARSTEEL">
   <div class="hero-overlay"></div>
@@ -353,7 +356,6 @@
   </div>
 </div>
 
-<!-- PRODUTOS -->
 <section id="produtos">
   <div class="wrap">
     <div class="section-head">
@@ -438,7 +440,6 @@
   </div>
 </section>
 
-<!-- TAMBÉM FAZEMOS -->
 <section id="tambem-fazemos" class="also-strip">
   <div class="wrap">
     <div class="section-head">
@@ -473,7 +474,6 @@
   </div>
 </section>
 
-<!-- BASTIDOR -->
 <section id="bastidor" class="bastidor">
   <div class="wrap">
     <div class="section-head">
@@ -500,7 +500,6 @@
   </div>
 </section>
 
-<!-- RESULTADOS -->
 <section id="resultados">
   <div class="wrap">
     <div class="section-head">
@@ -515,7 +514,6 @@
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
 <section id="depoimentos">
   <div class="wrap">
     <div class="section-head">
@@ -534,7 +532,6 @@
   </div>
 </section>
 
-<!-- FAQ TIE-IN -->
 <section id="duvidas" class="faq-strip">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:20px;">
@@ -563,7 +560,6 @@
   </div>
 </section>
 
-<!-- FALE COM A GENTE -->
 <section id="fale-com-a-gente" class="lead-section">
   <div class="wrap">
     <div class="lead-box plate">
@@ -620,7 +616,6 @@
 
 </main>
 
-<!-- CONTATO -->
 <footer id="contato">
   <div class="wrap">
     <div class="foot-grid">
@@ -630,7 +625,7 @@
       </div>
       <div>
         <h3>Contato</h3>
-        <a href="https://wa.me/5515991346769" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click');">WhatsApp: (15) 99134-6769</a>
+        <a href="https://wa.me/5515991346769" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click'); fbq('track','Contact');">WhatsApp: (15) 99134-6769</a>
         <a href="https://instagram.com/arssteel_" target="_blank" rel="noopener">@arssteel_</a>
       </div>
       <div>
@@ -661,6 +656,7 @@
     if(!nome || !fone || !cidade){ return; }
     const msg = `Olá! Meu nome é ${nome}, sou de ${cidade}.%0ATenho interesse em: ${produto}.%0AMeu contato: ${fone}`;
     gtag('event', 'generate_lead', {method: 'formulario_site'});
+    fbq('track', 'Lead');
     window.open(`https://wa.me/5515991346769?text=${msg}`, '_blank');
   });
 </script>
