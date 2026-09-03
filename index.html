@@ -76,6 +76,10 @@
   a{color:inherit; text-decoration:none;}
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
   .wrap-narrow{max-width:760px; margin:0 auto; padding:0 28px;}
+  .about-grid{display:grid; grid-template-columns:200px 1fr; gap:40px; align-items:start; max-width:760px; margin:0 auto; padding:0 28px;}
+  @media (max-width:640px){ .about-grid{grid-template-columns:1fr; text-align:center;} .about-photo{margin:0 auto;} }
+  .about-photo{width:200px; height:200px; border-radius:16px; overflow:hidden; border:1px solid var(--line-strong);}
+  .about-photo img{width:100%; height:100%; object-fit:cover; display:block;}
   h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
   section{padding:88px 0;}
   @media (max-width:640px){ section{padding:56px 0;} }
@@ -401,11 +405,16 @@
 </section>
 
 <section class="about-section">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Sobre</div>
-    <h2 style="font-size:clamp(24px,3.5vw,32px);">Tempo de mercado não é a métrica. Resultado é.</h2>
-    <p class="about-text">Comecei em <strong>fevereiro de 2026</strong> — ainda pouco tempo de mercado, sem esconder isso de ninguém. Mas já entreguei resultado real pra quem confiou em mim: uma papelaria de Tietê foi pro <a href="#provas" style="color:var(--gold-bright); text-decoration:underline;"><strong>Top 3 do Google em 60 dias</strong></a>, de forma orgânica.</p>
-    <p class="about-text">Não meço meu trabalho pelo tempo que estou no mercado, mas pelo resultado que entrego. Tem gente há anos no mercado sem gerar valor nenhum pro cliente. Prefiro ser julgada pelo que já entreguei do que pelo tempo que estou fazendo isso.</p>
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="img/joyce-foto.webp" alt="Joyce Alves, fundadora da Joyce Alves Ads" width="200" height="200">
+    </div>
+    <div>
+      <div class="eyebrow">Sobre</div>
+      <h2 style="font-size:clamp(24px,3.5vw,32px);">Tempo de mercado não é a métrica. Resultado é.</h2>
+      <p class="about-text">Comecei em <strong>fevereiro de 2026</strong> — ainda pouco tempo de mercado, sem esconder isso de ninguém. Mas já entreguei resultado real pra quem confiou em mim: uma papelaria de Tietê foi pro <a href="#provas" style="color:var(--gold-bright); text-decoration:underline;"><strong>Top 3 do Google em 60 dias</strong></a>, de forma orgânica.</p>
+      <p class="about-text">Não meço meu trabalho pelo tempo que estou no mercado, mas pelo resultado que entrego. Tem gente há anos no mercado sem gerar valor nenhum pro cliente. Prefiro ser julgada pelo que já entreguei do que pelo tempo que estou fazendo isso.</p>
+    </div>
   </div>
 </section>
 
