@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4DV9WPMMB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z4DV9WPMMB');
+</script>
+
 <style>
   :root{
     --bg:#0f0e0c;
@@ -166,7 +176,7 @@
 
       <div class="screen active" id="intro-screen">
         <p style="color:var(--muted); margin-bottom:22px;">Leva menos de 2 minutos.</p>
-        <button class="btn" onclick="goTo('seg-screen');">Começar →</button>
+        <button class="btn" onclick="trackStart(); goTo('seg-screen');">Começar →</button>
       </div>
 
       <div class="screen" id="seg-screen">
@@ -258,6 +268,14 @@
   let segment = 0;
   let isDecisionMaker = null;
 
+  function trackEvent(name, params){
+    if(typeof gtag === 'function'){ gtag('event', name, params || {}); }
+  }
+
+  function trackStart(){
+    trackEvent('quiz_start');
+  }
+
   function goTo(id){
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -265,11 +283,13 @@
 
   function setSegment(value){
     segment = value;
+    trackEvent('segment_selected', { segment: segments[value].short });
     goTo('filter-screen');
   }
 
   function answerFilter(value){
     isDecisionMaker = value === 1;
+    trackEvent('filter_answered', { is_decision_maker: isDecisionMaker });
     current = 0;
     answers = [];
     goTo('quiz-screen');
@@ -285,6 +305,7 @@
   }
 
   function answer(value){
+    trackEvent('question_answered', { question_number: current + 1, answer: value });
     answers.push(value);
     current++;
     if(current < questions.length){
@@ -381,7 +402,19 @@
       waText += ` (Obs: ainda não sou eu quem decide sobre marketing aqui, mas quero entender melhor.)`;
     }
     document.getElementById('wa-btn').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+    trackEvent('generate_lead', {
+      segment: segments[segment].short,
+      score: score,
+      band: band,
+      recommended: recommendedKey,
+      is_decision_maker: isDecisionMaker
+    });
   }
+
+  document.getElementById('wa-btn').addEventListener('click', function(){
+    trackEvent('whatsapp_click', { segment: segments[segment].short, score: null });
+  });
 </script>
 
 </body>
