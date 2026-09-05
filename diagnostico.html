@@ -288,6 +288,9 @@ fbq('track', 'PageView');
 
   function trackStart(){
     trackEvent('quiz_start');
+    if(typeof fbq === 'function'){
+      fbq('trackCustom', 'Quiz_Iniciado');
+    }
   }
 
   function goTo(id){
@@ -320,6 +323,9 @@ fbq('track', 'PageView');
 
   function answer(value){
     trackEvent('question_answered', { question_number: current + 1, answer: value });
+    if(typeof fbq === 'function'){
+      fbq('trackCustom', 'Pergunta_' + (current + 1) + '_Respondida');
+    }
     answers.push(value);
     current++;
     if(current < questions.length){
