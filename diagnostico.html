@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Descubra o que está travando sua empresa | Joyce Alves Ads</title>
-<meta name="description" content="Responda 6 perguntas rápidas e descubra exatamente o que está impedindo sua empresa de ser encontrada — com um caminho pronto pra resolver.">
+<meta name="description" content="Responda algumas perguntas rápidas e descubra exatamente o que está impedindo sua empresa de ser encontrada — com um caminho pronto pra resolver.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -111,6 +111,10 @@ fbq('track', 'PageView');
   .progress-top{display:flex; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--muted); margin-bottom:8px;}
   .progress-track{height:6px; background:var(--bg); border-radius:4px; overflow:hidden; border:1px solid var(--line);}
   .progress-fill{height:100%; background:linear-gradient(90deg, var(--gold), var(--gold-bright)); border-radius:4px; transition:width 0.4s ease; width:0%;}
+  .topic-tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px; display:flex; align-items:center; gap:8px;
+  }
   .q-text{font-family:'Fraunces', serif; font-size:20px; font-weight:600; line-height:1.32; margin-bottom:22px; min-height:76px;}
 
   .q-options{display:flex; gap:12px;}
@@ -180,7 +184,7 @@ fbq('track', 'PageView');
   <div class="wrap">
     <div class="eyebrow">Análise rápida</div>
     <h1>O que está travando sua empresa nas buscas?</h1>
-    <p class="lede">6 perguntas rápidas. No final, você recebe um caminho pronto pra resolver — sem enrolação.</p>
+    <p class="lede">Poucas perguntas rápidas. No final, você recebe um caminho pronto pra resolver — sem enrolação.</p>
   </div>
 </section>
 
@@ -196,9 +200,9 @@ fbq('track', 'PageView');
       <div class="screen" id="seg-screen">
         <div class="q-text">Qual desses hoje mais atrapalha seu negócio a ser encontrado?</div>
         <div class="seg-options">
-          <button class="seg-btn" onclick="setSegment(0)">Não apareço no Google</button>
-          <button class="seg-btn" onclick="setSegment(1)">Não sei se meus anúncios funcionam</button>
-          <button class="seg-btn" onclick="setSegment(2)">As duas coisas</button>
+          <button class="seg-btn" onclick="setSegment('google')">Não apareço no Google</button>
+          <button class="seg-btn" onclick="setSegment('ads')">Não sei se meus anúncios funcionam</button>
+          <button class="seg-btn" onclick="setSegment('both')">As duas coisas</button>
         </div>
       </div>
 
@@ -210,11 +214,22 @@ fbq('track', 'PageView');
         </div>
       </div>
 
+      <div class="screen" id="platform-screen">
+        <div class="q-text">Você já anunciou em alguma dessas plataformas?</div>
+        <div class="seg-options">
+          <button class="seg-btn" onclick="choosePlatform('google_ads')">Só no Google Ads</button>
+          <button class="seg-btn" onclick="choosePlatform('meta')">Só no Meta (Instagram/Facebook)</button>
+          <button class="seg-btn" onclick="choosePlatform('both')">Nas duas</button>
+          <button class="seg-btn" onclick="choosePlatform('none')">Ainda não anunciei</button>
+        </div>
+      </div>
+
       <div class="screen" id="quiz-screen">
         <div class="progress-wrap">
           <div class="progress-top"><span id="prog-label">Pergunta 1 de 5</span><span id="prog-pct">0%</span></div>
           <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
         </div>
+        <div class="topic-tag" id="topic-tag" style="display:none;"></div>
         <div class="q-text" id="q-text"></div>
         <div class="q-options">
           <button class="q-btn no" onclick="answer(0)">Não</button>
@@ -255,19 +270,30 @@ fbq('track', 'PageView');
 <script>
   const WA_NUMBER = "5515996342023";
 
-  const questions = [
-    "Sua empresa aparece no Google quando pesquisam o nome dela?",
-    "Você aparece quando alguém pesquisa \"[seu produto] perto de mim\"?",
-    "Você já rodou algum anúncio ou turbinou post no Instagram ou Facebook?",
-    "Seus posts alcançam gente que ainda não te segue?",
-    "Seu WhatsApp recebe contato novo todo dia, sem você correr atrás?"
-  ];
+  // Perguntas separadas por assunto — nunca misturam Google com Meta,
+  // exceto no segmento "both", onde aparecem em blocos sequenciais (todo Google, depois todo Meta).
+  const questionSets = {
+    google: [
+      "Sua empresa aparece no Google quando pesquisam o nome dela?",
+      "Você aparece quando alguém pesquisa \"[seu produto] perto de mim\"?",
+      "Seu perfil no Google tem fotos atualizadas, horário e endereço certos?",
+      "Você recebe avaliações novas de clientes com frequência?"
+    ],
+    ads: [
+      "Você já rodou algum anúncio pago no Instagram ou Facebook?",
+      "Seus posts alcançam gente que ainda não te segue?",
+      "Você sabe quanto está pagando por cada contato que vem do anúncio?",
+      "Seu anúncio já trouxe alguém que virou cliente de verdade?"
+    ]
+  };
+  // "both" = bloco Google inteiro, depois bloco Meta inteiro (nunca intercalado)
+  questionSets.both = [...questionSets.google, ...questionSets.ads];
 
-  const segments = [
-    { label: "não aparecer no Google", short: "google" },
-    { label: "não saber se meus anúncios funcionam", short: "ads" },
-    { label: "as duas coisas ao mesmo tempo", short: "both" }
-  ];
+  const segments = {
+    google: { label: "não aparecer no Google", short: "google" },
+    ads:    { label: "não saber se meus anúncios funcionam", short: "ads" },
+    both:   { label: "as duas coisas ao mesmo tempo", short: "both" }
+  };
 
   const catalog = {
     diagnostico:   { name: "Diagnóstico completo",     price: "R$100",     desc: "Descubro exatamente onde sua empresa está perdendo cliente, com plano de ação por escrito." },
@@ -279,7 +305,10 @@ fbq('track', 'PageView');
 
   let current = 0;
   let answers = [];
-  let segment = 0;
+  let segment = 'google'; // chave do segmento escolhido (google | ads | both)
+  let phase = 'google';   // bloco de perguntas ativo no momento (google | ads)
+  let adPlatform = null;  // onde a pessoa já anuncia: google_ads | meta | both | none
+  let overrideTotal = null; // usado quando o quiz termina antes do previsto (ex: "ainda não anunciei")
   let isDecisionMaker = null;
 
   function trackEvent(name, params){
@@ -298,9 +327,9 @@ fbq('track', 'PageView');
     document.getElementById(id).classList.add('active');
   }
 
-  function setSegment(value){
-    segment = value;
-    trackEvent('segment_selected', { segment: segments[value].short });
+  function setSegment(key){
+    segment = key;
+    trackEvent('segment_selected', { segment: segments[key].short });
     goTo('filter-screen');
   }
 
@@ -309,31 +338,91 @@ fbq('track', 'PageView');
     trackEvent('filter_answered', { is_decision_maker: isDecisionMaker });
     current = 0;
     answers = [];
+    startQuizFlow();
+  }
+
+  function startQuizFlow(){
+    if(segment === 'ads'){
+      // quem só quer falar de anúncio já começa perguntando a plataforma
+      goTo('platform-screen');
+    } else {
+      // 'google' e 'both' sempre começam pelo bloco Google
+      phase = 'google';
+      goTo('quiz-screen');
+      renderQuestion();
+    }
+  }
+
+  function finishQuiz(){
+    document.getElementById('prog-pct').textContent = '100%';
+    document.getElementById('progress-fill').style.width = '100%';
+    setTimeout(showResult, 350);
+  }
+
+  function choosePlatform(value){
+    adPlatform = value;
+    trackEvent('ad_platform_selected', { platform: value, segment: segment });
+    if(typeof fbq === 'function'){
+      fbq('trackCustom', 'Plataforma_Anuncio_' + value);
+    }
+
+    if(value === 'none'){
+      // nunca anunciou: pula as perguntas sobre anúncio e vai direto pro resultado/WhatsApp
+      overrideTotal = Math.max(answers.length, 1);
+      finishQuiz();
+      return;
+    }
+
+    phase = 'ads';
+    current = 0;
     goTo('quiz-screen');
     renderQuestion();
   }
 
+  function getTotalQuestions(){
+    if(segment === 'both') return questionSets.google.length + questionSets.ads.length;
+    return questionSets[segment].length;
+  }
+
+  function getOverallIndex(){
+    if(segment === 'both' && phase === 'ads') return questionSets.google.length + current;
+    return current;
+  }
+
   function renderQuestion(){
-    document.getElementById('q-text').textContent = questions[current];
-    document.getElementById('prog-label').textContent = `Pergunta ${current+1} de ${questions.length}`;
-    const pct = Math.round((current / questions.length) * 100);
+    const list = questionSets[phase];
+    const total = getTotalQuestions();
+    const overallIndex = getOverallIndex();
+    document.getElementById('q-text').textContent = list[current];
+    document.getElementById('prog-label').textContent = `Pergunta ${overallIndex+1} de ${total}`;
+    const pct = Math.round((overallIndex / total) * 100);
     document.getElementById('prog-pct').textContent = pct + '%';
     document.getElementById('progress-fill').style.width = pct + '%';
+
+    const topicTag = document.getElementById('topic-tag');
+    if(segment === 'both'){
+      topicTag.style.display = 'flex';
+      topicTag.textContent = phase === 'google' ? 'SOBRE O GOOGLE' : 'SOBRE INSTAGRAM E FACEBOOK';
+    } else {
+      topicTag.style.display = 'none';
+    }
   }
 
   function answer(value){
-    trackEvent('question_answered', { question_number: current + 1, answer: value });
+    trackEvent('question_answered', { question_number: current + 1, phase: phase, segment: segment, answer: value });
     if(typeof fbq === 'function'){
-      fbq('trackCustom', 'Pergunta_' + (current + 1) + '_Respondida');
+      fbq('trackCustom', 'Pergunta_' + (current + 1) + '_' + phase + '_Respondida');
     }
     answers.push(value);
     current++;
-    if(current < questions.length){
+    const list = questionSets[phase];
+    if(current < list.length){
       renderQuestion();
+    } else if(segment === 'both' && phase === 'google'){
+      // terminou o bloco Google no fluxo combinado — pergunta a plataforma antes do bloco Meta
+      goTo('platform-screen');
     } else {
-      document.getElementById('prog-pct').textContent = '100%';
-      document.getElementById('progress-fill').style.width = '100%';
-      setTimeout(showResult, 350);
+      finishQuiz();
     }
   }
 
@@ -390,7 +479,8 @@ fbq('track', 'PageView');
 
   function showResult(){
     const yesCount = answers.reduce((a,b) => a+b, 0);
-    const score = Math.round((yesCount / questions.length) * 100);
+    const total = overrideTotal !== null ? overrideTotal : getTotalQuestions();
+    const score = Math.round((yesCount / total) * 100);
     const segShort = segments[segment].short;
     const band = getBand(score);
 
@@ -418,13 +508,22 @@ fbq('track', 'PageView');
 
     const recName = catalog[recommendedKey].name;
     let waText = `Olá! Fiz a análise e vi que meu problema é ${segments[segment].label}. Quero entender melhor o ${recName}.`;
+    if(adPlatform){
+      const platformLabels = {
+        google_ads: 'já anuncio no Google Ads',
+        meta: 'já anuncio no Meta (Instagram/Facebook)',
+        both: 'já anuncio nas duas plataformas',
+        none: 'ainda não anunciei em nenhuma plataforma'
+      };
+      waText += ` (${platformLabels[adPlatform]})`;
+    }
     if(!isDecisionMaker){
       waText += ` (Obs: ainda não sou eu quem decide sobre marketing aqui, mas quero entender melhor.)`;
     }
     document.getElementById('wa-btn').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waText)}`;
 
     trackEvent('generate_lead', {
-      segment: segments[segment].short,
+      segment: segShort,
       score: score,
       band: band,
       recommended: recommendedKey,
@@ -433,7 +532,7 @@ fbq('track', 'PageView');
 
     if(typeof fbq === 'function'){
       fbq('track', 'Lead', {
-        content_name: segments[segment].short,
+        content_name: segShort,
         value: score,
         currency: 'BRL'
       });
