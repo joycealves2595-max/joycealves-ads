@@ -49,7 +49,7 @@
     --paper:#ece7dd;
     --paper-dim:#d9d2c3;
     --rust:#c9622b;
-    --red:#d62828;
+    --red:#7a3d1c;
     --line: rgba(236,231,221,0.14);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -142,7 +142,7 @@
   .menu-backdrop.open{display:block;}
 
   .hero{position:relative; height:78vh; min-height:520px; overflow:hidden;}
-  .hero img{position:absolute; inset:0; filter:grayscale(15%) contrast(1.05);}
+  .hero img{position:absolute; inset:0; filter:grayscale(15%) contrast(1.05); object-position:center 25%;}
   .hero-overlay{
     position:absolute; inset:0;
     background:linear-gradient(180deg, rgba(23,21,18,0.35) 0%, rgba(23,21,18,0.55) 55%, rgba(23,21,18,0.95) 100%);
@@ -196,7 +196,7 @@
   }
   .bastidor-text h3{color:var(--charcoal-solid); font-size:1.3rem; margin-bottom:14px;}
   .bastidor-text p{color:#4a4a4a; font-size:0.95rem; margin-bottom:10px;}
-  .bastidor-small{display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:2px;}
+  .bastidor-small{display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; margin-top:2px;}
   .bastidor-small .img-box{aspect-ratio:1/1; overflow:hidden;}
 
   .resultado-pair{
@@ -221,7 +221,7 @@
   .also-img{aspect-ratio:4/3; overflow:hidden;}
   .also-img img{width:100%; height:100%; object-fit:cover; display:block;}
   .also-text{padding:22px 24px 26px; display:flex; flex-direction:column; gap:8px;}
-  .also-icon{font-family:'JetBrains Mono'; font-size:1.6rem; color:var(--rust);}
+  .also-icon{font-family:'JetBrains Mono'; font-size:0.82rem; letter-spacing:0.06em; color:var(--rust);}
   .also-card h3{font-size:1.05rem; letter-spacing:0.01em;}
   .also-card p{color:var(--steel-light); font-size:0.9rem; line-height:1.55;}
   .also-note{
@@ -326,6 +326,7 @@
   @media (max-width: 820px){
     .prod-grid{grid-template-columns:repeat(2,1fr);}
     .bastidor-grid{grid-template-columns:1fr;}
+    .bastidor-small{grid-template-columns:1fr;}
     .resultado-pair{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr; gap:28px;}
     .nav-links{display:none;}
@@ -427,6 +428,38 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
   </div>
 </div>
 
+<section id="o-que-importa" style="background:var(--paper); color:var(--charcoal-solid);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono" style="color:var(--red);">Antes de decidir</span>
+      <h2 style="color:var(--charcoal-solid);">O que pesa na hora de escolher móvel de aço</h2>
+      <p style="color:#555;">Isso não é depoimento — é o que costuma importar pra quem já decidiu que quer aço, inox ou metalon e está comparando fornecedor.</p>
+    </div>
+    <div class="also-grid" style="background:#00000014; grid-template-columns:repeat(2, 1fr);">
+      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
+        <div class="also-icon">RESISTE</div>
+        <h3 style="color:var(--charcoal-solid);">Não enferrujar</h3>
+        <p style="color:#555;">Pintura eletrostática ou automotiva protege mesmo em uso diário — dentro ou fora de casa, na cozinha ou no escritório.</p>
+      </div>
+      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
+        <div class="also-icon">PRECISÃO</div>
+        <h3 style="color:var(--charcoal-solid);">Caber certo no espaço</h3>
+        <p style="color:#555;">Sob medida significa medida real do seu ambiente, não aproximação de catálogo pronto.</p>
+      </div>
+      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
+        <div class="also-icon">PONTUAL</div>
+        <h3 style="color:var(--charcoal-solid);">Chegar no prazo combinado</h3>
+        <p style="color:#555;">Fabricação e instalação pela mesma equipe, sem intermediário terceirizado no meio do caminho.</p>
+      </div>
+      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
+        <div class="also-icon">SEM SUSTO</div>
+        <h3 style="color:var(--charcoal-solid);">Sair do papel sem susto</h3>
+        <p style="color:#555;">Um dos maiores desafios do setor é transformar o projeto em realidade sem perder eficiência. A gente acompanha cada etapa e traz ajustes práticos no caminho, pra você fazer esse investimento uma única vez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="produtos">
   <div class="wrap">
     <div class="section-head">
@@ -438,10 +471,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
       <div class="prod-card plate">
         <div class="img-box"><img loading="lazy" width="760" height="1053" src="img/bastidor-carrinhos.webp" alt="Estruturas em aço sob medida"></div>
         <div class="prod-label"><h3>Mesa / escrivaninha</h3><span>SOB MEDIDA</span></div>
-      </div>
-      <div class="prod-card plate">
-        <div class="img-box"><img loading="lazy" width="760" height="1200" src="img/bastidor-dollies.webp" alt="Carrinhos e estruturas sob medida"></div>
-        <div class="prod-label"><h3>Estruturas diversas</h3><span>SOB MEDIDA</span></div>
       </div>
       <div class="prod-card plate">
         <div class="img-box"><img loading="lazy" width="460" height="454" src="img/sapateira.webp" alt="Sapateira sob medida"></div>
@@ -562,7 +591,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
     </div>
     <div class="bastidor-small plate" style="margin-top:2px;">
       <div class="img-box"><img loading="lazy" width="760" height="1053" src="img/bastidor-carrinhos.webp" alt="Carrinhos industriais"></div>
-      <div class="img-box"><img loading="lazy" width="760" height="1200" src="img/bastidor-dollies.webp" alt="Dollies e carrinhos"></div>
       <div class="img-box"><img loading="lazy" width="760" height="1013" src="img/bastidor-estante.webp" alt="Estante em produção"></div>
       <div class="img-box" style="background:var(--charcoal-solid); display:flex; align-items:center; justify-content:center; padding:24px;">
         <p class="mono" style="color:var(--paper-dim); font-size:0.75rem; line-height:1.6;">Chapas selecionadas conforme resistência e uso de cada projeto — sem padrão fixo de espessura.</p>
@@ -591,38 +619,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
       <span class="mono">Desde 2007 · Tietê/SP</span>
       <h2>19 anos fabricando aço em Tietê</h2>
       <p>Antes de qualquer tendência de decoração, a ARSTEEL já soldava, pintava e entregava estrutura em aço pra quem precisa de algo feito pra durar. <a href="#produtos" style="color:var(--rust); text-decoration:underline;">Móveis industriais sob medida</a>, móveis de aço com madeira, <a href="#duvidas" style="color:var(--rust); text-decoration:underline;">estruturas em metalon</a> — atendendo Tietê, Piracicaba, Boituva e região, sempre com fabricação própria, sem intermediário. Duas décadas de fábrica significam uma coisa simples: a gente já viu o que dá errado em móvel malfeito, e não repete esse erro.</p>
-    </div>
-  </div>
-</section>
-
-<section id="o-que-importa" style="background:var(--paper); color:var(--charcoal-solid);">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="mono" style="color:var(--red);">Antes de decidir</span>
-      <h2 style="color:var(--charcoal-solid);">O que pesa na hora de escolher móvel de aço</h2>
-      <p style="color:#555;">Isso não é depoimento — é o que costuma importar pra quem já decidiu que quer aço, inox ou metalon e está comparando fornecedor.</p>
-    </div>
-    <div class="also-grid" style="background:#00000014; grid-template-columns:repeat(2, 1fr);">
-      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
-        <div class="also-icon">01</div>
-        <h3 style="color:var(--charcoal-solid);">Não enferrujar</h3>
-        <p style="color:#555;">Pintura eletrostática ou automotiva protege mesmo em uso diário — dentro ou fora de casa, na cozinha ou no escritório.</p>
-      </div>
-      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
-        <div class="also-icon">02</div>
-        <h3 style="color:var(--charcoal-solid);">Caber certo no espaço</h3>
-        <p style="color:#555;">Sob medida significa medida real do seu ambiente, não aproximação de catálogo pronto.</p>
-      </div>
-      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
-        <div class="also-icon">03</div>
-        <h3 style="color:var(--charcoal-solid);">Chegar no prazo combinado</h3>
-        <p style="color:#555;">Fabricação e instalação pela mesma equipe, sem intermediário terceirizado no meio do caminho.</p>
-      </div>
-      <div class="also-card" style="background:var(--paper); padding:28px 24px;">
-        <div class="also-icon">04</div>
-        <h3 style="color:var(--charcoal-solid);">Sair do papel sem susto</h3>
-        <p style="color:#555;">Um dos maiores desafios do setor é transformar o projeto em realidade sem perder eficiência. A gente acompanha cada etapa e traz ajustes práticos no caminho, pra você fazer esse investimento uma única vez.</p>
-      </div>
     </div>
   </div>
 </section>
