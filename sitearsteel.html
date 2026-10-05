@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ARSTEEL — Móveis e Estruturas de Aço Sob Medida | Tietê-SP</title>
-<meta name="description" content="ARSTEEL fabrica móveis e estruturas de aço sob medida em Tietê-SP: mesas, estantes, prateleiras pra lavanderia e projetos personalizados. Solda, pintura e instalação.">
+<meta name="description" content="ARSTEEL fabrica móveis e estruturas de aço sob medida em Tietê-SP: mesas, estantes e projetos personalizados. Solda, pintura e instalação.">
 <link rel="canonical" href="https://joycealves2595-max.github.io/joycealves-ads/sitearsteel.html">
 
 <!-- Open Graph -->
@@ -188,11 +188,6 @@
   .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);}
   .section-head p{color:var(--steel-light); margin-top:12px; font-size:0.98rem;}
 
-  .lav-grid{display:grid; grid-template-columns:1fr; gap:2px; max-width:440px;}
-  .lav-grid .prod-card .img-box{aspect-ratio:3/4;}
-  .lav-note{margin-top:28px; color:var(--steel-light); max-width:640px;}
-  .lav-note a{color:var(--rust); font-weight:600;}
-  @media(max-width:560px){ .lav-grid{grid-template-columns:1fr;} }
   .prod-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
     background:var(--line);
@@ -234,23 +229,15 @@
   @media(min-width:721px){ .showcase-grid > .showcase-box:last-child:nth-child(odd){grid-column:1 / -1; justify-self:center; width:calc(50% - 1px);} }
   @media(max-width:720px){ .showcase-grid{grid-template-columns:1fr;} }
 
-  .also-strip{padding:64px 0; border-bottom:1px solid var(--line);}
   .also-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line);
   }
   .also-card{
     background:var(--charcoal-solid); padding:32px 26px; display:flex; flex-direction:column; gap:10px;
   }
-  .also-card.has-photo{padding:0;}
-  .also-img{aspect-ratio:4/3; overflow:hidden;}
-  .also-img img{width:100%; height:100%; object-fit:cover; display:block;}
-  .also-text{padding:22px 24px 26px; display:flex; flex-direction:column; gap:8px;}
   .also-icon{font-family:'JetBrains Mono'; font-size:0.82rem; letter-spacing:0.06em; color:var(--rust);}
   .also-card h3{font-size:1.05rem; letter-spacing:0.01em;}
   .also-card p{color:var(--steel-light); font-size:0.9rem; line-height:1.55;}
-  .also-note{
-    margin-top:24px; font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--steel-light);
-  }
   @media(max-width:760px){ .also-grid{grid-template-columns:1fr;} }
   .res-tag{
     position:absolute; top:14px; left:14px; background:var(--charcoal-solid);
@@ -305,36 +292,6 @@
     font-family:'Work Sans'; font-size:0.92rem; color:#8a8a8a;
     max-width:640px; margin-top:14px; line-height:1.6;
   }
-
-  .lead-section{padding:64px 0; border-bottom:1px solid var(--line);}
-  .lead-box{background:#1e1b17; padding:36px 28px; max-width:640px; margin:0 auto;}
-  .lead-box .section-head{margin-bottom:0;}
-  .lead-box .sub{color:var(--steel-light); margin-top:10px; font-size:0.95rem;}
-  .lead-box form{margin-top:28px; display:flex; flex-direction:column; gap:16px;}
-  .lead-box .field label{
-    display:block; font-family:'JetBrains Mono'; font-size:0.72rem; letter-spacing:0.05em;
-    text-transform:uppercase; color:var(--steel-light); margin-bottom:8px;
-  }
-  .lead-box .field input, .lead-box .field select{
-    width:100%; background:transparent; border:1px solid var(--line); color:var(--paper);
-    padding:12px 14px; font-family:'Work Sans'; font-size:0.95rem; border-radius:2px;
-  }
-  .lead-box .field input::placeholder{color:#5c5952;}
-  .lead-box .field input:focus, .lead-box .field select:focus{outline:none; border-color:var(--rust);}
-  .lead-box .row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  @media(max-width:480px){ .lead-box .row2{grid-template-columns:1fr;} }
-  .lead-box .consent{
-    display:flex; gap:10px; align-items:flex-start; margin-top:6px;
-    font-size:0.82rem; color:var(--steel-light); line-height:1.5;
-  }
-  .lead-box .consent input{margin-top:3px; accent-color:var(--rust);}
-  .lead-box .btn{margin-top:8px; width:100%; text-align:center; padding:15px 24px; font-size:0.92rem;}
-  .lead-box .privacy-note{
-    margin-top:20px; padding-top:20px; border-top:1px solid var(--line);
-    display:flex; gap:10px; align-items:flex-start;
-  }
-  .lead-box .privacy-note .ico{font-family:'JetBrains Mono'; color:var(--rust); font-size:1rem; flex-shrink:0;}
-  .lead-box .privacy-note p{font-size:0.8rem; color:var(--steel-light); line-height:1.55;}
 
   footer{background:var(--charcoal-solid); padding:60px 0 30px; border-top:1px solid var(--line);}
   .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
@@ -409,7 +366,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
     <div class="logo"><img width="400" height="563" src="img/logo-arsteel.webp" alt="ARSTEEL" style="height:48px; width:auto; object-fit:contain; mix-blend-mode:screen;"></div>
     <div class="nav-links">
       <a href="#produtos">Produtos</a>
-      <a href="#lavanderia">Lavanderia</a>
       <a href="#bastidor">Como fabricamos</a>
       <a href="#resultados">Resultados</a>
       <a href="#projetos-recentes">Projetos recentes</a>
@@ -417,7 +373,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
       <a href="#depoimentos">Depoimentos</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="artigo-preco-moveis-aco.html">Blog</a>
-      <a href="#fale-com-a-gente">Fale com a gente</a>
       <a href="#contato">Contato</a>
     </div>
     <div class="nav-right">
@@ -432,7 +387,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
   <a href="#produtos">Produtos</a>
-      <a href="#lavanderia">Lavanderia</a>
   <a href="#bastidor">Como fabricamos</a>
   <a href="#resultados">Resultados</a>
   <a href="#projetos-recentes">Projetos recentes</a>
@@ -440,7 +394,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
   <a href="#depoimentos">Depoimentos</a>
   <a href="#duvidas">Dúvidas</a>
   <a href="artigo-preco-moveis-aco.html">Blog</a>
-  <a href="#fale-com-a-gente">Fale com a gente</a>
   <a href="#contato">Contato</a>
   <a href="https://wa.me/5515991346769" class="btn" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click'); fbq('track','Contact');">Pedir orçamento</a>
 </nav>
@@ -574,57 +527,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section id="lavanderia">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="mono">Lavanderia e área de serviço</span>
-      <h2>Estantes e prateleiras de aço pra lavanderia</h2>
-      <p>Lugar com água, vapor e peso pede material que não estufa. Fazemos na medida do vão, com a espessura certa pro que vai em cima e pintura eletrostática.</p>
-    </div>
-    <div class="lav-grid">
-      <div class="prod-card plate">
-        <div class="img-box"><img loading="lazy" width="760" height="1013" src="img/lavanderia-prateleira-chapa.webp" alt="Prateleiras de aço em chapa sendo finalizadas na fábrica ARSTEEL"></div>
-        <div class="prod-label"><h3>Prateleiras em chapa de aço</h3><span>NA FÁBRICA</span></div>
-      </div>
-    </div>
-    <p class="lav-note">Manda a foto e a medida do espaço no WhatsApp que a gente indica o modelo e a espessura. <a href="https://wa.me/5515991346769?text=Ol%C3%A1!%20Vi%20o%20site%20e%20quero%20or%C3%A7amento%20de%20estante%20ou%20prateleira%20de%20a%C3%A7o%20pra%20lavanderia." target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click'); fbq('track','Contact');">Pedir orçamento pra lavanderia</a></p>
-  </div>
-</section>
-
-<section id="tambem-fazemos" class="also-strip">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="mono">Além dos móveis</span>
-      <h2>Também fazemos</h2>
-      <p>A mesma estrutura que fabrica móveis atende outras demandas em aço, sob medida.</p>
-    </div>
-    <div class="also-grid">
-      <div class="also-card plate has-photo">
-        <div class="also-img"><img loading="lazy" width="560" height="613" src="img/tf-corrimao.webp" alt="Corrimão e guarda-corpo em aço sob medida"></div>
-        <div class="also-text">
-          <h3>Corrimãos &amp; guarda-corpos</h3>
-          <p>Escadas internas, externas e sacadas — inox ou pintado.</p>
-        </div>
-      </div>
-      <div class="also-card plate has-photo">
-        <div class="also-img"><img loading="lazy" width="560" height="681" src="img/tf-churrasqueira.webp" alt="Churrasqueira em aço sob medida"></div>
-        <div class="also-text">
-          <h3>Churrasqueiras sob medida</h3>
-          <p>Estrutura fixa ou com grelha regulável, no tamanho do seu espaço.</p>
-        </div>
-      </div>
-      <div class="also-card plate has-photo">
-        <div class="also-img"><img loading="lazy" width="560" height="345" src="img/tf-lixeira.webp" alt="Lixeira em aço sob medida"></div>
-        <div class="also-text">
-          <h3>Lixeiras &amp; cestos</h3>
-          <p>Para área externa, comércio ou espaço público — em chapa ou tela.</p>
-        </div>
-      </div>
-    </div>
-    <p class="also-note">Fala com a gente pelo WhatsApp pra ver mais exemplos já entregues.</p>
-  </div>
-</section>
-
 <section id="bastidor" class="bastidor">
   <div class="wrap">
     <div class="section-head">
@@ -751,62 +653,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section id="fale-com-a-gente" class="lead-section">
-  <div class="wrap">
-    <div class="lead-box plate">
-      <div class="section-head">
-        <span class="mono">Fale com a gente</span>
-        <h2>Quer saber se dá certo pro seu endereço?</h2>
-        <p class="sub">Deixa seu contato e a gente confirma disponibilidade, prazo e frete direto no WhatsApp.</p>
-        <p class="sub" style="margin-top:4px;">💳 Aceitamos Pix, boleto e cartão de crédito parcelado — condições combinadas direto no orçamento.</p>
-      </div>
-
-      <form id="leadForm">
-        <div class="row2">
-          <div class="field">
-            <label for="fNome">Nome</label>
-            <input type="text" id="fNome" placeholder="Seu nome" required>
-          </div>
-          <div class="field">
-            <label for="fFone">WhatsApp</label>
-            <input type="text" id="fFone" placeholder="(15) 99999-9999" required>
-          </div>
-        </div>
-
-        <div class="row2">
-          <div class="field">
-            <label for="fCidade">Cidade / UF</label>
-            <input type="text" id="fCidade" placeholder="Ex: Campinas/SP" required>
-          </div>
-          <div class="field">
-            <label for="fProduto">Produto de interesse</label>
-            <select id="fProduto">
-              <option>Estante ou prateleira pra lavanderia</option>
-              <option>Estante modular</option>
-              <option>Suporte de vaso</option>
-              <option>Painel vertical</option>
-              <option>Sob medida (a combinar)</option>
-              <option>Outro</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="consent">
-          <input type="checkbox" id="consent" required>
-          <label for="consent">Autorizo o uso do meu contato só pra falar sobre esse pedido. Sem spam, sem venda pra terceiros.</label>
-        </div>
-
-        <button class="btn" type="submit">Falar no WhatsApp →</button>
-      </form>
-
-      <div class="privacy-note">
-        <span class="ico">🔒</span>
-        <p>Seus dados ficam salvos só pra gente te responder — não vendemos, não compartilhamos e você pode pedir a exclusão a qualquer momento pelo WhatsApp, conforme a LGPD.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 
 <footer id="contato">
@@ -844,19 +690,6 @@ src="https://www.facebook.com/tr?id=980264861716250&ev=PageView&noscript=1"
 </a>
 
 <script>
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const nome = document.getElementById('fNome').value.trim();
-    const fone = document.getElementById('fFone').value.trim();
-    const cidade = document.getElementById('fCidade').value.trim();
-    const produto = document.getElementById('fProduto').value;
-    if(!nome || !fone || !cidade){ return; }
-    const msg = `Olá! Meu nome é ${nome}, sou de ${cidade}.%0ATenho interesse em: ${produto}.%0AMeu contato: ${fone}`;
-    gtag('event', 'generate_lead', {method: 'formulario_site'});
-    fbq('track', 'Lead');
-    window.open(`https://wa.me/5515991346769?text=${msg}`, '_blank');
-  });
-
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuBackdrop = document.getElementById('menuBackdrop');
