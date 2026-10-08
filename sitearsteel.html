@@ -50,6 +50,9 @@ background-size:100% 9px,100% 18px;background-repeat:repeat-x;background-positio
 .fact{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
 .fact b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:30px;line-height:1.1;margin-bottom:4px}
 .gal{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.gal figure{margin:0}
+.gal img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px;background:#D5DADF}
+.gal figcaption{font-size:15px;color:var(--steel);margin-top:6px}
 .ph{aspect-ratio:4/3;background:#D5DADF;border:2px dashed var(--steel);border-radius:6px;display:grid;place-items:center;text-align:center;padding:10px;font-size:15px;color:var(--steel)}
 .rev{display:grid;gap:14px;margin-top:20px}
 .rev blockquote{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px}
@@ -65,7 +68,7 @@ footer{padding:22px 0 90px;font-size:14px;color:var(--steel);text-align:center}
 @media(min-width:720px){
 .facts{grid-template-columns:repeat(3,1fr)}
 .rev{grid-template-columns:repeat(3,1fr)}
-.gal{grid-template-columns:repeat(3,1fr)}
+.gal{grid-template-columns:repeat(4,1fr)}
 .steps li{padding-right:24px}
 footer{padding-bottom:30px}
 }
@@ -134,13 +137,17 @@ footer{padding-bottom:30px}
 
 <section class="pain" id="projetos">
   <div class="wrap">
-    <h2>Projetos entregues</h2>
-    <p>Móveis feitos na nossa fábrica em Tietê e instalados na casa de quem pediu.</p>
-    <!-- Troque cada bloco .ph por: <img src="NOME-DA-FOTO.jpg" alt="descrição do projeto" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px"> -->
+    <h2>Alguns dos nossos trabalhos</h2>
+    <p>Móveis feitos na nossa fábrica em Tietê, em aço e aço com madeira.</p>
     <div class="gal">
-      <div class="ph">Foto: estante de aço na cozinha</div>
-      <div class="ph">Foto: estante de aço preto com madeira (condomínio)</div>
-      <div class="ph">Foto: mesa ou outro projeto entregue</div>
+      <figure><img src="fotos-sob-medida/estante-aco-madeira.jpg" alt="Estante de aço preto com prateleiras de madeira queimada" width="800" height="1067" loading="lazy"><figcaption>Estante em aço e madeira</figcaption></figure>
+      <figure><img src="fotos-sob-medida/closet-aberto.jpg" alt="Closet aberto em aço preto com prateleiras de madeira" width="800" height="1067" loading="lazy"><figcaption>Closet aberto em aço e madeira</figcaption></figure>
+      <figure><img src="fotos-sob-medida/estante-sala.jpg" alt="Estante de sala em aço preto com prateleiras de madeira e gavetas" width="800" height="1067" loading="lazy"><figcaption>Estante de sala com gavetas</figcaption></figure>
+      <figure><img src="fotos-sob-medida/closet-gavetas.jpg" alt="Closet aberto em aço preto com gavetas de madeira" width="800" height="1067" loading="lazy"><figcaption>Closet com gavetas</figcaption></figure>
+      <figure><img src="fotos-sob-medida/banco-sapateira.jpg" alt="Banco de aço com assento de madeira e sapateira" width="800" height="1067" loading="lazy"><figcaption>Banco com sapateira</figcaption></figure>
+      <figure><img src="fotos-sob-medida/bancada-aco-madeira.jpg" alt="Bancada longa de madeira com estrutura de aço" width="800" height="1067" loading="lazy"><figcaption>Bancada em aço e madeira</figcaption></figure>
+      <figure><img src="fotos-sob-medida/araras-loja.jpg" alt="Araras de aço pintadas para loja de roupas" width="800" height="1067" loading="lazy"><figcaption>Araras para loja</figcaption></figure>
+      <figure><img src="fotos-sob-medida/mesa-expositora-loja.jpg" alt="Mesa expositora de aço com rodízios para loja" width="800" height="1067" loading="lazy"><figcaption>Mesa expositora para loja</figcaption></figure>
     </div>
     <div class="rev">
       <blockquote>
